@@ -7,8 +7,12 @@ You are a space merchant. Start a space business, collect money, buy a moon, and
 Team
 ----
 Saleh Hamadeh
+
 Hifza Sakhi
+
 Cathy Chen
+
 Thang Nguyen
+
 Ernest Lai
 
