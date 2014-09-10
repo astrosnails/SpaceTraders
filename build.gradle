@@ -1,1 +1,14 @@
+apply plugin:'application'
 apply plugin: 'java'
+
+mainClassName = "spacetraders.MainApplication"
+
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Space Traders Build', 'Implementation-Version': version,
+        'Main-Class': 'spacetraders.MainApplication'
+    }
+}
+
+sourceSets.main.output.resourcesDir 'build/classes/main/spacetraders'
