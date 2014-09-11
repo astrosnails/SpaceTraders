@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../../../../../Desktop/snail%20pictures/dialogue.jpg" />
+         </image>
+      </ImageView>
+      <TextField layoutX="226.0" layoutY="85.0" />
+      <Label layoutX="267.0" layoutY="60.0" text="Player Name" textFill="WHITE" />
+      <Slider blockIncrement="1.0" layoutX="231.0" layoutY="172.0" max="10.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Slider blockIncrement="1.0" layoutX="230.0" layoutY="210.0" max="10.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Slider blockIncrement="1.0" layoutX="230.0" layoutY="248.0" max="10.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Slider blockIncrement="1.0" layoutX="231.0" layoutY="286.0" max="10.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Label layoutX="173.0" layoutY="172.0" text="Fighter" textFill="WHITE" />
+      <Label layoutX="174.0" layoutY="248.0" text="Trader" textFill="WHITE" />
+      <Label layoutX="173.0" layoutY="286.0" text="Engineer" textFill="WHITE" />
+      <Label layoutX="173.0" layoutY="210.0" text="Pilot" textFill="WHITE" />
+      <Label layoutX="272.0" layoutY="138.0" text="Skill Points" textFill="WHITE" />
+   </children>
+</AnchorPane>
