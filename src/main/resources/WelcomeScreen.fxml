@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.canvas.*?>
 <?import java.lang.*?>
@@ -15,8 +17,22 @@
             <Image url="@welcome%20screen.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="button" layoutX="220.0" layoutY="168.0" text="Load Game" />
-      <Button fx:id="button1" layoutX="229.0" layoutY="210.0" text="Options" />
-      <Button fx:id="button2" layoutX="221.0" layoutY="129.0" onAction="#handleButtonAction" onMousePressed="#handleButtonAction" text="New Game" />
+      <Button fx:id="button" layoutX="209.0" layoutY="213.0" prefHeight="50.0" prefWidth="100.0" text="Load Game">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="button1" layoutX="209.0" layoutY="295.0" prefHeight="50.0" prefWidth="100.0" text="Options">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="button2" layoutX="209.0" layoutY="128.0" onAction="#handleButtonAction" onMousePressed="#handleButtonAction" prefHeight="50.0" prefWidth="100.0" text="New Game">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Label layoutX="95.0" layoutY="28.0" prefHeight="80.0" prefWidth="326.0" text="SPACE TRADERS" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="31.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
