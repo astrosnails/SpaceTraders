@@ -11,4 +11,4 @@ jar {
     }
 }
 
-sourceSets.main.output.resourcesDir 'build/classes/main/spacetraders'
+sourceSets.main.output.resourcesDir 'build/classes/main'

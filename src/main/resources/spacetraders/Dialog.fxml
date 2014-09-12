@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.NewGameDialogController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@dialog.jpg" />
+         </image>
+      </ImageView>
+      <TextField layoutX="231.0" layoutY="89.0" />
+      <Label layoutX="267.0" layoutY="60.0" text="Player Name" textFill="WHITE" />
+      <Slider fx:id="fighterSPSlider" blockIncrement="1.0" layoutX="249.0" layoutY="172.0" majorTickUnit="5.0" max="10.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Slider fx:id="pilotSPSlider" blockIncrement="1.0" layoutX="248.0" layoutY="210.0" majorTickUnit="5.0" max="10.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Slider fx:id="traderSPSlider" blockIncrement="1.0" layoutX="248.0" layoutY="248.0" majorTickUnit="5.0" max="10.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Slider fx:id="engineerSPSlider" blockIncrement="1.0" layoutX="249.0" layoutY="286.0" majorTickUnit="5.0" max="10.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Label layoutX="191.0" layoutY="172.0" text="Fighter" textFill="WHITE" />
+      <Label layoutX="192.0" layoutY="248.0" text="Trader" textFill="WHITE" />
+      <Label layoutX="191.0" layoutY="286.0" text="Engineer" textFill="WHITE" />
+      <Label layoutX="191.0" layoutY="210.0" text="Pilot" textFill="WHITE" />
+      <Label layoutX="272.0" layoutY="138.0" text="Skill Points" textFill="WHITE" />
+      <Label fx:id="fighterSPLabel" layoutX="401.0" layoutY="172.0" text="0" textFill="WHITE" />
+      <Label fx:id="pilotSPLabel" layoutX="401.0" layoutY="210.0" text="0" textFill="WHITE" />
+      <Label fx:id="traderSPLabel" layoutX="401.0" layoutY="248.0" text="0" textFill="WHITE" />
+      <Label fx:id="engineerSPLabel" layoutX="401.0" layoutY="286.0" text="0" textFill="WHITE" />
+      <Button layoutX="339.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleContinueAction" text="Continue" />
+      <Button layoutX="187.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleCancelAction" prefHeight="26.0" prefWidth="78.0" text="Cancel" />
+   </children>
+</AnchorPane>

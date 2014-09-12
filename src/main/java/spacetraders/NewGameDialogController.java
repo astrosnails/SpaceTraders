@@ -50,6 +50,28 @@ public class NewGameDialogController implements Initializable {
     public void setMainStage(Stage stage){
          this.mainStage = stage;
     }
+
+    @FXML
+    private void handleCancelAction(ActionEvent event) throws IOException {
+        goToWelcomeScreen();
+    }
+
+    private void goToWelcomeScreen() throws IOException {
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("WelcomeScreen.fxml"));
+        Pane welcomeScreenPane = myLoader.load();
+
+        WelcomeScreenController controller = (WelcomeScreenController) myLoader.getController();
+        controller.setMainStage(mainStage);
+
+        Scene scene = new Scene(welcomeScreenPane);
+        mainStage.setScene(scene);
+    }
+
+    @FXML
+    private void handleContinueAction(ActionEvent event) throws IOException {
+        System.out.println("Not yet implemented");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         fighterSPSlider.valueProperty().addListener(
