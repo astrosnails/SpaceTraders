@@ -9,12 +9,15 @@ package spacetraders;
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.control.Slider;
+import javafx.scene.control.Label;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -32,7 +35,12 @@ public class WelcomeScreenController implements Initializable {
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
-        Pane dialogPane = FXMLLoader.load(getClass().getResource("Dialog.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dialog.fxml"));
+        Pane dialogPane = myLoader.load();
+
+        NewGameDialogController controller = (NewGameDialogController) myLoader.getController();
+        controller.setMainStage(mainStage);
+
         Scene scene = new Scene(dialogPane);
         mainStage.setScene(scene);
     }
