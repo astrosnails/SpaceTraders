@@ -29,7 +29,7 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Label layoutX="95.0" layoutY="28.0" prefHeight="80.0" prefWidth="326.0" text="SPACE TRADERS" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="136.0" layoutY="32.0" prefHeight="80.0" prefWidth="246.0" text="SPACE TRADERS" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Copperplate Gothic Bold" size="31.0" />
          </font>
