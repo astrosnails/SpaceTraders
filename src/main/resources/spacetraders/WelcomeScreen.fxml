@@ -25,7 +25,7 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="button2" layoutX="209.0" layoutY="128.0" onAction="#handleButtonAction" onMousePressed="#handleButtonAction" prefHeight="50.0" prefWidth="100.0" text="New Game">
+      <Button fx:id="button2" layoutX="209.0" layoutY="128.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="100.0" text="New Game">
          <font>
             <Font size="14.0" />
          </font></Button>
