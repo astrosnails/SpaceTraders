@@ -10,7 +10,7 @@ public class Ship {
 	private int speed;
 	private int cargoSpace; 
 
-	public String setName() {
+	public String setName(String name) {
         this.name = name;
     }
 

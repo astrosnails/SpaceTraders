@@ -33,4 +33,47 @@ public class Planet {
     private TechnologyLevel technologyLevel;
     private ResourceLevel resourceLevel;
     private Resources resources;
+
+    
+    public String setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+    
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+    
+    public int getCoordinates() {
+        return this.coordinates;
+    }
+    
+    public void setTechnologyLevel(TechnologyLevel technologyLevel) {
+        this.technologyLevel = technologyLevel;
+    }
+
+    public void getTechnologyLevel() {
+        return this.technologyLevel;
+    }
+
+    public void setResourceLevel(ResourceLevel resourceLevel) {
+        this.resourceLevel = resourceLevel;
+    }
+
+    public void getResourceLevel() {
+        return this.resourceLevel;
+    }
+
+    public void setResources(Resource resources) {
+        this.resources = resources;
+    }
+
+    public void getResources() {
+        return this.resources;
+    }
+
+
 }
