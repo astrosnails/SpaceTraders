@@ -12,7 +12,7 @@
             <Image url="@dialog.jpg" />
          </image>
       </ImageView>
-      <TextField layoutX="231.0" layoutY="89.0" />
+      <TextField fx:id="playerNameTextEdit" layoutX="231.0" layoutY="89.0" />
       <Label layoutX="267.0" layoutY="60.0" text="Player Name" textFill="WHITE" />
       <Slider fx:id="fighterSPSlider" blockIncrement="1.0" layoutX="249.0" layoutY="172.0" majorTickUnit="5.0" max="10.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
       <Slider fx:id="pilotSPSlider" blockIncrement="1.0" layoutX="248.0" layoutY="210.0" majorTickUnit="5.0" max="10.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" />

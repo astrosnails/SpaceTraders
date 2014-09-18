@@ -12,14 +12,21 @@ import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import javafx.scene.control.Slider;
-import javafx.scene.control.Label;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBoxBuilder;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -30,6 +37,8 @@ public class NewGameDialogController implements Initializable {
 
     private MainApplication application;
     
+    @FXML
+    private TextField playerNameTextEdit;
     @FXML
     private Slider fighterSPSlider;
     @FXML
@@ -54,7 +63,12 @@ public class NewGameDialogController implements Initializable {
 
     @FXML
     private void handleContinueAction(ActionEvent event) throws IOException {
-        System.out.println("Not yet implemented");
+        String playerName = playerNameTextEdit.getText();
+        if (playerName.equals("")) {
+            AlertDialog.showAlert("Please enter a player name.");
+        } else {
+            //TODO: Go to dashboard
+        }
     }
 
     @Override
