@@ -10,7 +10,7 @@ public class Ship {
 	private int speed;
 	private int cargoSpace; 
 
-	public String setName(String name) {
+	public void setName(String name) {
         this.name = name;
     }
 
@@ -18,15 +18,15 @@ public class Ship {
         return this.name;
     } 
 
-    public String setCost(int cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
-    public String getCost() {
+    public int getCost() {
         return this.cost;
     } 
 
-    public String setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -34,35 +34,35 @@ public class Ship {
         return this.description;
     } 
 
-    public String setAttack(int attack) {
+    public void setAttack(int attack) {
         this.attack = attack;
     }
 
-    public String getAttack() {
+    public int getAttack() {
         return this.attack;
     } 
 
-    public String setDefense(int defense) {
+    public void setDefense(int defense) {
         this.defense = defense;
     }
 
-    public String getDefense() {
+    public int getDefense() {
         return this.defense;
     } 
 
-    public String setSpeed(int speed) {
+    public void setSpeed(int speed) {
         this.speed = speed;
     }
 
-    public String getSpeed() {
+    public int getSpeed() {
         return this.speed;
     } 
 
-     public String setCargoSpace(int cargoSpace) {
+     public void setCargoSpace(int cargoSpace) {
         this.cargoSpace = cargoSpace;
     }
 
-    public String getCargoSpace() {
+    public int getCargoSpace() {
         return this.cargoSpace;
     }
 }

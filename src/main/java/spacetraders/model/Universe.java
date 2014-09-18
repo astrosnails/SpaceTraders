@@ -14,7 +14,7 @@ public class Universe {
     	//LETS DISCUSS AS A GROUP HOW TO set resourcelevel
     }
 
-    public Planet setPlanet(Planet planet) {
+    public void setPlanet(Planet planet) {
     	this.planet = planet;
     }
 
@@ -22,7 +22,7 @@ public class Universe {
     	return this.planet;
     }
 
-    public double setScarcity() {
+    public void setScarcity(double scarcity) {
     	this.scarcity = scarcity;
     }
 

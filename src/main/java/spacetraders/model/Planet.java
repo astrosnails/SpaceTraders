@@ -44,7 +44,7 @@ public class Planet {
     }
     
     //DEBATEABLE PLEASE REVIEW SNAILS!
-    public String setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -56,7 +56,7 @@ public class Planet {
         this.coordinates = coordinates;
     }
     
-    public int getCoordinates() {
+    public Coordinates getCoordinates() {
         return this.coordinates;
     }
     
@@ -64,7 +64,7 @@ public class Planet {
         this.technologyLevel = technologyLevel;
     }
 
-    public void getTechnologyLevel() {
+    public TechnologyLevel getTechnologyLevel() {
         return this.technologyLevel;
     }
 
@@ -72,15 +72,15 @@ public class Planet {
         this.resourceLevel = resourceLevel;
     }
 
-    public void getResourceLevel() {
+    public ResourceLevel getResourceLevel() {
         return this.resourceLevel;
     }
 
-    public void setResources(Resource resources) {
+    public void setResources(Resources resources) {
         this.resources = resources;
     }
 
-    public void getResources() {
+    public Resources getResources() {
         return this.resources;
     }
 
