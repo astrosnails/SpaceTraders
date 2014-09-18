@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@dashboard.jpg" />
+         </image>
+      </ImageView>
+      <fx:include source="CharacterInformation.fxml" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="192.0" layoutY="208.0" stroke="BLACK" strokeType="INSIDE" width="292.0" />
+      <Button layoutX="336.0" layoutY="225.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="218.0" text="Ship information/Upgrades" />
+      <Button layoutX="336.0" layoutY="103.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="218.0" text="Buy/Sell" />
+   </children>
+</AnchorPane>
