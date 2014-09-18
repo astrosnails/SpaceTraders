@@ -34,7 +34,16 @@ public class Planet {
     private ResourceLevel resourceLevel;
     private Resources resources;
 
+    public Planet(String name, Coordinates coordinates, TechnologyLevel technologyLevel,
+        ResourceLevel resourceLevel, Resources resources) {
+        this.name = name;
+        this.coordinates = coordinates;
+        this.technologyLevel = technologyLevel;
+        this.resourceLevel = resourceLevel;
+        this.resources = resources;
+    }
     
+    //DEBATEABLE PLEASE REVIEW SNAILS!
     public String setName(String name) {
         this.name = name;
     }
