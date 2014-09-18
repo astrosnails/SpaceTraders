@@ -48,7 +48,7 @@ public class Player {
         return fighterSkill;
     }
     
-    public void setFighterSkill(int wantefighterSkilldLevel) {
+    public void setFighterSkill(int fighterSkill) {
         this.fighterSkill = fighterSkill;
     }
     
@@ -56,7 +56,7 @@ public class Player {
         return pilotSkill;
     }
     
-    public void setPilotSkill(int wantefighterSkilldLevel) {
+    public void setPilotSkill(int pilotSkill) {
         this.pilotSkill = pilotSkill;
     }
     
@@ -64,7 +64,7 @@ public class Player {
         return traderSkill;
     }
     
-    public void setTraderSkill(int wantefighterSkilldLevel) {
+    public void setTraderSkill(int traderSkill) {
         this.traderSkill = traderSkill;
     }
     
@@ -72,7 +72,7 @@ public class Player {
         return engineerSkill;
     }
     
-    public void setEngineerSkill(int wantefighterSkilldLevel) {
+    public void setEngineerSkill(int engineerSkill) {
         this.engineerSkill = engineerSkill;
     }
     
