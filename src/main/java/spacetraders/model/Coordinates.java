@@ -1,10 +1,10 @@
 package spacetraders.model;
 
-public class Coordinate {
+public class Coordinates {
     
     private int x, y;
     
-    public Coordinate(int x, int y) {
+    public Coordinates(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -21,10 +21,10 @@ public class Coordinate {
     public boolean equals(Object other) {
         if (this == other) {
             return true;
-        } else if (!(other instanceof Coordinate)) {
+        } else if (!(other instanceof Coordinates)) {
             return false;
         } else {
-            Coordinate otherCoordinate = (Coordinate) other;
+            Coordinates otherCoordinate = (Coordinates) other;
             return otherCoordinate.x == x && otherCoordinate.y == y;
         }
     }
