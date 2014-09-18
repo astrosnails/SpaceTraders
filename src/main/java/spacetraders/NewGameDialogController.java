@@ -27,9 +27,9 @@ import javafx.stage.Stage;
  * @author saleh
  */
 public class NewGameDialogController implements Initializable {
-    
-    private Stage mainStage;
 
+    private MainApplication application;
+    
     @FXML
     private Slider fighterSPSlider;
     @FXML
@@ -47,24 +47,9 @@ public class NewGameDialogController implements Initializable {
     @FXML
     private Label engineerSPLabel;
 
-    public void setMainStage(Stage stage){
-         this.mainStage = stage;
-    }
-
     @FXML
     private void handleCancelAction(ActionEvent event) throws IOException {
-        goToWelcomeScreen();
-    }
-
-    private void goToWelcomeScreen() throws IOException {
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("WelcomeScreen.fxml"));
-        Pane welcomeScreenPane = myLoader.load();
-
-        WelcomeScreenController controller = (WelcomeScreenController) myLoader.getController();
-        controller.setMainStage(mainStage);
-
-        Scene scene = new Scene(welcomeScreenPane);
-        mainStage.setScene(scene);
+        application.goToWelcomeScreen();
     }
 
     @FXML
@@ -82,6 +67,10 @@ public class NewGameDialogController implements Initializable {
             new LabelUpdaterOnSliderChangeListener(traderSPLabel));
         engineerSPSlider.valueProperty().addListener(
             new LabelUpdaterOnSliderChangeListener(engineerSPLabel));
+    }
+    
+    public void setMainApplication(MainApplication application) {
+        this.application = application;
     }
     
     private class LabelUpdaterOnSliderChangeListener implements ChangeListener<Number> {

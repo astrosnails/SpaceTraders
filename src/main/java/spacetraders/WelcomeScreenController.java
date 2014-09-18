@@ -27,27 +27,19 @@ import javafx.stage.Stage;
  */
 public class WelcomeScreenController implements Initializable {
     
-    private Stage mainStage;
-
-    public void setMainStage(Stage stage){
-         this.mainStage = stage;
-    }
+    private MainApplication application;
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dialog.fxml"));
-        Pane dialogPane = myLoader.load();
-
-        NewGameDialogController controller = (NewGameDialogController) myLoader.getController();
-        controller.setMainStage(mainStage);
-
-        Scene scene = new Scene(dialogPane);
-        mainStage.setScene(scene);
+        application.goToNewGameDialog();
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
     
+    public void setMainApplication(MainApplication application) {
+        this.application = application;
+    }
 }
