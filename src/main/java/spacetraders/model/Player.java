@@ -12,6 +12,14 @@ public class Player {
     private int engineerSkill;
     private Ship ship;
     
+    public Player(String name, int fighterSkill, int pilotSkill, int traderSkill, int engineerSkill) {
+        this.name = name;
+        this.fighterSkill = fighterSkill;
+        this.pilotSkill = pilotSkill;
+        this.traderSkill = traderSkill;
+        this.engineerSkill = engineerSkill;
+    }
+    
     public String getName() {
         return name;
     }

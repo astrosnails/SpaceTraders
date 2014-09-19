@@ -19,6 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Label;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
@@ -28,6 +29,12 @@ import javafx.stage.Stage;
 public class WelcomeScreenController implements Initializable {
     
     private MainApplication application;
+    @FXML
+    private Button button;
+    @FXML
+    private Button button1;
+    @FXML
+    private Button button2;
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {

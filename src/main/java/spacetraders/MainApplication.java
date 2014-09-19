@@ -14,6 +14,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import spacetraders.model.*;
+
 /**
  *
  * @author saleh
@@ -21,6 +23,8 @@ import javafx.stage.Stage;
 public class MainApplication extends Application {
     
     private Stage mainStage;
+    private Player player;
+    
     @Override
     public void start(Stage stage) throws Exception {
         mainStage = stage;
@@ -50,12 +54,29 @@ public class MainApplication extends Application {
         Scene scene = new Scene(dialogPane);
         mainStage.setScene(scene);
     }
+    
+    public void startNewGame(Player player) throws IOException {
+        this.player = player;
+        
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+        Parent root = myLoader.load();
+
+        DashboardController controller = (DashboardController) myLoader.getController();
+        controller.setMainApplication(this);
+
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public Player getPlayer() {
+        return player;
     }
     
 }

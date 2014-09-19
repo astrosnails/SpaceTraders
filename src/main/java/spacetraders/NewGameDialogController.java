@@ -29,6 +29,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import spacetraders.model.*;
+
 /**
  *
  * @author saleh
@@ -67,7 +69,13 @@ public class NewGameDialogController implements Initializable {
         if (playerName.equals("")) {
             AlertDialog.showAlert("Please enter a player name.");
         } else {
-            //TODO: Go to dashboard
+            int fighterSkill = (int) fighterSPSlider.getValue();
+            int pilotSkill = (int) pilotSPSlider.getValue();
+            int traderSkill = (int) traderSPSlider.getValue();
+            int engineerSkill = (int) engineerSPSlider.getValue();
+            
+            application.startNewGame(new Player(playerName, fighterSkill, pilotSkill,
+                traderSkill, engineerSkill));
         }
     }
 
