@@ -24,12 +24,16 @@ public class Resources {
         }
     }
     
-    public void addResource(ResourceType resourceType, int amount) {
+    public Resources addResource(ResourceType resourceType, int amount) {
         resources.get(resourceType).addAmount(amount);
+        
+        return this;
     }
     
-    public void removeResource(ResourceType resourceType, int amount) {
+    public Resources removeResource(ResourceType resourceType, int amount) {
         resources.get(resourceType).removeAmount(amount);
+        
+        return this;
     }
     
     public int getResourceAmount(ResourceType resourceType) {
