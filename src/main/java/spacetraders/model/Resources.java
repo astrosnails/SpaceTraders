@@ -9,10 +9,11 @@ public class Resources {
     
     public Resources() {
         resources = new EnumMap<>(ResourceType.class);
-        resources.put(ResourceType.WATER, new Resource("Water", 0));
-        resources.put(ResourceType.OIL, new Resource("Oil", 0));
-        resources.put(ResourceType.FOOD, new Resource("Food", 0));
-        resources.put(ResourceType.GOLD, new Resource("Gold", 0));
+        resources.put(ResourceType.WATER, new Resource(0));
+        resources.put(ResourceType.OIL, new Resource(0));
+        resources.put(ResourceType.FOOD, new Resource(0));
+        resources.put(ResourceType.GOLD, new Resource(0));
+        resources.put(ResourceType.COCAINE, new Resource(0));
     }
     
     public Resources(Map<ResourceType, Integer> initialAmounts) {
@@ -31,23 +32,17 @@ public class Resources {
         resources.get(resourceType).removeAmount(amount);
     }
     
+    public int getResourceAmount(ResourceType resourceType) {
+        return resources.get(resourceType).getAmount();
+    }
+    
     private class Resource {
-        private final String name;
         private int amount;
 
-        public Resource(String name, int amount) {
-            this.name = name;
+        public Resource(int amount) {
             this.amount = amount;
         }
         
-        public String getName() {
-            return name;
-        }
-
-        public int getUnits() {
-            return amount;
-        }
-
         public void setAmount(int amount) {
             this.amount = amount;
         }
@@ -58,6 +53,10 @@ public class Resources {
 
         public void removeAmount(int amount) {
             this.amount -= amount;
+        }
+        
+        public int getAmount() {
+            return amount;
         }
     }
 }
