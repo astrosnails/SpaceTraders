@@ -4,37 +4,30 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public class Resources {
-
-    public static enum Type {
-        WATER,
-        OIL,
-        FOOD,
-        GOLD
-    }
     
-    private Map<Type, Resource> resources;
+    private Map<ResourceType, Resource> resources;
     
     public Resources() {
-        resources = new EnumMap<>(Type.class);
-        resources.put(Type.WATER, new Resource("Water", 0));
-        resources.put(Type.OIL, new Resource("Oil", 0));
-        resources.put(Type.FOOD, new Resource("Food", 0));
-        resources.put(Type.GOLD, new Resource("Gold", 0));
+        resources = new EnumMap<>(ResourceType.class);
+        resources.put(ResourceType.WATER, new Resource("Water", 0));
+        resources.put(ResourceType.OIL, new Resource("Oil", 0));
+        resources.put(ResourceType.FOOD, new Resource("Food", 0));
+        resources.put(ResourceType.GOLD, new Resource("Gold", 0));
     }
     
-    public Resources(Map<Type, Integer> initialAmounts) {
+    public Resources(Map<ResourceType, Integer> initialAmounts) {
         this();
         
-        for (Type resourceType : resources.keySet()) {
+        for (ResourceType resourceType : resources.keySet()) {
             resources.get(resourceType).setAmount(initialAmounts.get(resourceType));
         }
     }
     
-    public void addResource(Type resourceType, int amount) {
+    public void addResource(ResourceType resourceType, int amount) {
         resources.get(resourceType).addAmount(amount);
     }
     
-    public void removeResource(Type resourceType, int amount) {
+    public void removeResource(ResourceType resourceType, int amount) {
         resources.get(resourceType).removeAmount(amount);
     }
     
