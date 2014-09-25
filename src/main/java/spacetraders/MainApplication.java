@@ -24,6 +24,7 @@ public class MainApplication extends Application {
     
     private Stage mainStage;
     private Player player;
+    private Universe universe;
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -57,6 +58,7 @@ public class MainApplication extends Application {
     
     public void startNewGame(Player player) throws IOException {
         this.player = player;
+        universe = Universe.getInstance();
         
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent root = myLoader.load();
