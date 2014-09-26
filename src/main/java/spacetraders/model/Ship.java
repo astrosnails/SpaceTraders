@@ -9,7 +9,7 @@ public class Ship {
 	private int defense;
 	private int speed;
 	private int cargoSpace; 
-    Cargo cargo;
+    private Cargo cargo;
 
     public Ship(String name, int cost, int cargoSpace) {
         this.name = name;
