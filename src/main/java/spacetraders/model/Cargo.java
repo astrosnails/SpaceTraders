@@ -10,7 +10,7 @@ public class Cargo {
 		a = new ArrayList();
 	}
 
-	private boolean validateCargoSpace(ArrayList<Resources> a) {
+	private boolean validateCargoSpace() {
 		if (a.size() < maxSize) {
 			return true;
 		} 
