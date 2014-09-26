@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 /**
 *This class implements the Cargo Class
-*to set up and create the methods of creating coordinates
+*to set up and create the methods of cargo
 * @author Team 6, CS 2340 - Fall 2014 M5
 * 
 */
