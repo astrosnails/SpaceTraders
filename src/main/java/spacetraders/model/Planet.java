@@ -55,9 +55,16 @@ public class Planet {
     public int getResourcePrice(ResourceType type) {
         //get the instance of this singleton class
         ResourcesInfo a = ResourcesInfo.getInstance();
-        int value = a.getBasePrice(type) * (1 + a.getVariance(type)); 
+        double randomness = -1.0*a.getVariance(type)/100 + Math.random()*2*a.getVariance(type)/100;
+        int value = a.getBasePrice(type) * (int) (1 + randomness); 
         value += (a.getPriceIncreasePerTechLevel(type) * 
             (getTechnologyLevel().getRank() - getMinTechLevelToProduce(type).getRank()));
+        if (getResourceLevel() == a.getConditionForCheap(type)) {
+            value /= 2;
+        } else if (getResourceLevel() == a.getCondiionForExpensive(type)) {
+            value *= 1.5;
+        }
+
         return value; 
     }
 
