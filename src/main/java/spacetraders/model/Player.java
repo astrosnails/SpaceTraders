@@ -3,6 +3,7 @@ package spacetraders.model;
 public class Player {
 
     private String name;
+    private Cargo cargo;
     private int money;
     private Planet location;
     private int wantedLevel;
@@ -18,6 +19,7 @@ public class Player {
         this.pilotSkill = pilotSkill;
         this.traderSkill = traderSkill;
         this.engineerSkill = engineerSkill;
+        this.cargo = new Cargo(30);
     }
     
     public String getName() {
@@ -36,6 +38,20 @@ public class Player {
         this.money = money;
     }
     
+    public boolean moneyLimit() {
+    	return money < 1000; //if it is true: you can still buy!
+    }
+    
+    public void buy(Resources item) {
+    	if(moneyLimit() && cargo.validateCargoSpace()) {//you have money and you have space
+    		cargo.add(item);
+    	}
+    }
+    public void sell(Resources item) {
+    	if(cargo.getSpace() != 0) {
+    		cargo.remove(item);
+    	}
+    }
     public Planet getLocation() {
         return location;
     }
