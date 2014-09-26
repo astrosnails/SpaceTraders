@@ -11,7 +11,7 @@ public class Ship {
 	private int cargoSpace; 
     Cargo cargo;
 
-    public Ship(String name, int cost) {
+    public Ship(String name, int cost, int cargoSpace) {
         this.name = name;
         this.cost = cost;
         cargo = new Cargo(cargoSpace);
