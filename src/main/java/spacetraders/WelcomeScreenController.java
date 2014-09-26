@@ -5,12 +5,6 @@
  */
 
 
-/**
-*This class implements the WelcomeScreenController
-*to set up and create the welcome screen
-* @author Team 6, CS 2340 - Fall 2014 M5
-* 
-*/
 package spacetraders;
 
 import java.io.*;
@@ -30,9 +24,11 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
- *
- * @author saleh
- */
+*This class implements the WelcomeScreenController
+*to set up and create the welcome screen
+* @author Team 6, CS 2340 - Fall 2014 M5
+* 
+*/
 public class WelcomeScreenController implements Initializable {
     
     private MainApplication application;
