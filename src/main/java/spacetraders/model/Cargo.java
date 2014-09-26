@@ -1,8 +1,10 @@
+import java.util.ArrayList;
+
 public class Cargo {
 
 	ArrayList<Cargo> a = new ArrayList();
 	int maxSize;
-	
+
 	public Cargo(int maxSize) {
 		this.maxSize = maxSize;
 	}
