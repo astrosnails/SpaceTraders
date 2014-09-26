@@ -10,7 +10,7 @@ public class Cargo {
 		a = new ArrayList();
 	}
 
-	private boolean validateCargoSpace() {
+	public boolean validateCargoSpace() {
 		if (a.size() < maxSize) {
 			return true;
 		} 
@@ -50,7 +50,7 @@ public class Cargo {
 		if (removeMe == null) {
 			return false;
 		} 
-		if (contains()) {
+		if (contains(removeMe)) {
 			for (Resources x: a) {
 				if (x != null && x.equals(removeMe)) {
 					a.remove(x);
