@@ -17,10 +17,16 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- *
- * @author saleh
+ * this class creates the alert dialog
+ * @author team 6
+ * @version 1.0
  */
 public class AlertDialog {
+	
+	/* 
+	* popup window appears when showalert is called
+	* @param String message
+	*/
     public static void showAlert(String message) {
         Stage dialogStage = new Stage();
         Button ok = new Button("OK");

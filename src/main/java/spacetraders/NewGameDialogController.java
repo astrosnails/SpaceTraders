@@ -32,8 +32,9 @@ import javafx.stage.Stage;
 import spacetraders.model.*;
 
 /**
- *
- * @author saleh
+ * controller for new game/dialogue screens
+ * @author team 6
+ * @version 1.0
  */
 public class NewGameDialogController implements Initializable {
 
@@ -59,11 +60,19 @@ public class NewGameDialogController implements Initializable {
     @FXML
     private Label engineerSPLabel;
 
+	/* 
+	* handler for when cancel button is pressed
+	* @param ActionEvent event
+	*/
     @FXML
     private void handleCancelAction(ActionEvent event) throws IOException {
         application.goToWelcomeScreen();
     }
 
+	/* 
+	* handler for when continue button is pressed
+	* @param ActionEvent event
+	*/
     @FXML
     private void handleContinueAction(ActionEvent event) throws IOException {
         String playerName = playerNameTextEdit.getText();
@@ -80,6 +89,10 @@ public class NewGameDialogController implements Initializable {
         }
     }
 
+	/* 
+	* initializes skillpoint sliders
+	* @param URL url, ResourceBundle rb
+	*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         fighterSPSlider.valueProperty().addListener(
@@ -92,17 +105,33 @@ public class NewGameDialogController implements Initializable {
             new LabelUpdaterOnSliderChangeListener(engineerSPSlider, engineerSPLabel));
     }
     
+	/* 
+	* sets main application
+	* @param MainApplication application
+	*/
     public void setMainApplication(MainApplication application) {
         this.application = application;
     }
     
+	/* 
+	* private class that updates as slider is changed. implements ChangeListener<Number>
+	* @author team 6
+	* @version 1.0
+	*/
     private class LabelUpdaterOnSliderChangeListener implements ChangeListener<Number> {
         private Label label;
 
+		/* 
+		* costructor for labelupdateronsliderchangelistener
+		*/
         public LabelUpdaterOnSliderChangeListener(Slider slider, Label label) {
             this.label = label;
         }
 
+		/* 
+		* detects change in the slider and updates values accordingly
+		* @param ObservableValue<? extends Number> ov, Number oldValue, Number newValue
+		*/
         @Override
         public void changed(ObservableValue<? extends Number> ov,
                 Number oldValue, Number newValue) {
