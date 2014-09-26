@@ -30,6 +30,8 @@ public class Planet {
         //get the instance of this singleton class
         ResourcesInfo a = ResourcesInfo.getInstance();
         int value = a.getBasePrice(type) * (1 + a.getVariance(type)); 
+        value += (a.getPriceIncreasePerTechLevel(type) * 
+            (getTechnologyLevel().getRank() - getMinTechLevelToProduce(type).getRank()));
         return value; 
     }
 
