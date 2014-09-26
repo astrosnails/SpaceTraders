@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="365.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="365.0" fitWidth="550.0">
+         <image>
+            <Image url="@MarketPlace.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="currentMoney" alignment="CENTER_RIGHT" layoutX="191.0" layoutY="326.0" prefHeight="32.0" prefWidth="354.0" text="Money" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <TextArea editable="false" layoutY="39.0" prefHeight="253.0" prefWidth="117.0" text="&#10;Inventory:&#10;&#10;Water:&#10;&#10;Food:&#10;&#10;Oil:&#10;&#10;Gold:&#10;">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </TextArea>
+      <Label fx:id="waterInInventory" layoutX="87.0" layoutY="107.0" prefHeight="25.0" prefWidth="68.0" text="1" />
+      <Label fx:id="foodInInventory" layoutX="87.0" layoutY="147.0" prefHeight="25.0" prefWidth="68.0" text="2" />
+      <Label fx:id="oilInInventory" layoutX="87.0" layoutY="192.0" prefHeight="25.0" prefWidth="68.0" text="3" />
+      <Label fx:id="goldInInventory" layoutX="87.0" layoutY="233.0" prefHeight="25.0" prefWidth="68.0" text="4" />
+      <GridPane layoutX="124.0" layoutY="61.0" prefHeight="203.0" prefWidth="424.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="65.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="117.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="61.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="128.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="54.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="29.0" prefWidth="96.0" text="Price:" textFill="#7aff56" underline="true">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="waterUnitPrice" alignment="CENTER" prefHeight="47.0" prefWidth="155.0" text="Label" textFill="#7aff56" GridPane.rowIndex="1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="foodUnitPrice" alignment="CENTER" prefHeight="44.0" prefWidth="155.0" text="Label" textFill="#7aff56" GridPane.rowIndex="2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="oilUnitPrice" alignment="CENTER" prefHeight="46.0" prefWidth="150.0" text="Label" textFill="#7aff56" GridPane.rowIndex="3">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="goldUnitPrice" alignment="CENTER" prefHeight="37.0" prefWidth="152.0" text="Label" textFill="#7aff56" GridPane.rowIndex="4">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="32.0" prefWidth="141.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="29.0" prefWidth="96.0" text="Buy" textFill="#7aff56" underline="true" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="29.0" prefWidth="186.0" text="Sell" textFill="#7aff56" underline="true" GridPane.columnIndex="3">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" prefHeight="32.0" prefWidth="61.0" text="Units" textFill="#7aff56" underline="true" GridPane.columnIndex="2">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="32.0" prefWidth="61.0" text="Units" textFill="#7aff56" underline="true" GridPane.columnIndex="4">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="buyWaterUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="buyFoodUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="buyOilUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label fx:id="buyGoldUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label fx:id="sellWaterUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Label fx:id="sellFoodUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Label fx:id="sellOilUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Label fx:id="sellGoldUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <Button fx:id="backButton" layoutX="14.0" layoutY="323.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="81.0" text="Back" />
+      <Button fx:id="buyButton" layoutX="241.0" layoutY="292.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Buy" />
+      <Button fx:id="sellButton" layoutX="448.0" layoutY="292.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Sell" />
+      <TextField fx:id="totalCost" editable="false" layoutX="155.0" layoutY="292.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Cost" />
+      <TextField fx:id="totalProfit" editable="false" layoutX="360.0" layoutY="292.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Profit" />
+      <Label alignment="CENTER" layoutX="-1.0" prefHeight="32.0" prefWidth="550.0" text="Marketplace: no refunds, no mercy" textFill="#7aff56">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
