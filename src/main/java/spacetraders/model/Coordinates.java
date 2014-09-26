@@ -1,23 +1,50 @@
 package spacetraders.model;
 
+/**
+*This class implements the Coordinates Class
+*to set up and create the methods of creating coordinates
+* @author Team 6, CS 2340 - Fall 2014 M5
+* 
+*/
+
 public class Coordinates {
     
     private int x, y;
     
+    /**
+	 * This constructor sets up a coordinates,
+	 * setting up x and y value
+	 * @param int x, int y
+	 * @no return
+	 */
     public Coordinates(int x, int y) {
         this.x = x;
         this.y = y;
     }
     
+    /**
+    * gets x value
+    * @no param
+    * @return x value as int
+    */
     private int getX() {
         return x;
     }
     
+    /**
+    * gets y value
+    * @no param
+    * @return y value as int
+    */
     private int getY() {
         return y;
     }
     
-    @Override
+    /**
+    * compares a coordinate object to another cooridnate
+    * @no Object other
+    * @return boolean value, true if it is equal, false if it is not equal
+    */
     public boolean equals(Object other) {
         if (this == other) {
             return true;

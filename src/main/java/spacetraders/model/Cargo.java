@@ -1,15 +1,33 @@
 import java.util.ArrayList;
 
+/**
+*This class implements the Cargo Class
+*to set up and create the methods of creating coordinates
+* @author Team 6, CS 2340 - Fall 2014 M5
+* 
+*/
+
 public class Cargo {
 
 	ArrayList<Resources> a;
 	int maxSize;
+   
+    /**
+	 * This constructor sets up a Cargo
+	 * @param int maxSize
+	 * @no return
+	 */
 
 	public Cargo(int maxSize) {
 		this.maxSize = maxSize;
 		a = new ArrayList();
 	}
 
+    /**
+    * sees if there is free cargo space
+    * @no param
+    * @return boolean, true if there is space, false if there is no space
+    */
 	public boolean validateCargoSpace() {
 		if (a.size() < maxSize) {
 			return true;
@@ -17,10 +35,20 @@ public class Cargo {
 		return false;
 	}
 
+    /**
+    * gets amount of space in cargo
+    * @no param
+    * @return amount of size left in cargo as integer
+    */
 	public int getSpace() {
 		return maxSize - a.size();
 	}
 
+    /**
+    * adds resource into cargo
+    * @param Resources addMe
+    * @return boolean, true if the cargo was successfully added, false if it did not add
+    */
 	public boolean add(Resources addMe) {
 		if (a == null) {
 			return false;
@@ -32,6 +60,11 @@ public class Cargo {
 		return false;
 	}
 
+    /**
+    * sees if cargo has that resource
+    * @param Resources seeMe
+    * @return boolean, true if cargo does contain resource, false if it does not contain
+    */
 	public boolean contains(Resources seeMe) {
 		if (seeMe == null) {
 			return false;
@@ -45,7 +78,12 @@ public class Cargo {
 		}
 		return false;
 	}
-
+   
+    /**
+    * removes resource from cargo
+    * @param Resources removeMe
+    * @return boolean, true if the resource was successfully removed, false if the resource was not removed
+    */
 	public boolean remove(Resources removeMe) {
 		if (removeMe == null) {
 			return false;
