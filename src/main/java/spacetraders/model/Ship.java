@@ -9,6 +9,13 @@ public class Ship {
 	private int defense;
 	private int speed;
 	private int cargoSpace; 
+    Cargo cargo;
+
+    public Ship(String name, int cost) {
+        this.name = name;
+        this.cost = cost;
+        cargo = new Cargo(cargoSpace);
+    }
 
 	public void setName(String name) {
         this.name = name;
