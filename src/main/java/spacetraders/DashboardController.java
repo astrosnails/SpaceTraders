@@ -18,6 +18,7 @@ import spacetraders.model.Player;
  * FXML Controller class
  *
  * @author saleh
+ *@version 1.0
  */
 public class DashboardController implements Initializable {
     
@@ -43,13 +44,18 @@ public class DashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
     }
-    
+    /**
+     * Set main application
+     *@param application - main application 
+     */
     public void setMainApplication(MainApplication application) {
         this.application = application;
         
         updatePlayerInformation();
     }
-    
+    /**
+     * Update player information
+     */
     public void updatePlayerInformation() {
         Player player = application.getPlayer();
         
