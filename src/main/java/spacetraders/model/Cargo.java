@@ -2,14 +2,15 @@ import java.util.ArrayList;
 
 public class Cargo {
 
-	ArrayList<Cargo> a = new ArrayList();
+	ArrayList<Resources> a;
 	int maxSize;
 
 	public Cargo(int maxSize) {
 		this.maxSize = maxSize;
+		a = new ArrayList();
 	}
 
-	private boolean validateCargoSpace(ArrayList<Cargo> a) {
+	private boolean validateCargoSpace(ArrayList<Resources> a) {
 		if (a.size() < maxSize) {
 			return true;
 		} 
