@@ -3,10 +3,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+* The universe class. It is responsible for creating the Universe as well
+* as the planets that are in the universe.
+* @author Team Astrosnails (6) - CS 2340 Fall 2014
+*/
 public class Universe {
-        private static Universe universe;
+    private static Universe universe;
 	private List<Planet> planets;
 
+    /**
+    *  Creates the Universe as well as planets in the universe.
+    */
     private Universe() {
     	Resources r1 = new Resources();
         r1.addResource(ResourceType.WATER, 1000)
@@ -55,6 +63,11 @@ public class Universe {
         planets.add(p4);
     }
     
+    /**
+    *  Returns an instance of the universe. Ensures that Universe follows
+    *  the Singleton pattern.
+    *  @return The universe
+    */
     public static Universe getInstance() {
         if (universe == null) {
             universe = new Universe();
