@@ -4,6 +4,13 @@
  * and open the template in the editor.
  */
 
+
+/**
+*This class implements the WelcomeScreenController
+*to set up and create the welcome screen
+* @author Team 6, CS 2340 - Fall 2014 M5
+* 
+*/
 package spacetraders;
 
 import java.io.*;
@@ -36,16 +43,31 @@ public class WelcomeScreenController implements Initializable {
     @FXML
     private Button button2;
 
+    /**
+    * handles the button action
+    * @param ActionEvent event
+    * @return info
+    */
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         application.goToNewGameDialog();
     }
     
+    /**
+    * performs initialization
+    * @param URL url, ResourceBundle rb
+    * @return none
+    */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
     
+    /**
+    * This method sets up the main application
+    * @param MainApplication application
+    * @return none
+    */
     public void setMainApplication(MainApplication application) {
         this.application = application;
     }

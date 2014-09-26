@@ -1,5 +1,11 @@
 package spacetraders.model;
 
+/**
+*This class implements the Ship Class
+*to set up and create the methods of ship
+* @author Team 6, CS 2340 - Fall 2014 M5
+* 
+*/
 public class Player {
 
     private String name;
@@ -13,6 +19,11 @@ public class Player {
     private int engineerSkill;
     private Ship ship;
     
+    /**
+     * This constructor sets up a player
+     * @param String name, int fighterSkill, int pilotSkill, int traderSkill, int engineerSkill
+     * @return none
+     */
     public Player(String name, int fighterSkill, int pilotSkill, int traderSkill, int engineerSkill) {
         this.name = name;
         this.fighterSkill = fighterSkill;
