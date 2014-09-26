@@ -26,6 +26,13 @@ public class Planet {
         return this.name;
     }
     
+    public int getResourcePrice(ResourceType type) {
+        //get the instance of this singleton class
+        ResourcesInfo a = ResourcesInfo.getInstance();
+        int value = a.getBasePrice(type) * (1 + a.getVariance(type)); 
+        return value; 
+    }
+
     public void setCoordinates(Coordinates coordinates) {
         this.coordinates = coordinates;
     }
