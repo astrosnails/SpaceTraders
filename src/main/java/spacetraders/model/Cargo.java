@@ -17,6 +17,10 @@ public class Cargo {
 		return false;
 	}
 
+	public int getSpace() {
+		return maxSize - a.size();
+	}
+
 	public boolean add(Resources addMe) {
 		if (a == null) {
 			return false;
