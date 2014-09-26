@@ -17,8 +17,8 @@ import javafx.stage.Stage;
 import spacetraders.model.*;
 
 /**
- *
- * @author saleh
+ * The main application class. This class is run when the user opens the application.
+ * @author Team Astrosnails
  */
 public class MainApplication extends Application {
     
@@ -26,6 +26,10 @@ public class MainApplication extends Application {
     private Player player;
     private Universe universe;
     
+    /**
+    * Starts the application.
+    * @param stage The JavaFX stage of the application
+    */
     @Override
     public void start(Stage stage) throws Exception {
         mainStage = stage;
@@ -33,6 +37,9 @@ public class MainApplication extends Application {
         mainStage.show();
     }
     
+    /**
+    *  Opens in the welcome screen
+    */
     public void goToWelcomeScreen() throws IOException {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("WelcomeScreen.fxml"));
         Parent root = myLoader.load();
@@ -45,6 +52,9 @@ public class MainApplication extends Application {
         mainStage.setScene(scene);
     }
     
+    /**
+    *  Opens the new game dialog.
+    */
     public void goToNewGameDialog() throws IOException {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dialog.fxml"));
         Pane dialogPane = myLoader.load();
@@ -56,6 +66,9 @@ public class MainApplication extends Application {
         mainStage.setScene(scene);
     }
     
+    /**
+    *  Initializes the game models and opens the game dashboard.
+    */
     public void startNewGame(Player player) throws IOException {
         this.player = player;
         universe = Universe.getInstance();
@@ -77,6 +90,10 @@ public class MainApplication extends Application {
         launch(args);
     }
 
+    /**
+    *  Get the Player
+    *  @return The player
+    */
     public Player getPlayer() {
         return player;
     }
