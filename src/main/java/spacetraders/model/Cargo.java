@@ -15,7 +15,7 @@ public class Cargo {
     /**
 	 * This constructor sets up a Cargo
 	 * @param int maxSize
-	 * @no return
+	 * 
 	 */
 
 	public Cargo(int maxSize) {
@@ -25,7 +25,7 @@ public class Cargo {
 
     /**
     * sees if there is free cargo space
-    * @no param
+    * @param none
     * @return boolean, true if there is space, false if there is no space
     */
 	public boolean validateCargoSpace() {
@@ -37,7 +37,7 @@ public class Cargo {
 
     /**
     * gets amount of space in cargo
-    * @no param
+    * @param none
     * @return amount of size left in cargo as integer
     */
 	public int getSpace() {
