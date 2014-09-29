@@ -17,8 +17,8 @@ public class Planet {
     /**
 	 * This constructor sets up a planet
 	 * @param String name, Coordinates coordinates, TechnologyLevel technologyLevel,
-        ResourceLevel resourceLevel, Resources resources
-	 * @no return
+     *   ResourceLevel resourceLevel, Resources resources
+	 * 
 	 */
     public Planet(String name, Coordinates coordinates, TechnologyLevel technologyLevel,
         ResourceLevel resourceLevel, Resources resources) {
@@ -32,7 +32,7 @@ public class Planet {
     /**
     * sets planet name
     * @param String name
-    * @no return
+    * @return none
     */
     public void setName(String name) {
         this.name = name;
@@ -40,7 +40,7 @@ public class Planet {
 
     /**
     * gets name of planet
-    * @no param
+    * @param none
     * @return String name
     */
     public String getName() {
@@ -48,14 +48,15 @@ public class Planet {
     }
     
     /**
-    * gets resource price
+    * this method gets resource price
     * @param ResourceType type
     * @return price as int
     */
     public int getResourcePrice(ResourceType type) {
         //get the instance of this singleton class
         ResourcesInfo a = ResourcesInfo.getInstance();
-        double randomness = -1.0*a.getVariance(type)/100 + Math.random()*2*a.getVariance(type)/100;
+        double randomness = -1.0 * a.getVariance(type) / 100 + 
+        Math.random()*2*a.getVariance(type) / 100;
         int value = a.getBasePrice(type) * (int) (1 + randomness); 
         value += (a.getPriceIncreasePerTechLevel(type) * 
             (getTechnologyLevel().getRank() - getMinTechLevelToProduce(type).getRank()));
@@ -69,53 +70,53 @@ public class Planet {
     }
 
     /**
-    * sets cooridnates of planet
+    * this method sets cooridnates of planet
     * @param Coordinates coordinates
-    * @no return
+    * @return none
     */
     public void setCoordinates(Coordinates coordinates) {
         this.coordinates = coordinates;
     }
     
     /**
-    * gets planet coordinates
-    * @no param
-    * @return coordinates
+    * this method gets planet coordinates
+    * @param none
+    * @return Coordinate coordinates
     */
     public Coordinates getCoordinates() {
         return this.coordinates;
     }
     
     /**
-    * sets technology level
+    * this method sets technology level of the planet
     * @param TechnologyLevel technologyLevel
-    * @no return
+    * @return none
     */
     public void setTechnologyLevel(TechnologyLevel technologyLevel) {
         this.technologyLevel = technologyLevel;
     }
    
     /**
-    * gets technology level
-    * @no param
-    * @return TechnologyLevel
+    * this method gets the technology level of planet
+    * @param none 
+    * @return TechnologyLevel technologyLevel
     */
     public TechnologyLevel getTechnologyLevel() {
         return this.technologyLevel;
     }
    
     /**
-    * sets Resource level
+    * this method sets Resource level
     * @param ResourceLevel resourceLevel
-    * @no return
+    * @return none
     */
     public void setResourceLevel(ResourceLevel resourceLevel) {
         this.resourceLevel = resourceLevel;
     }
 
     /**
-    * gets Resource level
-    * @no param
+    * this method gets Resource level
+    * @param none
     * @return ResourceLevel
     */
     public ResourceLevel getResourceLevel() {
@@ -123,17 +124,17 @@ public class Planet {
     }
    
     /**
-    * sets Resources
+    * this method sets Resources
     * @param Resources resources
-    * @no return
+    * @return none
     */
     public void setResources(Resources resources) {
         this.resources = resources;
     }
    
     /**
-    * gets Resources
-    * @no param
+    * this method gets Resources
+    * @param none
     * @return Resources
     */
     public Resources getResources() {

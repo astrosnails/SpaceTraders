@@ -40,7 +40,8 @@ public class WelcomeScreenController implements Initializable {
     private Button button2;
 
     /**
-    * handles the button action
+    * this method is the button action listener 
+    * and handles the button action
     * @param ActionEvent event
     * @return info
     */
@@ -50,7 +51,7 @@ public class WelcomeScreenController implements Initializable {
     }
     
     /**
-    * performs initialization
+    * this method performs initialization
     * @param URL url, ResourceBundle rb
     * @return none
     */
