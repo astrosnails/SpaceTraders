@@ -82,6 +82,28 @@ public class MainApplication extends Application {
         Scene scene = new Scene(root);
         mainStage.setScene(scene);
     }
+    
+    public void goToDashboard() throws IOException {
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+        Pane dialogPane = myLoader.load();
+
+        DashboardController controller = (DashboardController) myLoader.getController();
+        controller.setMainApplication(this);
+
+        Scene scene = new Scene(dialogPane);
+        mainStage.setScene(scene);
+    }
+    
+    public void goToMarketPlace() throws IOException {
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MarketPlace.fxml"));
+        Pane dialogPane = myLoader.load();
+
+        MarketPlaceController controller = (MarketPlaceController) myLoader.getController();
+        controller.setMainApplication(this);
+
+        Scene scene = new Scene(dialogPane);
+        mainStage.setScene(scene);
+    }
 
     /**
      * @param args the command line arguments

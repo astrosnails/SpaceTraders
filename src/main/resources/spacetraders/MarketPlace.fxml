@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="365.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="365.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.MarketPlaceController">
    <children>
       <ImageView fitHeight="365.0" fitWidth="550.0">
          <image>
@@ -117,7 +117,7 @@
             <Label fx:id="sellCocaineUnits" alignment="CENTER" layoutX="383.0" layoutY="171.0" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="323.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="81.0" text="Back" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="323.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="32.0" prefWidth="81.0" text="Back" />
       <Button fx:id="buyButton" layoutX="241.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Buy" />
       <Button fx:id="sellButton" layoutX="455.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Sell" />
       <TextField fx:id="totalCost" editable="false" layoutX="151.0" layoutY="299.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Cost" />

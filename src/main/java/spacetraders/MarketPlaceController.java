@@ -23,23 +23,15 @@ import spacetraders.model.Player;
  * @author saleh
  *@version 1.0
  */
-public class DashboardController implements Initializable {
+public class MarketPlaceController implements Initializable {
     
     private MainApplication application;
     
     @FXML
-    private GridPane playerInformation;
-    @FXML
-    private Label playerName;
-    @FXML
-    private Label fighterPoints;
-    @FXML
-    private Label traderPoints;
-    @FXML
-    private Label pilotPoints;
-    @FXML
-    private Label engineerPoints;
-
+    private void onBackButtonClicked(ActionEvent event) throws IOException {
+        application.goToDashboard();
+    }
+    
     /**
      * Initializes the controller class.
      */
@@ -53,24 +45,5 @@ public class DashboardController implements Initializable {
      */
     public void setMainApplication(MainApplication application) {
         this.application = application;
-        
-        updatePlayerInformation();
-    }
-    /**
-     * Update player information
-     */
-    public void updatePlayerInformation() {
-        Player player = application.getPlayer();
-        
-        playerName.setText(player.getName());
-        fighterPoints.setText(Integer.toString(player.getFighterSkill()));
-        traderPoints.setText(Integer.toString(player.getTraderSkill()));
-        pilotPoints.setText(Integer.toString(player.getPilotSkill()));
-        engineerPoints.setText(Integer.toString(player.getEngineerSkill()));
-    }
-    
-    @FXML
-    private void onBuySellButtonClicked(ActionEvent event) throws IOException {
-        application.goToMarketPlace();
     }
 }

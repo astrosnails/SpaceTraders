@@ -18,7 +18,7 @@
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="192.0" layoutY="208.0" stroke="BLACK" strokeType="INSIDE" width="292.0" />
       <Button layoutX="336.0" layoutY="225.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="218.0" text="Ship information/Upgrades" />
-      <Button layoutX="336.0" layoutY="103.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="218.0" text="Buy/Sell" />
+      <Button fx:id="buySellButton" layoutX="336.0" layoutY="103.0" mnemonicParsing="false" onAction="#onBuySellButtonClicked" prefHeight="66.0" prefWidth="218.0" text="Buy/Sell" />
       <GridPane fx:id="playerInformation" blendMode="DIFFERENCE" prefHeight="200.0" prefWidth="300.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="180.0" />
