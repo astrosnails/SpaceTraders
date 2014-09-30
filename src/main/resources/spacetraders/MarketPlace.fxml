@@ -19,16 +19,16 @@
          <font>
             <Font size="16.0" />
          </font></Label>
-      <TextArea editable="false" layoutY="39.0" prefHeight="253.0" prefWidth="117.0" text="&#10;Inventory:&#10;&#10;Water:&#10;&#10;Food:&#10;&#10;Oil:&#10;&#10;Gold:&#10;">
+      <TextArea editable="false" layoutY="48.0" prefHeight="260.0" prefWidth="117.0" text="&#10;Inventory:&#10;&#10;Water:&#10;&#10;Food:&#10;&#10;Oil:&#10;&#10;Gold:&#10;&#10;Cocaine:">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </TextArea>
-      <Label fx:id="waterInInventory" layoutX="87.0" layoutY="107.0" prefHeight="25.0" prefWidth="68.0" text="1" />
-      <Label fx:id="foodInInventory" layoutX="87.0" layoutY="147.0" prefHeight="25.0" prefWidth="68.0" text="2" />
-      <Label fx:id="oilInInventory" layoutX="87.0" layoutY="192.0" prefHeight="25.0" prefWidth="68.0" text="3" />
-      <Label fx:id="goldInInventory" layoutX="87.0" layoutY="233.0" prefHeight="25.0" prefWidth="68.0" text="4" />
-      <GridPane layoutX="124.0" layoutY="61.0" prefHeight="203.0" prefWidth="424.0">
+      <Label fx:id="waterInInventory" layoutX="83.0" layoutY="105.0" prefHeight="25.0" prefWidth="68.0" text="1" />
+      <Label fx:id="foodInInventory" layoutX="83.0" layoutY="145.0" prefHeight="25.0" prefWidth="68.0" text="2" />
+      <Label fx:id="oilInInventory" layoutX="82.0" layoutY="183.0" prefHeight="25.0" prefWidth="27.0" text="3" />
+      <Label fx:id="goldInInventory" layoutX="83.0" layoutY="222.0" prefHeight="25.0" prefWidth="27.0" text="4" />
+      <GridPane layoutX="121.0" layoutY="61.0" prefHeight="233.0" prefWidth="427.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="65.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="117.0" />
@@ -39,9 +39,10 @@
         <rowConstraints>
             <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label alignment="CENTER" prefHeight="29.0" prefWidth="96.0" text="Price:" textFill="#7aff56" underline="true">
@@ -54,7 +55,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="foodUnitPrice" alignment="CENTER" prefHeight="44.0" prefWidth="155.0" text="Label" textFill="#7aff56" GridPane.rowIndex="2">
+            <Label fx:id="foodUnitPrice" alignment="CENTER" prefHeight="42.0" prefWidth="67.0" text="Label" textFill="#7aff56" GridPane.rowIndex="2">
                <font>
                   <Font size="16.0" />
                </font>
@@ -69,10 +70,10 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="32.0" prefWidth="141.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Slider fx:id="buyWaterSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Slider fx:id="buyFoodSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="32.0" prefWidth="141.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Slider fx:id="buyOilSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Slider fx:id="buyGoldSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label alignment="CENTER" prefHeight="29.0" prefWidth="96.0" text="Buy" textFill="#7aff56" underline="true" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold" size="17.0" />
@@ -83,10 +84,10 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Slider majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Slider fx:id="sellWaterSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Slider fx:id="sellFoodSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Slider fx:id="sellOilSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Slider fx:id="sellGoldSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <Label alignment="CENTER" prefHeight="32.0" prefWidth="61.0" text="Units" textFill="#7aff56" underline="true" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="17.0" />
@@ -105,17 +106,27 @@
             <Label fx:id="sellFoodUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <Label fx:id="sellOilUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <Label fx:id="sellGoldUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Slider fx:id="buyCocaineSlider" layoutX="76.0" layoutY="171.0" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Slider fx:id="sellCocaineSlider" layoutX="255.0" layoutY="171.0" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Label fx:id="cocaineUnitPrice1" alignment="CENTER" layoutX="10.0" layoutY="171.0" prefHeight="37.0" prefWidth="152.0" text="Label" textFill="#7aff56" GridPane.rowIndex="5">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="buyCocaineUnits" alignment="CENTER" layoutX="194.0" layoutY="171.0" prefHeight="52.0" prefWidth="55.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label fx:id="sellCocaineUnits" alignment="CENTER" layoutX="383.0" layoutY="171.0" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="5" />
          </children>
       </GridPane>
       <Button fx:id="backButton" layoutX="14.0" layoutY="323.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="81.0" text="Back" />
-      <Button fx:id="buyButton" layoutX="241.0" layoutY="292.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Buy" />
-      <Button fx:id="sellButton" layoutX="448.0" layoutY="292.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Sell" />
-      <TextField fx:id="totalCost" editable="false" layoutX="155.0" layoutY="292.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Cost" />
-      <TextField fx:id="totalProfit" editable="false" layoutX="360.0" layoutY="292.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Profit" />
+      <Button fx:id="buyButton" layoutX="241.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Buy" />
+      <Button fx:id="sellButton" layoutX="455.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Sell" />
+      <TextField fx:id="totalCost" editable="false" layoutX="151.0" layoutY="299.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Cost" />
+      <TextField fx:id="totalProfit" editable="false" layoutX="360.0" layoutY="299.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Profit" />
       <Label alignment="CENTER" layoutX="-1.0" prefHeight="32.0" prefWidth="550.0" text="Marketplace: no refunds, no mercy" textFill="#7aff56">
          <font>
             <Font name="Copperplate Gothic Bold" size="20.0" />
          </font>
       </Label>
+      <Label fx:id="cocaineInInventory" layoutX="83.0" layoutY="257.0" prefHeight="25.0" prefWidth="27.0" text="5" />
    </children>
 </AnchorPane>
