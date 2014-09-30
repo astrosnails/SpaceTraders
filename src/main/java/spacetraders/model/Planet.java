@@ -59,10 +59,10 @@ public class Planet {
         Math.random()*2*a.getVariance(type) / 100;
         int value = a.getBasePrice(type) * (int) (1 + randomness); 
         value += (a.getPriceIncreasePerTechLevel(type) * 
-            (getTechnologyLevel().getRank() - getMinTechLevelToProduce(type).getRank()));
+            (technologyLevel.ordinal() - a.getMinTechLevelToProduce(type).ordinal()));
         if (getResourceLevel() == a.getConditionForCheap(type)) {
             value /= 2;
-        } else if (getResourceLevel() == a.getCondiionForExpensive(type)) {
+        } else if (getResourceLevel() == a.getConditionForExpensive(type)) {
             value *= 1.5;
         }
 

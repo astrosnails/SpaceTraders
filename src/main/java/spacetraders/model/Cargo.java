@@ -1,3 +1,5 @@
+package spacetraders.model;
+
 import java.util.ArrayList;
 
 /**
