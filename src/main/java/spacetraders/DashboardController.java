@@ -23,9 +23,7 @@ import spacetraders.model.Player;
  * @author saleh
  *@version 1.0
  */
-public class DashboardController implements Initializable {
-    
-    private MainApplication application;
+public class DashboardController extends Controller {
     
     @FXML
     private GridPane playerInformation;
@@ -40,22 +38,6 @@ public class DashboardController implements Initializable {
     @FXML
     private Label engineerPoints;
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
-    }
-    /**
-     * Set main application
-     *@param application - main application 
-     */
-    public void setMainApplication(MainApplication application) {
-        this.application = application;
-        
-        updatePlayerInformation();
-    }
     /**
      * Update player information
      */
@@ -72,5 +54,16 @@ public class DashboardController implements Initializable {
     @FXML
     private void onBuySellButtonClicked(ActionEvent event) throws IOException {
         application.goToMarketPlace();
+    }
+    
+    /**
+     * Set main application
+     *@param application - main application 
+     */
+    @Override
+    public void setMainApplication(MainApplication application) {
+        this.application = application;
+        
+        updatePlayerInformation();
     }
 }

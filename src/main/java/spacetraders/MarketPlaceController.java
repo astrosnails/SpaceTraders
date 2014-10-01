@@ -23,27 +23,17 @@ import spacetraders.model.Player;
  * @author saleh
  *@version 1.0
  */
-public class MarketPlaceController implements Initializable {
-    
-    private MainApplication application;
+public class MarketPlaceController extends Controller {
     
     @FXML
     private void onBackButtonClicked(ActionEvent event) throws IOException {
         application.goToDashboard();
     }
     
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
-    }
-    /**
-     * Set main application
-     *@param application - main application 
-     */
-    public void setMainApplication(MainApplication application) {
-        this.application = application;
-    }
+    // NOTE TO TEAM
+    // ------------
+    // To get the player, use application.getPlayer()
+    // To get the universe, which also holds the planets,
+    // use application.getUniverse();
+    // ------------
 }

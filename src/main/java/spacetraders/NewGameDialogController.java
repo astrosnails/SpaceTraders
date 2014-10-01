@@ -36,10 +36,9 @@ import spacetraders.model.*;
  * @author team 6
  * @version 1.0
  */
-public class NewGameDialogController implements Initializable {
+public class NewGameDialogController extends Controller {
 
     private final int MAX_SKILL_POINTS = 15;
-    private MainApplication application;
     
     @FXML
     private TextField playerNameTextEdit;
@@ -89,10 +88,10 @@ public class NewGameDialogController implements Initializable {
         }
     }
 
-	/* 
-	* initializes skillpoint sliders
-	* @param URL url, ResourceBundle rb
-	*/
+    /* 
+    * initializes skillpoint sliders
+    * @param URL url, ResourceBundle rb
+    */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         fighterSPSlider.valueProperty().addListener(
@@ -105,33 +104,25 @@ public class NewGameDialogController implements Initializable {
             new LabelUpdaterOnSliderChangeListener(engineerSPSlider, engineerSPLabel));
     }
     
-	/* 
-	* sets main application
-	* @param MainApplication application
-	*/
-    public void setMainApplication(MainApplication application) {
-        this.application = application;
-    }
-    
-	/* 
-	* private class that updates as slider is changed. implements ChangeListener<Number>
-	* @author team 6
-	* @version 1.0
-	*/
+    /**
+    * private class that updates as slider is changed. implements ChangeListener<Number>
+    * @author team 6
+    * @version 1.0
+    */
     private class LabelUpdaterOnSliderChangeListener implements ChangeListener<Number> {
         private Label label;
 
-		/* 
-		* costructor for labelupdateronsliderchangelistener
-		*/
+        /* 
+        * costructor for labelupdateronsliderchangelistener
+        */
         public LabelUpdaterOnSliderChangeListener(Slider slider, Label label) {
             this.label = label;
         }
 
-		/* 
-		* detects change in the slider and updates values accordingly
-		* @param ObservableValue<? extends Number> ov, Number oldValue, Number newValue
-		*/
+        /* 
+        * detects change in the slider and updates values accordingly
+        * @param ObservableValue<? extends Number> ov, Number oldValue, Number newValue
+        */
         @Override
         public void changed(ObservableValue<? extends Number> ov,
                 Number oldValue, Number newValue) {

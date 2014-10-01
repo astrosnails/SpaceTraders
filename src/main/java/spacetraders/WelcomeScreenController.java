@@ -29,9 +29,8 @@ import javafx.stage.Stage;
 * @author Team 6, CS 2340 - Fall 2014 M5
 * 
 */
-public class WelcomeScreenController implements Initializable {
+public class WelcomeScreenController extends Controller {
     
-    private MainApplication application;
     @FXML
     private Button button;
     @FXML
@@ -48,24 +47,5 @@ public class WelcomeScreenController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         application.goToNewGameDialog();
-    }
-    
-    /**
-    * this method performs initialization
-    * @param URL url, ResourceBundle rb
-    * @return none
-    */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
-    
-    /**
-    * This method sets up the main application
-    * @param MainApplication application
-    * @return none
-    */
-    public void setMainApplication(MainApplication application) {
-        this.application = application;
     }
 }

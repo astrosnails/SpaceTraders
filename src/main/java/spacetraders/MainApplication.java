@@ -120,4 +120,7 @@ public class MainApplication extends Application {
         return player;
     }
     
+    public Universe getUniverse() {
+        return universe;
+    }
 }
