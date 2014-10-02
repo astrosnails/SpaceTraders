@@ -114,23 +114,15 @@ public class MarketPlaceController extends Controller {
     
     public void updateInventory() {
         Player player = application.getPlayer();
-        foodInInventory.setText(Integer.toString(player.getShip().getCargo().getResources().getResourceAmount(ResourceType.FOOD)));
-        waterInInventory.setText(Integer.toString(player.getShip().getCargo().getResources().getResourceAmount(ResourceType.WATER)));
-        oilInInventory.setText(Integer.toString(player.getShip().getCargo().getResources().getResourceAmount(ResourceType.OIL)));
-        goldInInventory.setText(Integer.toString(player.getShip().getCargo().getResources().getResourceAmount(ResourceType.GOLD)));
-        cocaineInInventory.setText(Integer.toString(player.getShip().getCargo().getResources().getResourceAmount(ResourceType.COCAINE)));
+        Resources cargoResources = player.getShip().getCargo().getResources();
+        foodInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.FOOD)));
+        waterInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.WATER)));
+        oilInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.OIL)));
+        goldInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.GOLD)));
+        cocaineInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.COCAINE)));
         
         currentMoney.setText(Integer.toString(player.getMoney().intValue()));
     }
-    
-    
-    
-    
-            //units 
-            //SET MAx
-            //DID NOT KNOW HOW TO CALL CARGO SPACE
-            //IMPORT CORRECTLY PLEASE. PLAYER, CARGO, MATH
-            
             
             /*int min = Math.min((int)application.getPlayer().getShip().getCargo().getSpace(), (int)application.getPlayer().getMoney());
             buyGoldSlider.setMax(min);
@@ -148,9 +140,12 @@ public class MarketPlaceController extends Controller {
             
             label.setText(String.format("%.0f", newValue));*/
 
-    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void setMainApplication(MainApplication application) {
+        this.application = application;
+        
+        updateInventory();
+        
         buyWaterAmount.bind(buyWaterSlider.valueProperty());
         buyWaterUnits.textProperty().bind(buyWaterAmount.asString());
         

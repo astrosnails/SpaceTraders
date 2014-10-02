@@ -26,13 +26,16 @@ public class Player {
      * @param String name, int fighterSkill, int pilotSkill, int traderSkill, int engineerSkill
      * @return none
      */
-    public Player(String name, int fighterSkill, int pilotSkill, int traderSkill, int engineerSkill) {
+    public Player(String name, int fighterSkill, int pilotSkill, int traderSkill, int engineerSkill, int startMoney) {
         this.name = name;
+        this.money = new SimpleIntegerProperty(startMoney);
         this.fighterSkill = fighterSkill;
         this.pilotSkill = pilotSkill;
         this.traderSkill = traderSkill;
         this.engineerSkill = engineerSkill;
         this.cargo = new Cargo(30);
+        //TODO: MOVE CONFIG TO TOP OF CLASS HIERARCHY
+        this.ship = new Ship("bad", 5000, 30);
     }
     
     /**
@@ -56,7 +59,7 @@ public class Player {
     /**
      * This method gets the money of the player
      * @param none
-     * @return int money
+     * @return SimpleIntegerProperty money
      */
     public SimpleIntegerProperty getMoney() {
         return money;
@@ -67,8 +70,8 @@ public class Player {
      * @param int money
      * @return none
      */
-    public void setMoney(SimpleIntegerProperty money) {
-        this.money = money;
+    public void setMoney(int money) {
+        this.money.set(money);
     }
     
     /**
