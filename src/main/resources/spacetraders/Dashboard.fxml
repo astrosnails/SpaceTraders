@@ -16,7 +16,6 @@
             <Image url="@dashboard.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="192.0" layoutY="208.0" stroke="BLACK" strokeType="INSIDE" width="292.0" />
       <Button layoutX="336.0" layoutY="225.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="218.0" text="Ship information/Upgrades" />
       <Button fx:id="buySellButton" layoutX="336.0" layoutY="103.0" mnemonicParsing="false" onAction="#onBuySellButtonClicked" prefHeight="66.0" prefWidth="218.0" text="Buy/Sell" />
       <GridPane fx:id="playerInformation" blendMode="DIFFERENCE" prefHeight="200.0" prefWidth="300.0">
@@ -84,5 +83,6 @@
             </Label>
          </children>
       </GridPane>
+      <Pane fx:id="mapPane" layoutY="191.0" prefHeight="209.0" prefWidth="292.0" style="-fx-background-color: #000; -fx-border-color: #aaa; -fx-border-width: 2px;" />
    </children>
 </AnchorPane>

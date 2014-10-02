@@ -27,7 +27,7 @@ public class Coordinates {
     * @no param
     * @return x value as int
     */
-    private int getX() {
+    public int getX() {
         return x;
     }
     
@@ -36,7 +36,7 @@ public class Coordinates {
     * @no param
     * @return y value as int
     */
-    private int getY() {
+    public int getY() {
         return y;
     }
     

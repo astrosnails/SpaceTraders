@@ -10,12 +10,17 @@ import java.util.Random;
 */
 public class Universe {
     private static Universe universe;
-	private List<Planet> planets;
+    private List<Planet> planets;
+    private int width;
+    private int height;
 
     /**
     *  Creates the Universe as well as planets in the universe.
     */
     private Universe() {
+        width = 15;
+        height = 10;
+        
     	Resources r1 = new Resources();
         r1.addResource(ResourceType.WATER, 1000)
             .addResource(ResourceType.FOOD, 200)
@@ -74,5 +79,17 @@ public class Universe {
         }
         
         return universe;
+    }
+    
+    public List<Planet> getPlanets() {
+        return planets;
+    }
+    
+    public int getWidth() {
+        return width;
+    }
+    
+    public int getHeight() {
+        return height;
     }
 }

@@ -8,6 +8,7 @@ package spacetraders;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +16,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import spacetraders.model.Coordinates;
+import spacetraders.model.Planet;
 import spacetraders.model.Player;
+import spacetraders.model.Universe;
 
 /**
  * FXML Controller class
@@ -37,11 +44,13 @@ public class DashboardController extends Controller {
     private Label pilotPoints;
     @FXML
     private Label engineerPoints;
+    @FXML
+    private Pane mapPane;
 
     /**
      * Update player information
      */
-    public void updatePlayerInformation() {
+    private void updatePlayerInformation() {
         Player player = application.getPlayer();
         
         playerName.setText(player.getName());
@@ -49,6 +58,23 @@ public class DashboardController extends Controller {
         traderPoints.setText(Integer.toString(player.getTraderSkill()));
         pilotPoints.setText(Integer.toString(player.getPilotSkill()));
         engineerPoints.setText(Integer.toString(player.getEngineerSkill()));
+    }
+    
+    private void initializeMapPane() {
+        Universe universe = application.getUniverse();
+        List<Planet> planets = universe.getPlanets();
+        
+        Circle[] circles = new Circle[planets.size()];
+        double radius = 3.0;
+        for (int i = 0; i < planets.size(); i++) {
+            Planet planet = planets.get(i);
+            Coordinates coordinates = planet.getCoordinates();
+            double x = coordinates.getX() * mapPane.getPrefWidth() / universe.getWidth();
+            double y = coordinates.getY() * mapPane.getPrefHeight() / universe.getHeight();
+            circles[i] = new Circle(x, y, radius, Color.SKYBLUE);
+        }
+        
+        mapPane.getChildren().addAll(circles);
     }
     
     @FXML
@@ -65,5 +91,6 @@ public class DashboardController extends Controller {
         this.application = application;
         
         updatePlayerInformation();
+        initializeMapPane();
     }
 }
