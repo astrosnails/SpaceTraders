@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class Cargo {
 
-	ArrayList<Resources> a;
-	int maxSize;
+	private Resources resources;
+	private int maxSize;
    
     /**
 	 * This constructor sets up a Cargo
@@ -21,83 +21,37 @@ public class Cargo {
 	 */
 
 	public Cargo(int maxSize) {
-		this.maxSize = maxSize;
-		a = new ArrayList();
+            this.maxSize = maxSize;
+            resources = new Resources();
 	}
 
-    /**
-    * sees if there is free cargo space
-    * @param none
-    * @return boolean, true if there is space, false if there is no space
-    */
-	public boolean validateCargoSpace() {
-		if (a.size() < maxSize) {
-			return true;
-		} 
-		return false;
-	}
-
-    /**
-    * gets amount of space in cargo
-    * @param none
-    * @return amount of size left in cargo as integer
-    */
-	public int getSpace() {
-		return maxSize - a.size();
-	}
-
-    /**
-    * adds resource into cargo
-    * @param Resources addMe
-    * @return boolean, true if the cargo was successfully added, false if it did not add
-    */
-	public boolean add(Resources addMe) {
-		if (a == null) {
-			return false;
-		} 
-		if (validateCargoSpace()) {
-			a.add(addMe);
-			return true;
-		}
-		return false;
-	}
-
-    /**
-    * sees if cargo has that resource
-    * @param Resources seeMe
-    * @return boolean, true if cargo does contain resource, false if it does not contain
-    */
-	public boolean contains(Resources seeMe) {
-		if (seeMe == null) {
-			return false;
-		} 
-		if (a.size() != 0) {
-			for (Resources x: a) {
-				if (x != null && x.equals(seeMe)) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-   
-    /**
-    * removes resource from cargo
-    * @param Resources removeMe
-    * @return boolean, true if the resource was successfully removed, false if the resource was not removed
-    */
-	public boolean remove(Resources removeMe) {
-		if (removeMe == null) {
-			return false;
-		} 
-		if (contains(removeMe)) {
-			for (Resources x: a) {
-				if (x != null && x.equals(removeMe)) {
-					a.remove(x);
-					return true;
-				}
-			}		
-		}
-		return false;
-	}
+        public Resources getResources() {
+            return resources;
+        }
+        
+        public int calculateTotalResources() {
+            int waterAmount = resources.getResourceAmount(ResourceType.WATER);
+            int foodAmount = resources.getResourceAmount(ResourceType.FOOD);
+            int oilAmount = resources.getResourceAmount(ResourceType.OIL);
+            int goldAmount = resources.getResourceAmount(ResourceType.GOLD);
+            int cocaineAmount = resources.getResourceAmount(ResourceType.COCAINE);
+            int totalAmount = waterAmount + foodAmount + oilAmount + goldAmount + cocaineAmount;
+            return totalAmount;
+        }
+        
+        public int calculateEmptySpace() {
+            return maxSize - calculateTotalResources();
+        }
+        
+        public boolean validateCargoSpace(int amount) {
+            if (calculateEmptySpace() >= amount) {
+                return true;
+            }
+            return false;
+        }
+        
+        
+        public int getMaxSize() {
+            return maxSize;
+        }
 }
