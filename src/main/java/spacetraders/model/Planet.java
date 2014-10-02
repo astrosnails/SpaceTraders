@@ -140,6 +140,4 @@ public class Planet {
     public Resources getResources() {
         return this.resources;
     }
-
-
 }

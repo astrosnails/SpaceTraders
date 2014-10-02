@@ -1,5 +1,7 @@
 package spacetraders.model;
 
+import javafx.beans.property.SimpleIntegerProperty;
+
 /**
 *This class implements the Player Class
 *to set up and create the methods of ship
@@ -10,7 +12,7 @@ public class Player {
 
     private String name;
     private Cargo cargo;
-    private int money;
+    private SimpleIntegerProperty money;
     private Planet location;
     private int wantedLevel;
     private int fighterSkill;
@@ -56,7 +58,7 @@ public class Player {
      * @param none
      * @return int money
      */
-    public int getMoney() {
+    public SimpleIntegerProperty getMoney() {
         return money;
     }
     
@@ -65,7 +67,7 @@ public class Player {
      * @param int money
      * @return none
      */
-    public void setMoney(int money) {
+    public void setMoney(SimpleIntegerProperty money) {
         this.money = money;
     }
     
@@ -75,32 +77,9 @@ public class Player {
      * @return boolean 
      */
     public boolean moneyLimit() {
-    	return money < 1000; //if it is true: you can still buy!
+    	return money.intValue() < 1000; //if it is true: you can still buy!
     }
     
-    /**
-     * This method allows player to buy an item
-     * @param Resources item
-     * @return none 
-     */
-    public void buy(Resources item) {
-    	if(moneyLimit() && cargo.validateCargoSpace()) {
-        //you have money and you have space
-    		cargo.add(item);
-    	}
-    }
-
-    /**
-     * This method allows player to sell an item
-     * @param Resources item
-     * @return none 
-     */
-    public void sell(Resources item) {
-    	if(cargo.getSpace() != 0) {
-    		cargo.remove(item);
-    	}
-    }
-
     /**
      * This method returns the players location
      * @param none

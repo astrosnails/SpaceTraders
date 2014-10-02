@@ -154,4 +154,12 @@ public class Ship {
     public int getCargoSpace() {
         return this.cargoSpace;
     }
+    
+    /** 
+     * This method gets the cargo of a Ship
+     * @return Cargo cargo
+     */
+    public Cargo getCargo() {
+        return this.cargo;
+    }
 }

@@ -65,7 +65,7 @@ public class Resources {
     /** 
     * Create a Resources Object
     * @param 
-    * resourceType - type of the resouce
+    * resourceType - type of the resource
     * amount - int represents the amount of the resource
     * @return 
     * int: integer represents the amount of the resource
@@ -74,7 +74,7 @@ public class Resources {
         return resources.get(resourceType).getAmount();
     }
     /** 
-    *  Private Innder Class 
+    *  Private Inner Class 
     */
     private class Resource {
         private int amount;

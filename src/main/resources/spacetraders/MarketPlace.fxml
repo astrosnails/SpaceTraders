@@ -19,15 +19,15 @@
          <font>
             <Font size="16.0" />
          </font></Label>
-      <TextArea editable="false" layoutY="48.0" prefHeight="260.0" prefWidth="117.0" text="&#10;Inventory:&#10;&#10;Water:&#10;&#10;Food:&#10;&#10;Oil:&#10;&#10;Gold:&#10;&#10;Cocaine:">
+      <TextArea editable="false" layoutY="48.0" prefHeight="260.0" prefWidth="117.0" text="Inventory:&#10;&#10;Water:&#10;&#10;Food:&#10;&#10;Oil:&#10;&#10;Gold:&#10;&#10;Cocaine:">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </TextArea>
-      <Label fx:id="waterInInventory" layoutX="83.0" layoutY="105.0" prefHeight="25.0" prefWidth="68.0" text="1" />
-      <Label fx:id="foodInInventory" layoutX="83.0" layoutY="145.0" prefHeight="25.0" prefWidth="68.0" text="2" />
-      <Label fx:id="oilInInventory" layoutX="82.0" layoutY="183.0" prefHeight="25.0" prefWidth="27.0" text="3" />
-      <Label fx:id="goldInInventory" layoutX="83.0" layoutY="222.0" prefHeight="25.0" prefWidth="27.0" text="4" />
+      <Label fx:id="waterInInventory" layoutX="83.0" layoutY="95.0" prefHeight="25.0" prefWidth="27.0" text="1" />
+      <Label fx:id="foodInInventory" layoutX="83.0" layoutY="135.0" prefHeight="25.0" prefWidth="27.0" text="2" />
+      <Label fx:id="oilInInventory" layoutX="83.0" layoutY="183.0" prefHeight="25.0" prefWidth="27.0" text="3" />
+      <Label fx:id="goldInInventory" layoutX="83.0" layoutY="217.0" prefHeight="25.0" prefWidth="27.0" text="4" />
       <GridPane layoutX="121.0" layoutY="61.0" prefHeight="233.0" prefWidth="427.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="65.0" />
@@ -38,11 +38,11 @@
         </columnConstraints>
         <rowConstraints>
             <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label alignment="CENTER" prefHeight="29.0" prefWidth="96.0" text="Price:" textFill="#7aff56" underline="true">
