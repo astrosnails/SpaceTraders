@@ -92,6 +92,28 @@ public class MarketPlaceController extends Controller {
         application.goToDashboard();
     }
     
+    @FXML
+    private void onBuyButtonClicked(ActionEvent event) {
+        Player player = application.getPlayer();
+        int money = player.getMoney().intValue();
+        int cost = totalCost.intValue();
+        
+        if (money >= cost) {
+            player.setMoney(money - cost);
+        } else {
+            AlertDialog.showAlert("No money, No resources!");
+        }
+    }
+    
+    @FXML
+    private void onSellButtonClicked(ActionEvent event) {
+        Player player = application.getPlayer();
+        int money = player.getMoney().intValue();
+        int profit = totalProfit.intValue();
+        
+        player.setMoney(money + profit);
+    }
+    
     private void updatePrices() {
         Planet planet = application.getPlayer().getLocation();
         waterUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.WATER));
@@ -129,7 +151,7 @@ public class MarketPlaceController extends Controller {
         goldInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.GOLD)));
         cocaineInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.COCAINE)));
         
-        currentMoney.setText(Integer.toString(player.getMoney().intValue()));
+        currentMoney.textProperty().bind(player.getMoney().asString());
         
         /*sellGoldSlider.setMax(cargoResources.getResourceAmount(ResourceType.GOLD));
         sellCocaineSlider.setMax(cargoResources.getResourceAmount(ResourceType.COCAINE));

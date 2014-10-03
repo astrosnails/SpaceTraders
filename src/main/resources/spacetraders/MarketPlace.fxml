@@ -118,8 +118,8 @@
          </children>
       </GridPane>
       <Button fx:id="backButton" layoutX="14.0" layoutY="323.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="32.0" prefWidth="81.0" text="Back" />
-      <Button fx:id="buyButton" layoutX="241.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Buy" />
-      <Button fx:id="sellButton" layoutX="455.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Sell" />
+      <Button fx:id="buyButton" layoutX="241.0" layoutY="299.0" mnemonicParsing="false" onAction="#onBuyButtonClicked" prefHeight="25.0" prefWidth="81.0" text="Buy" />
+      <Button fx:id="sellButton" layoutX="455.0" layoutY="299.0" mnemonicParsing="false" onAction="#onSellButtonClicked" prefHeight="25.0" prefWidth="81.0" text="Sell" />
       <TextField fx:id="totalCostTextField" editable="false" layoutX="151.0" layoutY="299.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Cost" />
       <TextField fx:id="totalProfitTextField" editable="false" layoutX="360.0" layoutY="299.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Profit" />
       <Label alignment="CENTER" layoutX="-1.0" prefHeight="32.0" prefWidth="550.0" text="Marketplace: no refunds, no mercy" textFill="#7aff56">
