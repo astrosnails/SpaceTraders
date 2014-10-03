@@ -11,14 +11,17 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import org.controlsfx.control.PopOver;
 import spacetraders.model.Coordinates;
 import spacetraders.model.Planet;
 import spacetraders.model.Player;
@@ -71,7 +74,21 @@ public class DashboardController extends Controller {
             Coordinates coordinates = planet.getCoordinates();
             double x = coordinates.getX() * mapPane.getPrefWidth() / universe.getWidth();
             double y = coordinates.getY() * mapPane.getPrefHeight() / universe.getHeight();
-            circles[i] = new Circle(x, y, radius, Color.SKYBLUE);
+            Color color = application.getPlayer().getLocation().equals(planet) ?
+                Color.RED :Color.SKYBLUE;
+            
+            circles[i] = new Circle(x, y, radius, color);
+            
+            final Circle circle = circles[i];
+            circles[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+                    PopOver popover = new PopOver();
+                    popover.show(circle);
+                }
+            
+            });
         }
         
         mapPane.getChildren().addAll(circles);

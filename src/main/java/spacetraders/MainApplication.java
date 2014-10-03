@@ -7,6 +7,7 @@
 package spacetraders;
 
 import java.io.IOException;
+import java.util.List;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -72,6 +73,10 @@ public class MainApplication extends Application {
     public void startNewGame(Player player) throws IOException {
         this.player = player;
         universe = Universe.getInstance();
+        List<Planet> planets = universe.getPlanets();
+        
+        Planet playerLocation = planets.get((int) (Math.random() * planets.size()));
+        this.player.setLocation(playerLocation);
         
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent root = myLoader.load();
