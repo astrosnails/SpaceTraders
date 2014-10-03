@@ -29,11 +29,12 @@ import javafx.beans.value.ChangeListener;
  *@version 1.0
  */
 public class MarketPlaceController extends Controller {
+    @FXML
     private Label waterUnitPrice;
-    private Label foodUnitPrice;
-    private Label oilUnitPrice;
-    private Label goldUnitPrice;
-    private Label cocaineUnitPrice;
+    @FXML private Label foodUnitPrice;
+    @FXML private Label oilUnitPrice;
+    @FXML private Label goldUnitPrice;
+    @FXML private Label cocaineUnitPrice;
     @FXML
     private Label currentMoney;
     @FXML
@@ -105,11 +106,13 @@ public class MarketPlaceController extends Controller {
     }
     
     private void updatePrices() {
-        waterUnitPrice.setText(Integer.toString(application.getPlayer().getLocation().getResourcePrice(ResourceType.WATER)));
-        foodUnitPrice.setText(Integer.toString(application.getPlayer().getLocation().getResourcePrice(ResourceType.FOOD)));
-        oilUnitPrice.setText(Integer.toString(application.getPlayer().getLocation().getResourcePrice(ResourceType.OIL)));
-        goldUnitPrice.setText(Integer.toString(application.getPlayer().getLocation().getResourcePrice(ResourceType.GOLD)));
-        cocaineUnitPrice.setText(Integer.toString(application.getPlayer().getLocation().getResourcePrice(ResourceType.COCAINE)));
+        Planet planet = application.getPlayer().getLocation();
+        String price = Integer.toString(planet.getResourcePrice(ResourceType.WATER));
+        waterUnitPrice.setText(price);
+        foodUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.FOOD)));
+        oilUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.OIL)));
+        goldUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.GOLD)));
+        //cocaineUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.COCAINE)));
     }
     
     public void updateInventory() {
@@ -123,6 +126,8 @@ public class MarketPlaceController extends Controller {
         
         currentMoney.setText(Integer.toString(player.getMoney().intValue()));
     }
+    
+
             
             /*int min = Math.min((int)application.getPlayer().getShip().getCargo().getSpace(), (int)application.getPlayer().getMoney());
             buyGoldSlider.setMax(min);
@@ -145,6 +150,8 @@ public class MarketPlaceController extends Controller {
         this.application = application;
         
         updateInventory();
+        updatePrices();
+        
         
         buyWaterAmount.bind(buyWaterSlider.valueProperty());
         buyWaterUnits.textProperty().bind(buyWaterAmount.asString());
