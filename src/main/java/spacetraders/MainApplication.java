@@ -40,6 +40,7 @@ public class MainApplication extends Application {
     
     /**
     *  Opens in the welcome screen
+    *   @param none
     */
     public void goToWelcomeScreen() throws IOException {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("WelcomeScreen.fxml"));
@@ -55,6 +56,7 @@ public class MainApplication extends Application {
     
     /**
     *  Opens the new game dialog.
+    * @param none
     */
     public void goToNewGameDialog() throws IOException {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dialog.fxml"));
@@ -69,6 +71,7 @@ public class MainApplication extends Application {
     
     /**
     *  Initializes the game models and opens the game dashboard.
+    * @param: Player player
     */
     public void startNewGame(Player player) throws IOException {
         this.player = player;
@@ -88,6 +91,11 @@ public class MainApplication extends Application {
         mainStage.setScene(scene);
     }
     
+    /**
+    *  Goes to dashboard
+    * @param: none
+    * @return none
+    */
     public void goToDashboard() throws IOException {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Pane dialogPane = myLoader.load();
@@ -99,6 +107,10 @@ public class MainApplication extends Application {
         mainStage.setScene(scene);
     }
     
+    /**
+    *  Goes to marketplace
+    * @param: Player player
+    */
     public void goToMarketPlace() throws IOException {
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MarketPlace.fxml"));
         Pane dialogPane = myLoader.load();
