@@ -2,6 +2,8 @@ package spacetraders.model;
 
 import java.util.EnumMap;
 import java.util.Map;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 /** 
 * Resources Class represents the resource in the planet
 *@author Team AstroSnail
@@ -73,38 +75,43 @@ public class Resources {
     public int getResourceAmount(ResourceType resourceType) {
         return resources.get(resourceType).getAmount();
     }
+    
+    public SimpleIntegerProperty getResourceAmountProperty(ResourceType resourceType) {
+        return resources.get(resourceType).getAmountProperty();
+    }
     /** 
     *  Private Inner Class 
     */
     private class Resource {
-        private int amount;
+        private SimpleIntegerProperty amount;
         /**
         *Create a resource object
         *@param int - int represents the amount of the resource
         */
         public Resource(int amount) {
-            this.amount = amount;
+            this.amount = new SimpleIntegerProperty(amount);
         }
         /**
         * Set amount of the resource
         *@param int - int represents the amount of the resource
         */
         public void setAmount(int amount) {
-            this.amount = amount;
+            this.amount.set(amount);
         }
+        
        /**
         * Add a amount of the resource
         *@param int - int represents the amount of the resource
         */
         public void addAmount(int amount) {
-            this.amount += amount;
+            this.amount.set(this.amount.get() + amount);
         }
        /**
         * Remove an amount of the resource
         *@param int - int represents the amount of the resource
         */
         public void removeAmount(int amount) {
-            this.amount -= amount;
+            this.amount.set(this.amount.get() - amount);
         }
         /**
         * Get an amount of the resource
@@ -112,6 +119,10 @@ public class Resources {
         *@return int - the amount of the resource
         */
         public int getAmount() {
+            return amount.intValue();
+        }
+        
+        public SimpleIntegerProperty getAmountProperty() {
             return amount;
         }
     }

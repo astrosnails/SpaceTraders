@@ -95,11 +95,30 @@ public class MarketPlaceController extends Controller {
     @FXML
     private void onBuyButtonClicked(ActionEvent event) {
         Player player = application.getPlayer();
+        Cargo cargo = player.getShip().getCargo();
         int money = player.getMoney().intValue();
         int cost = totalCost.intValue();
         
         if (money >= cost) {
-            player.setMoney(money - cost);
+            int waterUnits = buyWaterAmount.intValue();
+            int foodUnits = buyFoodAmount.intValue();
+            int oilUnits = buyOilAmount.intValue();
+            int goldUnits = buyGoldAmount.intValue();
+            int cocaineUnits = buyCocaineAmount.intValue();
+            int totalUnits = waterUnits + foodUnits + oilUnits + goldUnits + cocaineUnits;
+            
+            if (totalUnits <= cargo.calculateEmptySpace()) {
+                Resources resources = cargo.getResources();
+                resources.addResource(ResourceType.WATER, waterUnits);
+                resources.addResource(ResourceType.FOOD, foodUnits);
+                resources.addResource(ResourceType.OIL, oilUnits);
+                resources.addResource(ResourceType.GOLD, goldUnits);
+                resources.addResource(ResourceType.COCAINE, cocaineUnits);
+                
+                player.setMoney(money - cost);
+            } else {
+                AlertDialog.showAlert("No space in cargo");
+            }
         } else {
             AlertDialog.showAlert("No money, No resources!");
         }
@@ -108,10 +127,30 @@ public class MarketPlaceController extends Controller {
     @FXML
     private void onSellButtonClicked(ActionEvent event) {
         Player player = application.getPlayer();
+        Resources resources = player.getShip().getCargo().getResources();
         int money = player.getMoney().intValue();
         int profit = totalProfit.intValue();
+        int waterUnits = sellWaterAmount.intValue();
+        int foodUnits = sellFoodAmount.intValue();
+        int oilUnits = sellOilAmount.intValue();
+        int goldUnits = sellGoldAmount.intValue();
+        int cocaineUnits = sellCocaineAmount.intValue();
         
-        player.setMoney(money + profit);
+        if (waterUnits > resources.getResourceAmount(ResourceType.WATER) ||
+                foodUnits > resources.getResourceAmount(ResourceType.FOOD) ||
+                oilUnits > resources.getResourceAmount(ResourceType.OIL) ||
+                goldUnits > resources.getResourceAmount(ResourceType.GOLD) ||
+                cocaineUnits > resources.getResourceAmount(ResourceType.COCAINE)) {
+            AlertDialog.showAlert("No resources, no money");
+        } else {
+            resources.removeResource(ResourceType.WATER, waterUnits);
+            resources.removeResource(ResourceType.FOOD, foodUnits);
+            resources.removeResource(ResourceType.OIL, oilUnits);
+            resources.removeResource(ResourceType.GOLD, goldUnits);
+            resources.removeResource(ResourceType.COCAINE, cocaineUnits);
+            
+            player.setMoney(money + profit);
+        }
     }
     
     private void updatePrices() {
@@ -145,11 +184,16 @@ public class MarketPlaceController extends Controller {
     public void updateInventory() {
         Player player = application.getPlayer();
         Resources cargoResources = player.getShip().getCargo().getResources();
-        foodInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.FOOD)));
-        waterInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.WATER)));
-        oilInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.OIL)));
-        goldInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.GOLD)));
-        cocaineInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.COCAINE)));
+        foodInInventory.textProperty().bind(
+                cargoResources.getResourceAmountProperty(ResourceType.FOOD).asString());
+        waterInInventory.textProperty().bind(
+                cargoResources.getResourceAmountProperty(ResourceType.WATER).asString());
+        oilInInventory.textProperty().bind(
+                cargoResources.getResourceAmountProperty(ResourceType.OIL).asString());
+        goldInInventory.textProperty().bind(
+                cargoResources.getResourceAmountProperty(ResourceType.GOLD).asString());
+        cocaineInInventory.textProperty().bind(
+                cargoResources.getResourceAmountProperty(ResourceType.COCAINE).asString());
         
         currentMoney.textProperty().bind(player.getMoney().asString());
         
