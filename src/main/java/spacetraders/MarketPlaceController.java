@@ -35,58 +35,32 @@ public class MarketPlaceController extends Controller {
     @FXML private Label oilUnitPrice;
     @FXML private Label goldUnitPrice;
     @FXML private Label cocaineUnitPrice;
-    @FXML
-    private Label currentMoney;
-    @FXML
-    private Slider buyWaterSlider;
-    @FXML
-    private Label buyWaterUnits;
-    @FXML
-    private Slider buyFoodSlider;
-    @FXML
-    private Label buyFoodUnits;
-    @FXML
-    private Slider buyOilSlider;
-    @FXML
-    private Label buyOilUnits;
-    @FXML
-    private Slider buyGoldSlider;
-    @FXML
-    private Label buyGoldUnits;
-    @FXML
-    private Slider buyCocaineSlider;
-    @FXML
-    private Slider sellWaterSlider;
-    @FXML
-    private Label sellWaterUnits;
-    @FXML
-    private Label sellFoodUnits;
-    @FXML
-    private Slider sellOilSlider;
-    @FXML
-    private Label sellOilUnits;
-    @FXML
-    private Slider sellGoldSlider;
-    @FXML
-    private Label sellGoldUnits;
-    @FXML
-    private Slider sellCocaineSlider;
-    @FXML
-    private Label sellCocaineUnits;
-    @FXML
-    private Slider sellFoodSlider;
-    @FXML
-    private Label buyCocaineUnits;
-    @FXML
-    private Label waterInInventory;
-    @FXML
-    private Label foodInInventory;
-    @FXML
-    private Label oilInInventory;
-    @FXML
-    private Label goldInInventory;
-    @FXML
-    private Label cocaineInInventory;
+    @FXML private Label currentMoney;
+    @FXML private Slider buyWaterSlider;
+    @FXML private Label buyWaterUnits;
+    @FXML private Slider buyFoodSlider;
+    @FXML private Label buyFoodUnits;
+    @FXML private Slider buyOilSlider;
+    @FXML private Label buyOilUnits;
+    @FXML private Slider buyGoldSlider;
+    @FXML private Label buyGoldUnits;
+    @FXML private Slider buyCocaineSlider;
+    @FXML private Slider sellWaterSlider;
+    @FXML private Label sellWaterUnits;
+    @FXML private Label sellFoodUnits;
+    @FXML private Slider sellOilSlider;
+    @FXML private Label sellOilUnits;
+    @FXML private Slider sellGoldSlider;
+    @FXML private Label sellGoldUnits;
+    @FXML private Slider sellCocaineSlider;
+    @FXML private Label sellCocaineUnits;
+    @FXML private Slider sellFoodSlider;
+    @FXML private Label buyCocaineUnits;
+    @FXML private Label waterInInventory;
+    @FXML private Label foodInInventory;
+    @FXML private Label oilInInventory;
+    @FXML private Label goldInInventory;
+    @FXML private Label cocaineInInventory;
     
     SimpleIntegerProperty buyWaterAmount = new SimpleIntegerProperty();
     SimpleIntegerProperty buyFoodAmount = new SimpleIntegerProperty();
@@ -107,12 +81,12 @@ public class MarketPlaceController extends Controller {
     
     private void updatePrices() {
         Planet planet = application.getPlayer().getLocation();
-        String price = Integer.toString(planet.getResourcePrice(ResourceType.WATER));
-        waterUnitPrice.setText(price);
+        
+        waterUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.WATER)));
         foodUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.FOOD)));
         oilUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.OIL)));
         goldUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.GOLD)));
-        //cocaineUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.COCAINE)));
+        cocaineUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.COCAINE)));
     }
     
     public void updateInventory() {
@@ -183,11 +157,4 @@ public class MarketPlaceController extends Controller {
         sellCocaineAmount.bind(sellCocaineSlider.valueProperty());
         sellCocaineUnits.textProperty().bind(sellCocaineAmount.asString());
     }
-    
-    // NOTE TO TEAM
-    // ------------
-    // To get the player, use application.getPlayer()
-    // To get the universe, which also holds the planets,
-    // use application.getUniverse();
-    // ------------
 }

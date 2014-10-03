@@ -108,7 +108,7 @@
             <Label fx:id="sellGoldUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="4" />
             <Slider fx:id="buyCocaineSlider" layoutX="76.0" layoutY="171.0" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Slider fx:id="sellCocaineSlider" layoutX="255.0" layoutY="171.0" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Label fx:id="cocaineUnitPrice1" alignment="CENTER" layoutX="10.0" layoutY="171.0" prefHeight="37.0" prefWidth="152.0" text="Label" textFill="#7aff56" GridPane.rowIndex="5">
+            <Label fx:id="cocaineUnitPrice" alignment="CENTER" layoutX="10.0" layoutY="171.0" prefHeight="37.0" prefWidth="152.0" text="Label" textFill="#7aff56" GridPane.rowIndex="5">
                <font>
                   <Font size="16.0" />
                </font>
