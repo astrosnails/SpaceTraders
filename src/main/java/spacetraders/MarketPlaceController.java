@@ -126,6 +126,8 @@ public class MarketPlaceController extends Controller {
         
         currentMoney.setText(Integer.toString(player.getMoney().intValue()));
     }
+    
+
             
             /*int min = Math.min((int)application.getPlayer().getShip().getCargo().getSpace(), (int)application.getPlayer().getMoney());
             buyGoldSlider.setMax(min);
