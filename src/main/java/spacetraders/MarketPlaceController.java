@@ -87,11 +87,19 @@ public class MarketPlaceController extends Controller {
     SimpleIntegerProperty sellGoldAmount = new SimpleIntegerProperty();
     SimpleIntegerProperty sellCocaineAmount = new SimpleIntegerProperty();
     
+    /**
+    * The button click listener
+    * @param ActionEvent event
+    */
     @FXML
     private void onBackButtonClicked(ActionEvent event) throws IOException {
         application.goToDashboard();
     }
     
+    /**
+    * The buy button listener
+    * @param ActionEvent event
+    */
     @FXML
     private void onBuyButtonClicked(ActionEvent event) {
         Player player = application.getPlayer();
@@ -124,6 +132,10 @@ public class MarketPlaceController extends Controller {
         }
     }
     
+    /**
+    * The sell button click listener
+    * @param ActionEvent event
+    */
     @FXML
     private void onSellButtonClicked(ActionEvent event) {
         Player player = application.getPlayer();
@@ -153,6 +165,11 @@ public class MarketPlaceController extends Controller {
         }
     }
     
+    /**
+    * Updates the prices
+    * @param none
+    * @return none
+    */
     private void updatePrices() {
         Planet planet = application.getPlayer().getLocation();
         waterUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.WATER));
@@ -181,6 +198,11 @@ public class MarketPlaceController extends Controller {
         totalProfitTextField.textProperty().bind(totalProfit.asString());
     }
     
+    /**
+    * Updates the inventory
+    * @param none
+    * @return none
+    */
     public void updateInventory() {
         Player player = application.getPlayer();
         Resources cargoResources = player.getShip().getCargo().getResources();
@@ -219,7 +241,10 @@ public class MarketPlaceController extends Controller {
     */
 
 
-
+    /**
+    * Sets the main application
+    * @param MainApplication application
+    */
     @Override
     public void setMainApplication(MainApplication application) {
         this.application = application;

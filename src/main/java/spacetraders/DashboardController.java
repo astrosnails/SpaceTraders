@@ -52,7 +52,10 @@ public class DashboardController extends Controller {
 
     /**
      * Update player information
-     */
+     * @param none
+     * @return none
+    */
+    
     private void updatePlayerInformation() {
         Player player = application.getPlayer();
         
@@ -63,6 +66,11 @@ public class DashboardController extends Controller {
         engineerPoints.setText(Integer.toString(player.getEngineerSkill()));
     }
     
+    /**
+     * initializes the Map Pane
+     * @param none
+     * @return none
+    */
     private void initializeMapPane() {
         Universe universe = application.getUniverse();
         List<Planet> planets = universe.getPlanets();
@@ -94,6 +102,11 @@ public class DashboardController extends Controller {
         mapPane.getChildren().addAll(circles);
     }
     
+    /**
+     * The button listener for selling stuff
+     * @param ActionEvent event
+     * @return none
+    */
     @FXML
     private void onBuySellButtonClicked(ActionEvent event) throws IOException {
         application.goToMarketPlace();
