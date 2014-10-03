@@ -130,25 +130,29 @@ public class MarketPlaceController extends Controller {
         cocaineInInventory.setText(Integer.toString(cargoResources.getResourceAmount(ResourceType.COCAINE)));
         
         currentMoney.setText(Integer.toString(player.getMoney().intValue()));
+        
+        /*sellGoldSlider.setMax(cargoResources.getResourceAmount(ResourceType.GOLD));
+        sellCocaineSlider.setMax(cargoResources.getResourceAmount(ResourceType.COCAINE));
+        sellWaterSlider.setMax(cargoResources.getResourceAmount(ResourceType.WATER));
+        sellOilSlider.setMax(cargoResources.getResourceAmount(ResourceType.OIL));
+        sellFoodSlider.setMax(cargoResources.getResourceAmount(ResourceType.FOOD));
+        */
     }
-    
+    /*
+    private void setBuySliderMax() {
+        int emptySpace = application.getPlayer().getShip().getCargo().getSpace();
+        int money = application.getPlayer().getMoney().getValue();
+        Planet planet = application.getPlayer().getLocation();
+                        
+        buyGoldSlider.setMax(Math.min(emptySpace, money / planet.getResourcePrice(ResourceType.GOLD)));
+        buyWaterSlider.setMax(Math.min(emptySpace, money / planet.getResourcePrice(ResourceType.WATER)));
+        buyFoodSlider.setMax(Math.min(emptySpace, money / planet.getResourcePrice(ResourceType.FOOD)));
+        buyCocaineSlider.setMax(Math.min(emptySpace, money / planet.getResourcePrice(ResourceType.COCAINE)));
+        buyOilSlider.setMax(Math.min(emptySpace, money / planet.getResourcePrice(ResourceType.OIL)));     
+    }
+    */
 
-            
-            /*int min = Math.min((int)application.getPlayer().getShip().getCargo().getSpace(), (int)application.getPlayer().getMoney());
-            buyGoldSlider.setMax(min);
-            buyWaterSlider.setMax(min);
-            buyFoodSlider.setMax(min);
-            buyCocaineSlider.setMax(min);
-            buyOilSlider.setMax(min);
-            
-            //SET MAX BASED ON AMOUNT OF RESOURCE LEFT IN RESOURCE CLASS
-            sellGoldSlider.setMax((int)resources.getResourceAmount(Gold));
-            sellCocaineSlider.setMax((int)resources.getResourceAmount(Cocaine)));
-            sellWaterSlider.setMax((int)resources.getResourceAmount(Water));
-            sellOilSlider.setMax((int)resources.getResourceAmount(Oil));
-            sellFoodSlider.setMax((int)resources.getResourceAmount(Food));
-            
-            label.setText(String.format("%.0f", newValue));*/
+
 
     @Override
     public void setMainApplication(MainApplication application) {
