@@ -57,7 +57,7 @@ public class Planet {
         ResourcesInfo a = ResourcesInfo.getInstance();
         double randomness = -1.0 * a.getVariance(type) / 100 + 
         Math.random()*2*a.getVariance(type) / 100;
-        int value = a.getBasePrice(type) * (int) (1 + randomness); 
+        double value = a.getBasePrice(type) * (1 + randomness); 
         value += (a.getPriceIncreasePerTechLevel(type) * 
             (technologyLevel.ordinal() - a.getMinTechLevelToProduce(type).ordinal()));
         if (getResourceLevel() == a.getConditionForCheap(type)) {
@@ -66,7 +66,7 @@ public class Planet {
             value *= 1.5;
         }
 
-        return value; 
+        return (int) value; 
     }
 
     /**
