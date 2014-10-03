@@ -50,22 +50,22 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="waterUnitPrice" alignment="CENTER" prefHeight="47.0" prefWidth="155.0" text="Label" textFill="#7aff56" GridPane.rowIndex="1">
+            <Label fx:id="waterPriceLabel" alignment="CENTER" prefHeight="47.0" prefWidth="155.0" text="Label" textFill="#7aff56" GridPane.rowIndex="1">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="foodUnitPrice" alignment="CENTER" prefHeight="42.0" prefWidth="67.0" text="Label" textFill="#7aff56" GridPane.rowIndex="2">
+            <Label fx:id="foodPriceLabel" alignment="CENTER" prefHeight="42.0" prefWidth="67.0" text="Label" textFill="#7aff56" GridPane.rowIndex="2">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="oilUnitPrice" alignment="CENTER" prefHeight="46.0" prefWidth="150.0" text="Label" textFill="#7aff56" GridPane.rowIndex="3">
+            <Label fx:id="oilPriceLabel" alignment="CENTER" prefHeight="46.0" prefWidth="150.0" text="Label" textFill="#7aff56" GridPane.rowIndex="3">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="goldUnitPrice" alignment="CENTER" prefHeight="37.0" prefWidth="152.0" text="Label" textFill="#7aff56" GridPane.rowIndex="4">
+            <Label fx:id="goldPriceLabel" alignment="CENTER" prefHeight="37.0" prefWidth="152.0" text="Label" textFill="#7aff56" GridPane.rowIndex="4">
                <font>
                   <Font size="16.0" />
                </font>
@@ -108,7 +108,7 @@
             <Label fx:id="sellGoldUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="4" />
             <Slider fx:id="buyCocaineSlider" layoutX="76.0" layoutY="171.0" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Slider fx:id="sellCocaineSlider" layoutX="255.0" layoutY="171.0" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Label fx:id="cocaineUnitPrice" alignment="CENTER" layoutX="10.0" layoutY="171.0" prefHeight="37.0" prefWidth="152.0" text="Label" textFill="#7aff56" GridPane.rowIndex="5">
+            <Label fx:id="cocainePriceLabel" alignment="CENTER" layoutX="10.0" layoutY="171.0" prefHeight="37.0" prefWidth="152.0" text="Label" textFill="#7aff56" GridPane.rowIndex="5">
                <font>
                   <Font size="16.0" />
                </font>
@@ -120,8 +120,8 @@
       <Button fx:id="backButton" layoutX="14.0" layoutY="323.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="32.0" prefWidth="81.0" text="Back" />
       <Button fx:id="buyButton" layoutX="241.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Buy" />
       <Button fx:id="sellButton" layoutX="455.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Sell" />
-      <TextField fx:id="totalCost" editable="false" layoutX="151.0" layoutY="299.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Cost" />
-      <TextField fx:id="totalProfit" editable="false" layoutX="360.0" layoutY="299.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Profit" />
+      <TextField fx:id="totalCostTextField" editable="false" layoutX="151.0" layoutY="299.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Cost" />
+      <TextField fx:id="totalProfitTextField" editable="false" layoutX="360.0" layoutY="299.0" prefHeight="25.0" prefWidth="81.0" promptText="Total Profit" />
       <Label alignment="CENTER" layoutX="-1.0" prefHeight="32.0" prefWidth="550.0" text="Marketplace: no refunds, no mercy" textFill="#7aff56">
          <font>
             <Font name="Copperplate Gothic Bold" size="20.0" />

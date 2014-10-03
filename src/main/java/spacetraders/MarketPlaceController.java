@@ -9,18 +9,23 @@ package spacetraders;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Binding;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.IntegerBinding;
+import javafx.beans.binding.NumberBinding;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import spacetraders.model.*;
-import javafx.beans.value.ObservableValue;
-import javafx.beans.value.ChangeListener;
 
 /**
  * FXML Controller class
@@ -29,12 +34,18 @@ import javafx.beans.value.ChangeListener;
  *@version 1.0
  */
 public class MarketPlaceController extends Controller {
-    @FXML
-    private Label waterUnitPrice;
-    @FXML private Label foodUnitPrice;
-    @FXML private Label oilUnitPrice;
-    @FXML private Label goldUnitPrice;
-    @FXML private Label cocaineUnitPrice;
+    @FXML private Label waterPriceLabel;
+    private SimpleIntegerProperty waterUnitPrice;
+    @FXML private Label foodPriceLabel;
+    private SimpleIntegerProperty foodUnitPrice;
+    @FXML private Label oilPriceLabel;
+    private SimpleIntegerProperty oilUnitPrice;
+    @FXML private Label goldPriceLabel;
+    private SimpleIntegerProperty goldUnitPrice;
+    @FXML private Label cocainePriceLabel;
+    private SimpleIntegerProperty cocaineUnitPrice;
+    private NumberBinding totalCost;
+    private NumberBinding totalProfit;
     @FXML private Label currentMoney;
     @FXML private Slider buyWaterSlider;
     @FXML private Label buyWaterUnits;
@@ -61,6 +72,8 @@ public class MarketPlaceController extends Controller {
     @FXML private Label oilInInventory;
     @FXML private Label goldInInventory;
     @FXML private Label cocaineInInventory;
+    @FXML private TextField totalCostTextField;
+    @FXML private TextField totalProfitTextField;
     
     SimpleIntegerProperty buyWaterAmount = new SimpleIntegerProperty();
     SimpleIntegerProperty buyFoodAmount = new SimpleIntegerProperty();
@@ -81,12 +94,30 @@ public class MarketPlaceController extends Controller {
     
     private void updatePrices() {
         Planet planet = application.getPlayer().getLocation();
+        waterUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.WATER));
+        foodUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.FOOD));
+        oilUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.OIL));
+        goldUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.GOLD));
+        cocaineUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.COCAINE));
         
-        waterUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.WATER)));
-        foodUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.FOOD)));
-        oilUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.OIL)));
-        goldUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.GOLD)));
-        cocaineUnitPrice.setText(Integer.toString(planet.getResourcePrice(ResourceType.COCAINE)));
+        waterPriceLabel.textProperty().bind(waterUnitPrice.asString());
+        foodPriceLabel.textProperty().bind(foodUnitPrice.asString());
+        oilPriceLabel.textProperty().bind(oilUnitPrice.asString());
+        goldPriceLabel.textProperty().bind(goldUnitPrice.asString());
+        cocainePriceLabel.textProperty().bind(cocaineUnitPrice.asString());
+        
+        totalCost = Bindings.add(Bindings.multiply(waterUnitPrice, buyWaterAmount),
+                Bindings.add(Bindings.multiply(foodUnitPrice, buyFoodAmount), 
+                Bindings.add(Bindings.multiply(oilUnitPrice, buyOilAmount),
+                Bindings.add(Bindings.multiply(goldUnitPrice, buyGoldAmount),
+                Bindings.multiply(cocaineUnitPrice, buyCocaineAmount)))));
+        totalProfit = Bindings.add(Bindings.multiply(waterUnitPrice, sellWaterAmount),
+                Bindings.add(Bindings.multiply(foodUnitPrice, sellFoodAmount), 
+                Bindings.add(Bindings.multiply(oilUnitPrice, sellOilAmount),
+                Bindings.add(Bindings.multiply(goldUnitPrice, sellGoldAmount),
+                Bindings.multiply(cocaineUnitPrice, sellCocaineAmount)))));
+        totalCostTextField.textProperty().bind(totalCost.asString());
+        totalProfitTextField.textProperty().bind(totalProfit.asString());
     }
     
     public void updateInventory() {
