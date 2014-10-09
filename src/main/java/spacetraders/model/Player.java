@@ -1,6 +1,9 @@
 package spacetraders.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javafx.beans.property.SimpleIntegerProperty;
+import spacetraders.Abstract.TravelListener;
 
 /**
 *This class implements the Player Class
@@ -20,6 +23,7 @@ public class Player {
     private int traderSkill;
     private int engineerSkill;
     private Ship ship;
+    private List<TravelListener> travelListeners;
     
     /**
      * This constructor sets up a player
@@ -36,6 +40,7 @@ public class Player {
         this.cargo = new Cargo(30);
         //TODO: MOVE CONFIG TO TOP OF CLASS HIERARCHY
         this.ship = new Ship("bad", 5000, 30);
+        travelListeners = new ArrayList<>();
     }
     
     /**
@@ -208,5 +213,17 @@ public class Player {
      */
     public void setShip(Ship ship) {
         this.ship = ship;
+    }
+    
+    public void addTravelListener(TravelListener listener) {
+        travelListeners.add(listener);
+    }
+
+    public void travelTo(Planet destination) {
+        this.location = destination;
+        
+        for (TravelListener listener : travelListeners) {
+            listener.onTravel(destination);
+        }
     }
 }

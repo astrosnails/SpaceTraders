@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import spacetraders.model.Planet;
+import spacetraders.model.Player;
 
 /**
 *This class implements the WelcomeScreenController
@@ -37,7 +38,13 @@ public class PlanetPopoverController extends Controller {
     */
     @FXML
     private void handleTravelButtonAction(ActionEvent event) throws IOException {
-        AlertDialog.showAlert("Travel button pressed");
+        Player player = application.getPlayer();
+        
+        if (planet.equals(player.getLocation())) {
+            AlertDialog.showAlert("You are already on " + planet.getName());
+        } else {
+            player.travelTo(planet);
+        }
     }
     
     /**

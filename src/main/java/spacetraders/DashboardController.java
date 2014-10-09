@@ -26,6 +26,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import org.controlsfx.control.PopOver;
+import spacetraders.Abstract.TravelListener;
 import spacetraders.model.Coordinates;
 import spacetraders.model.Planet;
 import spacetraders.model.Player;
@@ -37,7 +38,7 @@ import spacetraders.model.Universe;
  * @author saleh
  *@version 1.0
  */
-public class DashboardController extends Controller {
+public class DashboardController extends Controller implements TravelListener {
     
     @FXML
     private GridPane playerInformation;
@@ -68,6 +69,12 @@ public class DashboardController extends Controller {
         traderPoints.setText(Integer.toString(player.getTraderSkill()));
         pilotPoints.setText(Integer.toString(player.getPilotSkill()));
         engineerPoints.setText(Integer.toString(player.getEngineerSkill()));
+    }
+    
+    @Override
+    public void onTravel(Planet destination) {
+        mapPane.getChildren().clear();
+        initializeMapPane();
     }
     
     /**
@@ -139,5 +146,7 @@ public class DashboardController extends Controller {
         
         updatePlayerInformation();
         initializeMapPane();
+        
+        application.getPlayer().addTravelListener(this);
     }
 }
