@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="100.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.PlanetPopoverController">
+   <children>
+      <Label fx:id="planetName" layoutX="36.0" layoutY="14.0" text="Planet Name" />
+      <Button fx:id="travelButton" layoutX="47.0" layoutY="60.0" mnemonicParsing="false" onAction="#handleTravelButtonAction" text="Travel" />
+   </children>
+</AnchorPane>

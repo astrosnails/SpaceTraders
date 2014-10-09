@@ -83,7 +83,7 @@ public class MainApplication extends Application {
         
         FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
         Parent root = myLoader.load();
-
+        
         DashboardController controller = (DashboardController) myLoader.getController();
         controller.setMainApplication(this);
 

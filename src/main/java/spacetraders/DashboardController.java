@@ -10,10 +10,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -92,8 +96,21 @@ public class DashboardController extends Controller {
 
                 @Override
                 public void handle(MouseEvent event) {
-                    PopOver popover = new PopOver();
-                    popover.show(circle);
+                    //TODO: Find better solution
+                    try {
+                        FXMLLoader myLoader = new FXMLLoader(
+                                getClass().getResource("PlanetInformation.fxml"));
+                        Parent root = myLoader.load();
+                        PlanetPopoverController controller =
+                                (PlanetPopoverController) myLoader.getController();
+                        controller.setMainApplication(application);
+                        controller.setPlanet(planet);
+                        
+                        PopOver popover = new PopOver(root);
+                        popover.show(circle);
+                    } catch (IOException ex) {
+                        Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             
             });
