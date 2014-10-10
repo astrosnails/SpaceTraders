@@ -136,7 +136,11 @@ public class MainApplication extends Application {
     public Player getPlayer() {
         return player;
     }
-    
+    /**
+     * Get the univese
+     * @param none
+     * @return Universe universe 
+    */
     public Universe getUniverse() {
         return universe;
     }
