@@ -162,12 +162,27 @@ public class Ship {
     public Cargo getCargo() {
         return this.cargo;
     }
+     /**
+     * Adds the specified amount of fuel to Ship
+     * @param int amount
+     * @return none
+     */
     public void addFuel(int amount) {
         cargo.getResources().addResource(ResourceType.FUEL, amount);
     }
+     /**
+     * Removes fuel from Ship
+     * @param int amount
+     * @return none
+     */
     public void removeFuel(int amount) {
         cargo.getResources().removeResource(ResourceType.FUEL, amount);
     }
+     /**
+     * Returns the amount of fuel in the ship 
+     * @param none
+     * @return int fuel
+     */
     public int getFuel() {
         return cargo.getResources().getResourceAmount(ResourceType.FUEL); 
     }
