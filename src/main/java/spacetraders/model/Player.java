@@ -214,11 +214,19 @@ public class Player {
     public void setShip(Ship ship) {
         this.ship = ship;
     }
-    
+    /**
+    * adds the travel listener. 
+    * @param: TravelListener listener
+    * @return none
+    */
     public void addTravelListener(TravelListener listener) {
         travelListeners.add(listener);
     }
-
+    /**
+    * lets you travel to the specified planet
+    * @param: Planet destination
+    * @return: none
+    */
     public void travelTo(Planet destination) {
         if (!hasEnoughFuelToTravelTo(destination)) {
             throw new RuntimeException("Fuel not checked before travel.");
@@ -235,14 +243,22 @@ public class Player {
             listener.onTravel(destination);
         }
     }
-    
+    /**
+    * determines if we have enough fuel to travel to a Planet
+    * @param: Planet planet
+    * @retur: boolean if there is enough fuel
+    */
     public boolean hasEnoughFuelToTravelTo(Planet planet) {
         double fuelNeeded =
                 getFuelNeeded(location.getCoordinates(), planet.getCoordinates());
         
         return getShip().getFuel() > fuelNeeded;
     }
-    
+    /**
+    * gets the fuel needed to go from first to second coordinate
+    * @param: Coordinates c1, Coordinates c2
+    * @return: double fuelNeeded
+    */
     //TODO: Move this outside player class
     public static double getFuelNeeded(Coordinates c1, Coordinates c2) {
         double fuelPerGridUnit = 1.5;
