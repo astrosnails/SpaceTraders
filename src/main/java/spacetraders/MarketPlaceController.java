@@ -112,6 +112,7 @@ public class MarketPlaceController extends Controller {
     /**
     * The buy button listener
     * @param ActionEvent event
+    * @return none
     */
     @FXML
     private void onBuyButtonClicked(ActionEvent event) {
@@ -150,6 +151,7 @@ public class MarketPlaceController extends Controller {
     /**
     * The sell button click listener
     * @param ActionEvent event
+    * @return none
     */
     @FXML
     private void onSellButtonClicked(ActionEvent event) {
