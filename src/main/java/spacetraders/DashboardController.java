@@ -60,7 +60,6 @@ public class DashboardController extends Controller implements TravelListener {
      * @param none
      * @return none
     */
-    
     private void updatePlayerInformation() {
         Player player = application.getPlayer();
         
@@ -71,6 +70,11 @@ public class DashboardController extends Controller implements TravelListener {
         engineerPoints.setText(Integer.toString(player.getEngineerSkill()));
     }
     
+    /*
+     * The onTravel method for the specified destination, initializes the map pane
+     * @param Planet destination
+     * @return none
+    */
     @Override
     public void onTravel(Planet destination) {
         mapPane.getChildren().clear();
@@ -100,7 +104,12 @@ public class DashboardController extends Controller implements TravelListener {
             
             final Circle circle = circles[i];
             circles[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
-
+                
+                /**
+                * handles the mouse event
+                * @param: MouseEvent event
+                * @return: none
+                */
                 @Override
                 public void handle(MouseEvent event) {
                     //TODO: Find better solution
