@@ -43,7 +43,11 @@ public class PlanetPopoverController extends Controller {
         if (planet.equals(player.getLocation())) {
             AlertDialog.showAlert("You are already on " + planet.getName());
         } else {
-            player.travelTo(planet);
+            if (player.hasEnoughFuelToTravelTo(planet)) {
+                player.travelTo(planet);
+            } else {
+                AlertDialog.showAlert("Not enough fuel.");
+            }
         }
     }
     

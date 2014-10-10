@@ -40,6 +40,10 @@ public class Coordinates {
         return y;
     }
     
+    public double distanceTo(Coordinates other) {
+        return Math.sqrt(Math.pow(other.x - x, 2) + Math.pow(other.y - y, 2));
+    }
+    
     /**
     * compares a coordinate object to another cooridnate
     * @no Object other

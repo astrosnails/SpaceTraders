@@ -220,10 +220,32 @@ public class Player {
     }
 
     public void travelTo(Planet destination) {
+        if (!hasEnoughFuelToTravelTo(destination)) {
+            throw new RuntimeException("Fuel not checked before travel.");
+        }
+        
+        // TODO: Handle bad accuracy because of conversion from double to in.
+        // (Low priority)
+        this.ship.removeFuel((int) getFuelNeeded(location.getCoordinates(),
+                destination.getCoordinates()));
+        
         this.location = destination;
         
         for (TravelListener listener : travelListeners) {
             listener.onTravel(destination);
         }
+    }
+    
+    public boolean hasEnoughFuelToTravelTo(Planet planet) {
+        double fuelNeeded =
+                getFuelNeeded(location.getCoordinates(), planet.getCoordinates());
+        
+        return getShip().getFuel() > fuelNeeded;
+    }
+    
+    //TODO: Move this outside player class
+    public static double getFuelNeeded(Coordinates c1, Coordinates c2) {
+        double fuelPerGridUnit = 1.5;
+        return fuelPerGridUnit * c1.distanceTo(c2);
     }
 }

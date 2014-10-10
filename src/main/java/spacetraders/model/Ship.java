@@ -165,7 +165,7 @@ public class Ship {
     public void addFuel(int amount) {
         cargo.getResources().addResource(ResourceType.FUEL, amount);
     }
-     public void removeFuel(int amount) {
+    public void removeFuel(int amount) {
         cargo.getResources().removeResource(ResourceType.FUEL, amount);
     }
     public int getFuel() {
