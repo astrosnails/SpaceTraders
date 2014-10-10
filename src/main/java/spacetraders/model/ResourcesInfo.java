@@ -75,12 +75,25 @@ public class ResourcesInfo {
             .setMinPriceWithTrader(9999)
             .setMaxPriceWithTrader(15000);
         
+        ResourceInfo fuelInfo = new ResourceInfo();
+        fuelInfo.setName("Fuel")
+            .setBasePrice(500)
+            .setMinTechLevelToProduce(TechnologyLevel.AGRICULTURE)
+            .setMinTechLevelToUse(TechnologyLevel.EARLY_INDUSTRIAL)
+            .setPriceIncreasePerTechLevel(35)
+            .setVariance(15)
+            .setConditionForCheap(ResourceLevel.RICHSOIL)
+            .setConditionForExpensive(ResourceLevel.WARLIKE)
+            .setMinPriceWithTrader(480)
+            .setMaxPriceWithTrader(600);
+        
         resourceInfoMap = new EnumMap<>(ResourceType.class);
         resourceInfoMap.put(ResourceType.WATER, waterInfo);
         resourceInfoMap.put(ResourceType.FOOD, foodInfo);
         resourceInfoMap.put(ResourceType.OIL, oilInfo);
         resourceInfoMap.put(ResourceType.GOLD, goldInfo);
         resourceInfoMap.put(ResourceType.COCAINE, cocaineInfo);
+        resourceInfoMap.put(ResourceType.FUEL, fuelInfo);
     }
     
     /**

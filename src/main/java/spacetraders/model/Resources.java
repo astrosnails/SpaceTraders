@@ -22,6 +22,7 @@ public class Resources {
         resources.put(ResourceType.FOOD, new Resource(0));
         resources.put(ResourceType.GOLD, new Resource(0));
         resources.put(ResourceType.COCAINE, new Resource(0));
+        resources.put(ResourceType.FUEL, new Resource(10));    //TODO: Move defaults to separate class
     }
 
     /** 

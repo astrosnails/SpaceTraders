@@ -9,13 +9,13 @@ package spacetraders.model;
 
 public class Ship {
 
-	private String name;
-	private int cost;
-	private String description;
-	private int attack;
-	private int defense;
-	private int speed;
-	private int cargoSpace; 
+    private String name;
+    private int cost;
+    private String description;
+    private int attack;
+    private int defense;
+    private int speed;
+    private int cargoSpace;
     private Cargo cargo;
 
     /**
@@ -34,7 +34,7 @@ public class Ship {
      * @param String name
      * @return none
      */
-	public void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -161,5 +161,14 @@ public class Ship {
      */
     public Cargo getCargo() {
         return this.cargo;
+    }
+    public void addFuel(int amount) {
+        cargo.getResources().addResource(ResourceType.FUEL, amount);
+    }
+     public void removeFuel(int amount) {
+        cargo.getResources().removeResource(ResourceType.FUEL, amount);
+    }
+    public int getFuel() {
+        return cargo.getResources().getResourceAmount(ResourceType.FUEL); 
     }
 }

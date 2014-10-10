@@ -10,5 +10,6 @@ public enum ResourceType {
     FOOD,
     OIL,
     GOLD,
-    COCAINE
+    COCAINE,
+    FUEL
 }
