@@ -70,18 +70,22 @@ public class Resources {
     * @param 
     * resourceType - type of the resource
     * amount - int represents the amount of the resource
-    * @return 
-    * int: integer represents the amount of the resource
+    * @return: int integer represents the amount of the resource
     */
     public int getResourceAmount(ResourceType resourceType) {
         return resources.get(resourceType).getAmount();
     }
     
+    /** 
+    * Returns the resourceAmountProperty of the specified resource 
+    * @param ResourceType resourceType
+    * @return SimpleIntegerProperty property
+    */
     public SimpleIntegerProperty getResourceAmountProperty(ResourceType resourceType) {
         return resources.get(resourceType).getAmountProperty();
     }
     /** 
-    *  Private Inner Class 
+    *  Private Inner Class for Resource
     */
     private class Resource {
         private SimpleIntegerProperty amount;
@@ -123,6 +127,11 @@ public class Resources {
             return amount.intValue();
         }
         
+        /**
+        * Returns the AmountProperty of the resource
+        *@param: none
+        *@return: SimpleIntegerProperty amount
+        */
         public SimpleIntegerProperty getAmountProperty() {
             return amount;
         }
