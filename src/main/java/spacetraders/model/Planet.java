@@ -169,7 +169,7 @@ public class Planet implements TravelListener{
     
     public void onTravel(Planet destination) {
     	Random rand = new Random();
-    	int num = rand.nextInt(6);
+    	int num = rand.nextInt(5);
     	
     	if(num == 0) {
     		destination.planetEvent = PlanetEvent.DROUGHT;
