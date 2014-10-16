@@ -153,6 +153,11 @@ public class DashboardController extends Controller implements TravelListener {
         application.goToMarketPlace();
     }
     
+    @FXML
+    private void onSaveGameButtonClicked(ActionEvent event) throws IOException {
+        AlertDialog.showAlert("Game Saved!");
+    }
+    
     /**
      * Set main application
      *@param application - main application 

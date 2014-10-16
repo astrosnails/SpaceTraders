@@ -16,8 +16,8 @@
             <Image url="@dashboard.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="336.0" layoutY="225.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="218.0" text="Ship information/Upgrades" />
-      <Button fx:id="buySellButton" layoutX="336.0" layoutY="103.0" mnemonicParsing="false" onAction="#onBuySellButtonClicked" prefHeight="66.0" prefWidth="218.0" text="Buy/Sell" />
+      <Button layoutX="336.0" layoutY="167.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="218.0" text="Ship information/Upgrades" />
+      <Button fx:id="buySellButton" layoutX="336.0" layoutY="67.0" mnemonicParsing="false" onAction="#onBuySellButtonClicked" prefHeight="66.0" prefWidth="218.0" text="Buy/Sell" />
       <GridPane fx:id="playerInformation" blendMode="DIFFERENCE" prefHeight="200.0" prefWidth="300.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="180.0" />
@@ -85,5 +85,6 @@
       </GridPane>
       <Pane fx:id="mapPane" layoutY="191.0" prefHeight="209.0" prefWidth="292.0" style="-fx-background-color: #000; -fx-border-color: #aaa; -fx-border-width: 2px;" />
       <Label fx:id="fuelLabel" alignment="CENTER_RIGHT" layoutX="509.0" layoutY="370.0" prefHeight="16.0" prefWidth="79.0" text="Fuel" textFill="WHITE" />
+      <Button fx:id="saveGameButton" layoutX="336.0" layoutY="263.0" mnemonicParsing="false" onAction="#onSaveGameButtonClicked" prefHeight="66.0" prefWidth="218.0" text="Save Game" />
    </children>
 </AnchorPane>
