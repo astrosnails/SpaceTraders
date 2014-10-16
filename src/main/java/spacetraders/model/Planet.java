@@ -1,5 +1,7 @@
 package spacetraders.model;
 
+import java.util.Random;
+
 import spacetraders.PlanetEvent;
 
 /**
@@ -8,7 +10,7 @@ import spacetraders.PlanetEvent;
 * @author Team 6, CS 2340 - Fall 2014 M5
 * 
 */
-public class Planet {
+public class Planet implements TravelListener{
     
     private String name;
     private Coordinates coordinates;
@@ -163,5 +165,26 @@ public class Planet {
     */
     public Resources getResources() {
         return this.resources;
+    }
+    
+    public void onTravel(Planet destination) {
+    	Random rand = new Random();
+    	int num = rand.nextInt(6);
+    	
+    	if(num == 0) {
+    		destination.planetEvent = PlanetEvent.DROUGHT;
+    	} 
+    	if(num == 1) {
+    		destination.planetEvent = PlanetEvent.CROPFAIL;
+    	}
+    	if(num == 2) {
+    		destination.planetEvent = PlanetEvent.WAR;
+    	}
+    	if(num == 3) {
+    		destination.planetEvent = PlanetEvent.LACK_OF_WORKERS;
+    	}
+    	if(num == 4) {
+    		destination.planetEvent = PlanetEvent.BOREDOM;
+    	}
     }
 }
