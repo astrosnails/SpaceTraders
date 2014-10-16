@@ -32,6 +32,7 @@ public class Planet implements TravelListener {
         this.technologyLevel = technologyLevel;
         this.resourceLevel = resourceLevel;
         this.resources = resources;
+        this.planetEvent = planetEvent;
     }
     
     /**
@@ -76,11 +77,7 @@ public class Planet implements TravelListener {
         }
         
         //checking for planet events
-        if(getPlanetEvent() == PlanetEvent.DROUGHT && type == ResourceType.WATER 
-                || getPlanetEvent() == PlanetEvent.CROPFAIL && type == ResourceType.FOOD
-                || getPlanetEvent() == PlanetEvent.WAR && type == ResourceType.OIL
-                || getPlanetEvent() == PlanetEvent.LACK_OF_WORKERS && type == ResourceType.GOLD
-                || getPlanetEvent() == PlanetEvent.BOREDOM && type == ResourceType.COCAINE) {
+        if(type == PlanetEventsInfo.getInstance().getAffectedResource(planetEvent)) {
             value *= 1.3;
         }
         

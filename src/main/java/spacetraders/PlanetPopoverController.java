@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import spacetraders.model.Planet;
+import spacetraders.model.PlanetEventsInfo;
 import spacetraders.model.Player;
 
 /**
@@ -27,6 +28,8 @@ public class PlanetPopoverController extends Controller {
     
     @FXML
     private Label planetName;
+    @FXML
+    private Label planetEventLabel;
     @FXML
     private Button travelButton;
 
@@ -58,5 +61,6 @@ public class PlanetPopoverController extends Controller {
     public void setPlanet(Planet planet) {
         this.planet = planet;
         planetName.setText(planet.getName());
+        planetEventLabel.setText(PlanetEventsInfo.getInstance().getName(planet.getPlanetEvent()));
     }
 }

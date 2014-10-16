@@ -29,7 +29,7 @@ public class Universe {
             .addResource(ResourceType.COCAINE, 1);
         Planet p1 = new Planet("Planet 1", new Coordinates(1, 2),
             TechnologyLevel.AGRICULTURE,
-            ResourceLevel.LOTSOFWATER, r1, PlanetEvent.NOTHING);
+            ResourceLevel.LOTSOFWATER, r1, PlanetEvent.DROUGHT);
         
         Resources r2 = new Resources();
         r2.addResource(ResourceType.WATER, 50)
