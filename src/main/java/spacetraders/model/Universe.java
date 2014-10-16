@@ -1,4 +1,5 @@
 package spacetraders.model;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,7 +9,7 @@ import java.util.Random;
 * as the planets that are in the universe.
 * @author Team Astrosnails (6) - CS 2340 Fall 2014
 */
-public class Universe {
+public class Universe implements Serializable {
     private static Universe universe;
     private List<Planet> planets;
     private int width;

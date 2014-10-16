@@ -1,5 +1,6 @@
 package spacetraders.model;
 
+import java.io.Serializable;
 import javafx.beans.property.SimpleIntegerProperty;
 
 /**
@@ -9,7 +10,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 * 
 */
 
-public class Ship {
+public class Ship implements Serializable {
 
     private String name;
     private int cost;

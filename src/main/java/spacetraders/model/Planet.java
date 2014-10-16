@@ -4,13 +4,15 @@ import java.util.Random;
 import spacetraders.Abstract.TravelListener;
 import spacetraders.model.PlanetEvent;
 
+import java.io.Serializable;
+
 /**
 *This class implements the Planet Class
 *to set up and create the methods of creating coordinates
 * @author Team 6, CS 2340 - Fall 2014 M5
 * 
 */
-public class Planet implements TravelListener {
+public class Planet implements TravelListener, Serializable {
     
     private String name;
     private Coordinates coordinates;

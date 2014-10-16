@@ -1,5 +1,7 @@
 package spacetraders.model;
 
+import java.io.Serializable;
+
 /**
 *This class implements the Coordinates Class
 *to set up and create the methods of creating coordinates
@@ -7,7 +9,7 @@ package spacetraders.model;
 * 
 */
 
-public class Coordinates {
+public class Coordinates implements Serializable {
     
     private int x, y;
     

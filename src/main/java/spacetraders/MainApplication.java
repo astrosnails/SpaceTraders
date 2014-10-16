@@ -6,7 +6,12 @@
 
 package spacetraders;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.util.List;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -123,6 +128,14 @@ public class MainApplication extends Application {
 
         Scene scene = new Scene(dialogPane);
         mainStage.setScene(scene);
+    }
+    
+    public void saveGame() throws IOException {
+        OutputStream file = new FileOutputStream("game.data");
+        OutputStream buffer = new BufferedOutputStream(file);
+        ObjectOutput output = new ObjectOutputStream(buffer);
+        output.writeObject(universe);
+        output.writeObject(player);
     }
 
     /**

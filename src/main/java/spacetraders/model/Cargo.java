@@ -1,5 +1,6 @@
 package spacetraders.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 * 
 */
 
-public class Cargo {
+public class Cargo implements Serializable {
 
 	private Resources resources;
 	private int maxSize;

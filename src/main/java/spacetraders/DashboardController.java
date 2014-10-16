@@ -6,7 +6,12 @@
 
 package spacetraders;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -154,7 +159,9 @@ public class DashboardController extends Controller implements TravelListener {
     }
     
     @FXML
-    private void onSaveGameButtonClicked(ActionEvent event) throws IOException {
+    private void onSaveGameButtonClicked(ActionEvent event) throws IOException{
+        //serialize the List
+        application.saveGame();
         AlertDialog.showAlert("Game Saved!");
     }
     
