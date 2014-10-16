@@ -43,8 +43,13 @@ public class WelcomeScreenController extends Controller {
     }
     
     @FXML
-    private void onLoadGameButtonClicked(ActionEvent event) throws IOException,
-            ClassNotFoundException {
-        application.loadGame();
+    private void onLoadGameButtonClicked(ActionEvent event) {
+        try {
+            application.loadGame();
+        } catch (IOException exception) {
+            AlertDialog.showAlert("ERROR: Cannot load game!");
+        } catch (ClassNotFoundException exception) {
+            AlertDialog.showAlert("ERROR: Saved game is corrupted!");
+        }
     }
 }

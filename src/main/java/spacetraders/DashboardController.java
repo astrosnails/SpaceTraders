@@ -159,10 +159,13 @@ public class DashboardController extends Controller implements TravelListener {
     }
     
     @FXML
-    private void onSaveGameButtonClicked(ActionEvent event) throws IOException{
-        //serialize the List
-        application.saveGame();
-        AlertDialog.showAlert("Game Saved!");
+    private void onSaveGameButtonClicked(ActionEvent event){
+        try {
+            application.saveGame();
+            AlertDialog.showAlert("Game Saved!");
+        } catch (IOException exception) {
+            AlertDialog.showAlert("ERROR: Cannot save game!");
+        }
     }
     
     /**

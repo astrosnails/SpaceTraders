@@ -143,9 +143,10 @@ public class MainApplication extends Application {
         InputStream buffer = new BufferedInputStream(file);
         ObjectInput input = new ObjectInputStream(buffer);
         universe = (Universe) input.readObject();
+        player = (Player) input.readObject();
+        
         //Set singleton instance to the loaded universe
         Universe.setInstance(universe);
-        player = (Player) input.readObject();
         
         goToDashboard();
     }
