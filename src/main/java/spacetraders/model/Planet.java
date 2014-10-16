@@ -1,5 +1,7 @@
 package spacetraders.model;
 
+import spacetraders.PlanetEvent;
+
 /**
 *This class implements the Planet Class
 *to set up and create the methods of creating coordinates
@@ -13,15 +15,16 @@ public class Planet {
     private TechnologyLevel technologyLevel;
     private ResourceLevel resourceLevel;
     private Resources resources;
+    private PlanetEvent planetEvent; //added in constructor
 
     /**
 	 * This constructor sets up a planet
 	 * @param String name, Coordinates coordinates, TechnologyLevel technologyLevel,
-     *   ResourceLevel resourceLevel, Resources resources
+     *   ResourceLevel resourceLevel, Resources resources, PlanetEvent planetEvent
 	 * 
 	 */
     public Planet(String name, Coordinates coordinates, TechnologyLevel technologyLevel,
-        ResourceLevel resourceLevel, Resources resources) {
+        ResourceLevel resourceLevel, Resources resources, PlanetEvent planetEvent) {
         this.name = name;
         this.coordinates = coordinates;
         this.technologyLevel = technologyLevel;
@@ -55,20 +58,41 @@ public class Planet {
     public int getResourcePrice(ResourceType type) {
         //get the instance of this singleton class
         ResourcesInfo a = ResourcesInfo.getInstance();
+        
         double randomness = -1.0 * a.getVariance(type) / 100 + 
         Math.random()*2*a.getVariance(type) / 100;
+        
         double value = a.getBasePrice(type) * (1 + randomness); 
+        
         value += (a.getPriceIncreasePerTechLevel(type) * 
             (technologyLevel.ordinal() - a.getMinTechLevelToProduce(type).ordinal()));
+        
         if (getResourceLevel() == a.getConditionForCheap(type)) {
             value /= 2;
         } else if (getResourceLevel() == a.getConditionForExpensive(type)) {
             value *= 1.5;
         }
-
+        
+        //checking for planet events
+        if(getPlanetEvent() == DROUGHT && getResources() == WATER 
+        		|| getPlanetEvent() == CROPFAIL && getResources() == FOOD
+        		|| getPlanetEvent() == WAR && getResources() == OIL
+        		|| getPlanetEvent() == LACK_OF_WORKERS && getResources() == GOLD
+    			|| getPlanetEvent() == BOREDOM && getResources() == COCAINE) {
+        	value *= 1.3;
+        }
         return (int) value; 
     }
 
+    /**
+    * this method gets the Planet event
+    * @param none
+    * @return none
+    */
+    public PlanetEvent getPlanetEvent() {
+    	return this.planetEvent;
+    }
+    
     /**
     * this method sets cooridnates of planet
     * @param Coordinates coordinates
