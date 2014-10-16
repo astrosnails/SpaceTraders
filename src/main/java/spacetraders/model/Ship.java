@@ -1,5 +1,7 @@
 package spacetraders.model;
 
+import javafx.beans.property.SimpleIntegerProperty;
+
 /**
 *This class implements the Ship Class
 *to set up and create the methods of ship
@@ -183,7 +185,7 @@ public class Ship {
      * @param none
      * @return int fuel
      */
-    public int getFuel() {
-        return cargo.getResources().getResourceAmount(ResourceType.FUEL); 
+    public SimpleIntegerProperty getFuel() {
+        return cargo.getResources().getResourceAmountProperty(ResourceType.FUEL);
     }
 }

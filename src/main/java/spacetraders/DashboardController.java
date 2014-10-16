@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.StringBinding;
+import javafx.beans.binding.StringExpression;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -45,6 +48,8 @@ public class DashboardController extends Controller implements TravelListener {
     @FXML
     private Label playerName;
     @FXML
+    private Label fuelLabel;
+    @FXML
     private Label fighterPoints;
     @FXML
     private Label traderPoints;
@@ -68,6 +73,9 @@ public class DashboardController extends Controller implements TravelListener {
         traderPoints.setText(Integer.toString(player.getTraderSkill()));
         pilotPoints.setText(Integer.toString(player.getPilotSkill()));
         engineerPoints.setText(Integer.toString(player.getEngineerSkill()));
+        
+        StringExpression labelText = Bindings.concat("Fuel: ", player.getShip().getFuel().asString());
+        fuelLabel.textProperty().bind(labelText);
     }
     
     /*

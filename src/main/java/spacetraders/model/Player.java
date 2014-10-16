@@ -252,7 +252,7 @@ public class Player {
         double fuelNeeded =
                 getFuelNeeded(location.getCoordinates(), planet.getCoordinates());
         
-        return getShip().getFuel() > fuelNeeded;
+        return getShip().getFuel().getValue() > fuelNeeded;
     }
     /**
     * gets the fuel needed to go from first to second coordinate

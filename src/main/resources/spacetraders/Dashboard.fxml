@@ -84,5 +84,6 @@
          </children>
       </GridPane>
       <Pane fx:id="mapPane" layoutY="191.0" prefHeight="209.0" prefWidth="292.0" style="-fx-background-color: #000; -fx-border-color: #aaa; -fx-border-width: 2px;" />
+      <Label fx:id="fuelLabel" alignment="CENTER_RIGHT" layoutX="509.0" layoutY="370.0" prefHeight="16.0" prefWidth="79.0" text="Fuel" textFill="WHITE" />
    </children>
 </AnchorPane>
