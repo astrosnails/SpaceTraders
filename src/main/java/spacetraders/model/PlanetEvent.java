@@ -10,5 +10,6 @@ public enum PlanetEvent {
     CROPFAIL,
     WAR,
     LACK_OF_WORKERS,
-    BOREDOM
+    BOREDOM,
+    NOTHING
 }

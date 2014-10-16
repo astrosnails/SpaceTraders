@@ -29,7 +29,7 @@ public class Universe {
             .addResource(ResourceType.COCAINE, 1);
         Planet p1 = new Planet("Planet 1", new Coordinates(1, 2),
             TechnologyLevel.AGRICULTURE,
-            ResourceLevel.LOTSOFWATER, r1);
+            ResourceLevel.LOTSOFWATER, r1, PlanetEvent.NOTHING);
         
         Resources r2 = new Resources();
         r2.addResource(ResourceType.WATER, 50)
@@ -39,7 +39,7 @@ public class Universe {
             .addResource(ResourceType.COCAINE, 2);
         Planet p2 = new Planet("Planet 2", new Coordinates(4, 5),
             TechnologyLevel.INDUSTRIAL,
-            ResourceLevel.DESERT, r2);
+            ResourceLevel.DESERT, r2, PlanetEvent.NOTHING);
         
         Resources r3 = new Resources();
         r3.addResource(ResourceType.WATER, 500)
@@ -49,7 +49,7 @@ public class Universe {
             .addResource(ResourceType.COCAINE, 5);
         Planet p3 = new Planet("Planet 3", new Coordinates(2, 3),
             TechnologyLevel.MEDIEVAL,
-            ResourceLevel.MINERALRICH, r3);
+            ResourceLevel.MINERALRICH, r3, PlanetEvent.NOTHING);
         
         Resources r4 = new Resources();
         r4.addResource(ResourceType.WATER, 200)
@@ -59,7 +59,7 @@ public class Universe {
             .addResource(ResourceType.COCAINE, 0);
         Planet p4 = new Planet("Planet 4", new Coordinates(9, 8),
             TechnologyLevel.RENAISSANCE,
-            ResourceLevel.RICHSOIL, r4);
+            ResourceLevel.RICHSOIL, r4, PlanetEvent.NOTHING);
         
         planets = new ArrayList<Planet>();
         planets.add(p1);

@@ -8,6 +8,14 @@ package spacetraders;
 
 import java.io.IOException;
 import java.util.List;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import spacetraders.model.*;
 
 /**
  * The main application class. This class is run when the user opens the application.
@@ -18,7 +26,6 @@ public class MainApplication extends Application {
     private Stage mainStage;
     private Player player;
     private Universe universe;
-    private Planet planet; //added a Planet instance variable
     
     /**
     * Starts the application.
@@ -70,6 +77,9 @@ public class MainApplication extends Application {
         this.player = player;
         universe = Universe.getInstance();
         List<Planet> planets = universe.getPlanets();
+        for (Planet planet : planets) {
+            player.addTravelListener(planet);
+        }
         
         Planet playerLocation = planets.get((int) (Math.random() * planets.size()));
         this.player.setLocation(playerLocation);
@@ -136,10 +146,5 @@ public class MainApplication extends Application {
     */
     public Universe getUniverse() {
         return universe;
-    }
-    
-    //added a getter method for planet
-    public Planet getPlanet() {
-    	return planet;
     }
 }

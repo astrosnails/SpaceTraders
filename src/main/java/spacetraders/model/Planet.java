@@ -1,8 +1,8 @@
 package spacetraders.model;
 
 import java.util.Random;
-
-import spacetraders.PlanetEvent;
+import spacetraders.Abstract.TravelListener;
+import spacetraders.model.PlanetEvent;
 
 /**
 *This class implements the Planet Class
@@ -10,7 +10,7 @@ import spacetraders.PlanetEvent;
 * @author Team 6, CS 2340 - Fall 2014 M5
 * 
 */
-public class Planet implements TravelListener{
+public class Planet implements TravelListener {
     
     private String name;
     private Coordinates coordinates;
@@ -76,13 +76,14 @@ public class Planet implements TravelListener{
         }
         
         //checking for planet events
-        if(getPlanetEvent() == DROUGHT && getResources() == WATER 
-        		|| getPlanetEvent() == CROPFAIL && getResources() == FOOD
-        		|| getPlanetEvent() == WAR && getResources() == OIL
-        		|| getPlanetEvent() == LACK_OF_WORKERS && getResources() == GOLD
-    			|| getPlanetEvent() == BOREDOM && getResources() == COCAINE) {
-        	value *= 1.3;
+        if(getPlanetEvent() == PlanetEvent.DROUGHT && type == ResourceType.WATER 
+                || getPlanetEvent() == PlanetEvent.CROPFAIL && type == ResourceType.FOOD
+                || getPlanetEvent() == PlanetEvent.WAR && type == ResourceType.OIL
+                || getPlanetEvent() == PlanetEvent.LACK_OF_WORKERS && type == ResourceType.GOLD
+                || getPlanetEvent() == PlanetEvent.BOREDOM && type == ResourceType.COCAINE) {
+            value *= 1.3;
         }
+        
         return (int) value; 
     }
 
@@ -169,22 +170,7 @@ public class Planet implements TravelListener{
     
     public void onTravel(Planet destination) {
     	Random rand = new Random();
-    	int num = rand.nextInt(5);
-    	
-    	if(num == 0) {
-    		destination.planetEvent = PlanetEvent.DROUGHT;
-    	} 
-    	if(num == 1) {
-    		destination.planetEvent = PlanetEvent.CROPFAIL;
-    	}
-    	if(num == 2) {
-    		destination.planetEvent = PlanetEvent.WAR;
-    	}
-    	if(num == 3) {
-    		destination.planetEvent = PlanetEvent.LACK_OF_WORKERS;
-    	}
-    	if(num == 4) {
-    		destination.planetEvent = PlanetEvent.BOREDOM;
-    	}
+    	int num = rand.nextInt(PlanetEvent.values().length);
+    	planetEvent = PlanetEvent.values()[num];
     }
 }
