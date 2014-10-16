@@ -30,13 +30,6 @@ import javafx.stage.Stage;
 * 
 */
 public class WelcomeScreenController extends Controller {
-    
-    @FXML
-    private Button button;
-    @FXML
-    private Button button1;
-    @FXML
-    private Button button2;
 
     /**
     * this method is the button action listener 
@@ -45,7 +38,13 @@ public class WelcomeScreenController extends Controller {
     * @return info
     */
     @FXML
-    private void handleButtonAction(ActionEvent event) throws IOException {
+    private void onNewGameButtonClicked(ActionEvent event) throws IOException {
         application.goToNewGameDialog();
+    }
+    
+    @FXML
+    private void onLoadGameButtonClicked(ActionEvent event) throws IOException,
+            ClassNotFoundException {
+        application.loadGame();
     }
 }

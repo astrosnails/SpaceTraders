@@ -277,6 +277,8 @@ public class Player implements Serializable {
     private void readObject(ObjectInputStream in) throws IOException,
             ClassNotFoundException {
         in.defaultReadObject();
-        money.set(in.readInt());
+        money = new SimpleIntegerProperty(in.readInt());
+        
+        travelListeners = new ArrayList<>();
     }
 }

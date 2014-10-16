@@ -17,15 +17,15 @@
             <Image url="@welcome%20screen.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="button" layoutX="209.0" layoutY="213.0" prefHeight="50.0" prefWidth="100.0" text="Load Game">
+      <Button fx:id="loadGameButton" layoutX="209.0" layoutY="213.0" onAction="#onLoadGameButtonClicked" prefHeight="50.0" prefWidth="100.0" text="Load Game">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="button1" layoutX="209.0" layoutY="295.0" prefHeight="50.0" prefWidth="100.0" text="Options">
+      <Button fx:id="optionsButton" layoutX="209.0" layoutY="295.0" prefHeight="50.0" prefWidth="100.0" text="Options">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="button2" layoutX="209.0" layoutY="128.0" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="100.0" text="New Game">
+      <Button fx:id="newGameButton" layoutX="209.0" layoutY="128.0" onAction="#onNewGameButtonClicked" prefHeight="50.0" prefWidth="100.0" text="New Game">
          <font>
             <Font size="14.0" />
          </font></Button>

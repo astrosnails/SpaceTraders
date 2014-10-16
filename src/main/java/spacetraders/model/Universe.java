@@ -82,6 +82,11 @@ public class Universe implements Serializable {
         return universe;
     }
     
+    // CAUTION: ONLY USE FOR LOADING GAME
+    public static void setInstance(Universe otherUniverse) {
+        universe = otherUniverse;
+    }
+    
     public List<Planet> getPlanets() {
         return planets;
     }
