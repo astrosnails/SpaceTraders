@@ -82,19 +82,35 @@ public class Universe implements Serializable {
         return universe;
     }
     
-    // CAUTION: ONLY USE FOR LOADING GAME
+    /**
+    * CAUTION: ONLY USE FOR LOADING GAME
+    * Sets the global universe object to otherUniverse
+    * @param otherUniverse The universe
+    */
     public static void setInstance(Universe otherUniverse) {
         universe = otherUniverse;
     }
     
+    /**
+    * Returns the planet in the universe
+    * @return The planets
+    */
     public List<Planet> getPlanets() {
         return planets;
     }
     
+    /**
+    * Returns the width of the universe
+    * @return The width
+    */
     public int getWidth() {
         return width;
     }
     
+    /**
+    * Returns the height of the universe
+    * @return The height
+    */
     public int getHeight() {
         return height;
     }

@@ -59,19 +59,19 @@ public class NewGameDialogController extends Controller {
     @FXML
     private Label engineerSPLabel;
 
-	/* 
-	* handler for when cancel button is pressed
-	* @param ActionEvent event
-	*/
+    /* 
+    * handler for when cancel button is pressed
+    * @param ActionEvent event
+    */
     @FXML
     private void handleCancelAction(ActionEvent event) throws IOException {
         application.goToWelcomeScreen();
     }
 
-	/* 
-	* handler for when continue button is pressed
-	* @param ActionEvent event
-	*/
+    /* 
+    * handler for when continue button is pressed
+    * @param ActionEvent event
+    */
     @FXML
     private void handleContinueAction(ActionEvent event) throws IOException {
         String playerName = playerNameTextEdit.getText();

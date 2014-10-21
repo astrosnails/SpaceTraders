@@ -140,11 +140,19 @@ public class Resources implements Serializable {
             return amount;
         }
         
+        /**
+        * Serializes the resource for saving
+        * @param out Output stream
+        */
         private void writeObject(ObjectOutputStream out) throws IOException {
             out.defaultWriteObject();
             out.writeInt(amount.getValue());
         }
         
+        /**
+        * Serializes the resource for saving
+        * @param out Output stream
+        */
         private void readObject(ObjectInputStream in) throws IOException,
                 ClassNotFoundException {
             in.defaultReadObject();

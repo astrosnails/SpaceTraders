@@ -269,11 +269,19 @@ public class Player implements Serializable {
         return fuelPerGridUnit * c1.distanceTo(c2);
     }
     
+    /**
+    * Serializes player for saving
+    * @param out Output stream
+    */
     private void writeObject(ObjectOutputStream out) throws IOException {
         out.defaultWriteObject();
         out.writeInt(money.getValue());
     }
     
+    /**
+    * Deserializes player for loading
+    * @param in Input stream
+    */
     private void readObject(ObjectInputStream in) throws IOException,
             ClassNotFoundException {
         in.defaultReadObject();
