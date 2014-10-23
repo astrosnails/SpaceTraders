@@ -125,7 +125,7 @@ public class ShipsInfo {
     }
       public String getInformationAsText(ShipType type) {
           StringBuilder info = new StringBuilder();
-          info.append("Name: " + getName(type) + "(" + getPrice(type) + ")\n");
+          info.append("Name: " + getName(type) + " (" + getPrice(type) + ")\n");
           info.append(getDescription(type) + "\n\n");
           info.append("Details\n");
           info.append("-------------------------------------\n");
