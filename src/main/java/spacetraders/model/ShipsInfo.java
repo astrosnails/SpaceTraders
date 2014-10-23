@@ -128,7 +128,7 @@ public class ShipsInfo {
           info.append("Name: " + getName(type) + "(" + getPrice(type) + ")\n");
           info.append(getDescription(type) + "\n\n");
           info.append("Details\n");
-          info.append("-------------------------------------");
+          info.append("-------------------------------------\n");
           info.append("Health: " + getMaxHealth(type) + "\n");
           info.append("Attack: " + getAttack(type) + "\n");
           info.append("Speed: " + getSpeed(type) + "\n");
