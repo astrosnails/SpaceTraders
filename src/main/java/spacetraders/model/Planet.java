@@ -5,6 +5,9 @@ import spacetraders.Abstract.TravelListener;
 import spacetraders.model.PlanetEvent;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
 *This class implements the Planet Class
@@ -20,7 +23,8 @@ public class Planet implements TravelListener, Serializable {
     private ResourceLevel resourceLevel;
     private Resources resources;
     private PlanetEvent planetEvent; //added in constructor
-
+    private Set<ShipType> shipsInShipyard;
+    
     /**
     * This constructor sets up a planet
     * @param String name, Coordinates coordinates, TechnologyLevel technologyLevel,
@@ -28,13 +32,14 @@ public class Planet implements TravelListener, Serializable {
     * 
     */
     public Planet(String name, Coordinates coordinates, TechnologyLevel technologyLevel,
-        ResourceLevel resourceLevel, Resources resources, PlanetEvent planetEvent) {
+        ResourceLevel resourceLevel, Resources resources, PlanetEvent planetEvent, Set<ShipType> shipyard) {
         this.name = name;
         this.coordinates = coordinates;
         this.technologyLevel = technologyLevel;
         this.resourceLevel = resourceLevel;
         this.resources = resources;
         this.planetEvent = planetEvent;
+        this.shipsInShipyard = shipyard;
     }
     
     /**

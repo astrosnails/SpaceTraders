@@ -11,153 +11,20 @@ import javafx.beans.property.SimpleIntegerProperty;
 */
 
 public class Ship implements Serializable {
-
-    private String name;
-    private int cost;
-    private String description;
-    private int attack;
-    private int defense;
-    private int speed;
-    private int cargoSpace;
+    private ShipType type;
     private Cargo cargo;
+    private int health;
 
     /**
      * This constructor sets up a Ship
      * @param String name, int cost, int cargoSpace
      * @return none
      */
-    public Ship(String name, int cost, int cargoSpace) {
-        this.name = name;
-        this.cost = cost;
-        cargo = new Cargo(cargoSpace);
+    public Ship(ShipType type) {
+        this.type = type;
+        cargo = new Cargo(ShipsInfo.getInstance().getCargoSpace(type));
     }
 
-    /**
-     * This method sets name of a Ship
-     * @param String name
-     * @return none
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * This method gets name of a Ship
-     * @param none
-     * @return String name
-     */
-    public String getName() {
-        return this.name;
-    } 
-
-    /**
-     * This method sets cost of a Ship
-     * @param int cost
-     * @return none
-     */
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
-
-    /**
-     * This method gets name of a Ship
-     * @param none
-     * @return int cost
-     */
-    public int getCost() {
-        return this.cost;
-    } 
-
-    /**
-     * This method sets description of a Ship
-     * @param String description
-     * @return none
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * This method gets description of a Ship
-     * @param none
-     * @return String description
-     */
-    public String getDescription() {
-        return this.description;
-    } 
-
-    /**
-     * This method sets attack of a Ship
-     * @param int attack
-     * @return none
-     */
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
-    /**
-     * This method gets attack of a Ship
-     * @param none
-     * @return int attack
-     */
-    public int getAttack() {
-        return this.attack;
-    } 
-
-    /**
-     * This method sets defense of a Ship
-     * @param int defense
-     * @return none
-     */
-    public void setDefense(int defense) {
-        this.defense = defense;
-    }
-
-    /**
-     * This method gets defense of a Ship
-     * @param none
-     * @return int defense
-     */
-    public int getDefense() {
-        return this.defense;
-    } 
-
-    /**
-     * This method sets speed of a Ship
-     * @param int speed
-     * @return none
-     */
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    /**
-     * This method gets speed of a Ship
-     * @param none
-     * @return int speed
-     */
-    public int getSpeed() {
-        return this.speed;
-    } 
-
-    /**
-     * This method sets speed of a Ship
-     * @param none
-     * @return int speed
-     */
-    public void setCargoSpace(int cargoSpace) {
-        this.cargoSpace = cargoSpace;
-    }
-
-    /**
-     * This method gets cargo space of a Ship
-     * @param none
-     * @return int cargoSpace
-     */
-    public int getCargoSpace() {
-        return this.cargoSpace;
-    }
-    
     /** 
      * This method gets the cargo of a Ship
      * @return Cargo cargo
@@ -188,5 +55,20 @@ public class Ship implements Serializable {
      */
     public SimpleIntegerProperty getFuel() {
         return cargo.getResources().getResourceAmountProperty(ResourceType.FUEL);
+    }
+    
+    /**
+     * This method is to get the health of the ship
+     * @return health
+     */
+    public int getHealth() {
+        return health;
+    }
+       /**
+     * This method is to set the health of the ship
+     * @param new health
+     */
+    public void setHealth(int health) {
+        this.health = health;
     }
 }

@@ -43,7 +43,7 @@ public class Player implements Serializable {
         this.engineerSkill = engineerSkill;
         this.cargo = new Cargo(30);
         //TODO: MOVE CONFIG TO TOP OF CLASS HIERARCHY
-        this.ship = new Ship("bad", 5000, 30);
+        this.ship = new Ship(ShipType.Normandy);
         travelListeners = new ArrayList<>();
     }
     
