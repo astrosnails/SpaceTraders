@@ -1,5 +1,9 @@
 package spacetraders.model;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.EnumMap;
 import java.util.Map;
 import javafx.beans.property.IntegerProperty;
@@ -9,7 +13,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 *@author Team AstroSnail
 *@version 1.0
 */
-public class Resources {
+public class Resources implements Serializable {
     
     private Map<ResourceType, Resource> resources;
     /** 
@@ -87,8 +91,8 @@ public class Resources {
     /** 
     *  Private Inner Class for Resource
     */
-    private class Resource {
-        private SimpleIntegerProperty amount;
+    private class Resource implements Serializable {
+        transient private SimpleIntegerProperty amount;
         /**
         *Create a resource object
         *@param int - int represents the amount of the resource
@@ -134,6 +138,25 @@ public class Resources {
         */
         public SimpleIntegerProperty getAmountProperty() {
             return amount;
+        }
+        
+        /**
+        * Serializes the resource for saving
+        * @param out Output stream
+        */
+        private void writeObject(ObjectOutputStream out) throws IOException {
+            out.defaultWriteObject();
+            out.writeInt(amount.getValue());
+        }
+        
+        /**
+        * Serializes the resource for saving
+        * @param out Output stream
+        */
+        private void readObject(ObjectInputStream in) throws IOException,
+                ClassNotFoundException {
+            in.defaultReadObject();
+            amount = new SimpleIntegerProperty(in.readInt());
         }
     }
 }

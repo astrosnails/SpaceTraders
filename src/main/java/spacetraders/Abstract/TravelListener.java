@@ -10,9 +10,8 @@ import spacetraders.model.Planet;
  */
 public interface TravelListener {
     /**
-    * Lets you travel.
-    * @param: Planet destination
-    * @return: none
+    * Called when the player travels.
+    * @param destination destination
     */
     public void onTravel(Planet destination);
 }

@@ -1,5 +1,6 @@
 package spacetraders.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -9,49 +10,71 @@ import java.util.ArrayList;
 * 
 */
 
-public class Cargo {
+public class Cargo implements Serializable {
 
-	private Resources resources;
-	private int maxSize;
-   
+    private Resources resources;
+    private int maxSize;
+
     /**
-	 * This constructor sets up a Cargo
-	 * @param int maxSize
-	 * 
-	 */
+     * This constructor sets up a Cargo
+     * @param int maxSize
+     * 
+     */
+    public Cargo(int maxSize) {
+        this.maxSize = maxSize;
+        resources = new Resources();
+    }
 
-	public Cargo(int maxSize) {
-            this.maxSize = maxSize;
-            resources = new Resources();
-	}
+    /**
+     * Returns the resources
+     * @return The resources that the cargo holds
+     * 
+     */
+    public Resources getResources() {
+        return resources;
+    }
 
-        public Resources getResources() {
-            return resources;
+    /**
+     * Returns the total number of units of resources
+     * @return The total amount of resources that the cargo has
+     * 
+     */
+    public int calculateTotalResources() {
+        int waterAmount = resources.getResourceAmount(ResourceType.WATER);
+        int foodAmount = resources.getResourceAmount(ResourceType.FOOD);
+        int oilAmount = resources.getResourceAmount(ResourceType.OIL);
+        int goldAmount = resources.getResourceAmount(ResourceType.GOLD);
+        int cocaineAmount = resources.getResourceAmount(ResourceType.COCAINE);
+        int totalAmount = waterAmount + foodAmount + oilAmount + goldAmount + cocaineAmount;
+        return totalAmount;
+    }
+
+    /**
+     * Returns the empty space that the cargo can still hold
+     * @return The empty space
+     * 
+     */
+    public int calculateEmptySpace() {
+        return maxSize - calculateTotalResources();
+    }
+
+    /**
+     * Checks if cargo has room for amount of resources
+     * @param amount The amount of resources
+     * @return True if amount of resources fit. False otherwise.
+     */
+    public boolean validateCargoSpace(int amount) {
+        if (calculateEmptySpace() >= amount) {
+            return true;
         }
-        
-        public int calculateTotalResources() {
-            int waterAmount = resources.getResourceAmount(ResourceType.WATER);
-            int foodAmount = resources.getResourceAmount(ResourceType.FOOD);
-            int oilAmount = resources.getResourceAmount(ResourceType.OIL);
-            int goldAmount = resources.getResourceAmount(ResourceType.GOLD);
-            int cocaineAmount = resources.getResourceAmount(ResourceType.COCAINE);
-            int totalAmount = waterAmount + foodAmount + oilAmount + goldAmount + cocaineAmount;
-            return totalAmount;
-        }
-        
-        public int calculateEmptySpace() {
-            return maxSize - calculateTotalResources();
-        }
-        
-        public boolean validateCargoSpace(int amount) {
-            if (calculateEmptySpace() >= amount) {
-                return true;
-            }
-            return false;
-        }
-        
-        
-        public int getMaxSize() {
-            return maxSize;
-        }
+        return false;
+    }
+
+    /**
+     * Returns the max size that the cargo can hold
+     * @return The max size
+     */
+    public int getMaxSize() {
+        return maxSize;
+    }
 }

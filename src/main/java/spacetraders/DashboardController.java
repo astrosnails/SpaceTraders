@@ -6,12 +6,20 @@
 
 package spacetraders;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.StringBinding;
+import javafx.beans.binding.StringExpression;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -45,6 +53,8 @@ public class DashboardController extends Controller implements TravelListener {
     @FXML
     private Label playerName;
     @FXML
+    private Label fuelLabel;
+    @FXML
     private Label fighterPoints;
     @FXML
     private Label traderPoints;
@@ -68,6 +78,9 @@ public class DashboardController extends Controller implements TravelListener {
         traderPoints.setText(Integer.toString(player.getTraderSkill()));
         pilotPoints.setText(Integer.toString(player.getPilotSkill()));
         engineerPoints.setText(Integer.toString(player.getEngineerSkill()));
+        
+        StringExpression labelText = Bindings.concat("Fuel: ", player.getShip().getFuel().asString());
+        fuelLabel.textProperty().bind(labelText);
     }
     
     /*
@@ -143,6 +156,16 @@ public class DashboardController extends Controller implements TravelListener {
     @FXML
     private void onBuySellButtonClicked(ActionEvent event) throws IOException {
         application.goToMarketPlace();
+    }
+    
+    @FXML
+    private void onSaveGameButtonClicked(ActionEvent event){
+        try {
+            application.saveGame();
+            AlertDialog.showAlert("Game Saved!");
+        } catch (IOException exception) {
+            AlertDialog.showAlert("ERROR: Cannot save game!");
+        }
     }
     
     /**

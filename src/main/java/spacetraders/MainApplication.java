@@ -6,7 +6,17 @@
 
 package spacetraders;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.util.List;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -77,18 +87,14 @@ public class MainApplication extends Application {
         this.player = player;
         universe = Universe.getInstance();
         List<Planet> planets = universe.getPlanets();
+        for (Planet planet : planets) {
+            player.addTravelListener(planet);
+        }
         
         Planet playerLocation = planets.get((int) (Math.random() * planets.size()));
         this.player.setLocation(playerLocation);
         
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
-        Parent root = myLoader.load();
-        
-        DashboardController controller = (DashboardController) myLoader.getController();
-        controller.setMainApplication(this);
-
-        Scene scene = new Scene(root);
-        mainStage.setScene(scene);
+        goToDashboard();
     }
     
     /**
@@ -120,6 +126,29 @@ public class MainApplication extends Application {
 
         Scene scene = new Scene(dialogPane);
         mainStage.setScene(scene);
+    }
+    
+    public void saveGame() throws IOException {
+        OutputStream file = new FileOutputStream("game.data");
+        OutputStream buffer = new BufferedOutputStream(file);
+        ObjectOutput output = new ObjectOutputStream(buffer);
+        output.writeObject(universe);
+        output.writeObject(player);
+        
+        output.close();
+    }
+    
+    public void loadGame() throws IOException, ClassNotFoundException {
+        InputStream file = new FileInputStream("game.data");
+        InputStream buffer = new BufferedInputStream(file);
+        ObjectInput input = new ObjectInputStream(buffer);
+        universe = (Universe) input.readObject();
+        player = (Player) input.readObject();
+        
+        //Set singleton instance to the loaded universe
+        Universe.setInstance(universe);
+        
+        goToDashboard();
     }
 
     /**

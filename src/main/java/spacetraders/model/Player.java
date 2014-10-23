@@ -1,5 +1,9 @@
 package spacetraders.model;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -11,11 +15,11 @@ import spacetraders.Abstract.TravelListener;
 * @author Team 6, CS 2340 - Fall 2014 M5
 * 
 */
-public class Player {
+public class Player implements Serializable {
 
     private String name;
     private Cargo cargo;
-    private SimpleIntegerProperty money;
+    transient private SimpleIntegerProperty money;
     private Planet location;
     private int wantedLevel;
     private int fighterSkill;
@@ -23,7 +27,7 @@ public class Player {
     private int traderSkill;
     private int engineerSkill;
     private Ship ship;
-    private List<TravelListener> travelListeners;
+    transient private List<TravelListener> travelListeners;
     
     /**
      * This constructor sets up a player
@@ -252,7 +256,7 @@ public class Player {
         double fuelNeeded =
                 getFuelNeeded(location.getCoordinates(), planet.getCoordinates());
         
-        return getShip().getFuel() > fuelNeeded;
+        return getShip().getFuel().getValue() > fuelNeeded;
     }
     /**
     * gets the fuel needed to go from first to second coordinate
@@ -263,5 +267,26 @@ public class Player {
     public static double getFuelNeeded(Coordinates c1, Coordinates c2) {
         double fuelPerGridUnit = 1.5;
         return fuelPerGridUnit * c1.distanceTo(c2);
+    }
+    
+    /**
+    * Serializes player for saving
+    * @param out Output stream
+    */
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+        out.writeInt(money.getValue());
+    }
+    
+    /**
+    * Deserializes player for loading
+    * @param in Input stream
+    */
+    private void readObject(ObjectInputStream in) throws IOException,
+            ClassNotFoundException {
+        in.defaultReadObject();
+        money = new SimpleIntegerProperty(in.readInt());
+        
+        travelListeners = new ArrayList<>();
     }
 }

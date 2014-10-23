@@ -1,10 +1,12 @@
 package spacetraders.model;
 
+<<<<<<< HEAD
 import java.util.Random;
 import spacetraders.Abstract.TravelListener;
 import spacetraders.model.PlanetEvent;
-
+=======
 import java.io.Serializable;
+>>>>>>> Implement save functionality
 
 /**
 *This class implements the Planet Class
@@ -12,7 +14,11 @@ import java.io.Serializable;
 * @author Team 6, CS 2340 - Fall 2014 M5
 * 
 */
-public class Planet implements TravelListener, Serializable {
+<<<<<<< HEAD
+public class Planet implements TravelListener {
+=======
+public class Planet implements Serializable{
+>>>>>>> Implement save functionality
     
     private String name;
     private Coordinates coordinates;
@@ -22,11 +28,11 @@ public class Planet implements TravelListener, Serializable {
     private PlanetEvent planetEvent; //added in constructor
 
     /**
-    * This constructor sets up a planet
-    * @param String name, Coordinates coordinates, TechnologyLevel technologyLevel,
-    *   ResourceLevel resourceLevel, Resources resources, PlanetEvent planetEvent
-    * 
-    */
+	 * This constructor sets up a planet
+	 * @param String name, Coordinates coordinates, TechnologyLevel technologyLevel,
+     *   ResourceLevel resourceLevel, Resources resources, PlanetEvent planetEvent
+	 * 
+	 */
     public Planet(String name, Coordinates coordinates, TechnologyLevel technologyLevel,
         ResourceLevel resourceLevel, Resources resources, PlanetEvent planetEvent) {
         this.name = name;
@@ -167,11 +173,6 @@ public class Planet implements TravelListener, Serializable {
         return this.resources;
     }
     
-    /**
-    * This method is called when the player travels, in other words, when time
-    * passes.
-    * @param destination The destination that the player is traveling to.
-    */
     public void onTravel(Planet destination) {
     	Random rand = new Random();
     	int num = rand.nextInt(PlanetEvent.values().length);

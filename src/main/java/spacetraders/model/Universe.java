@@ -1,4 +1,5 @@
 package spacetraders.model;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,7 +9,7 @@ import java.util.Random;
 * as the planets that are in the universe.
 * @author Team Astrosnails (6) - CS 2340 Fall 2014
 */
-public class Universe {
+public class Universe implements Serializable {
     private static Universe universe;
     private List<Planet> planets;
     private int width;
@@ -29,7 +30,7 @@ public class Universe {
             .addResource(ResourceType.COCAINE, 1);
         Planet p1 = new Planet("Planet 1", new Coordinates(1, 2),
             TechnologyLevel.AGRICULTURE,
-            ResourceLevel.LOTSOFWATER, r1);
+            ResourceLevel.LOTSOFWATER, r1, PlanetEvent.DROUGHT);
         
         Resources r2 = new Resources();
         r2.addResource(ResourceType.WATER, 50)
@@ -39,7 +40,7 @@ public class Universe {
             .addResource(ResourceType.COCAINE, 2);
         Planet p2 = new Planet("Planet 2", new Coordinates(4, 5),
             TechnologyLevel.INDUSTRIAL,
-            ResourceLevel.DESERT, r2);
+            ResourceLevel.DESERT, r2, PlanetEvent.NOTHING);
         
         Resources r3 = new Resources();
         r3.addResource(ResourceType.WATER, 500)
@@ -49,7 +50,7 @@ public class Universe {
             .addResource(ResourceType.COCAINE, 5);
         Planet p3 = new Planet("Planet 3", new Coordinates(2, 3),
             TechnologyLevel.MEDIEVAL,
-            ResourceLevel.MINERALRICH, r3);
+            ResourceLevel.MINERALRICH, r3, PlanetEvent.NOTHING);
         
         Resources r4 = new Resources();
         r4.addResource(ResourceType.WATER, 200)
@@ -59,7 +60,7 @@ public class Universe {
             .addResource(ResourceType.COCAINE, 0);
         Planet p4 = new Planet("Planet 4", new Coordinates(9, 8),
             TechnologyLevel.RENAISSANCE,
-            ResourceLevel.RICHSOIL, r4);
+            ResourceLevel.RICHSOIL, r4, PlanetEvent.NOTHING);
         
         planets = new ArrayList<Planet>();
         planets.add(p1);
@@ -81,14 +82,35 @@ public class Universe {
         return universe;
     }
     
+    /**
+    * CAUTION: ONLY USE FOR LOADING GAME
+    * Sets the global universe object to otherUniverse
+    * @param otherUniverse The universe
+    */
+    public static void setInstance(Universe otherUniverse) {
+        universe = otherUniverse;
+    }
+    
+    /**
+    * Returns the planet in the universe
+    * @return The planets
+    */
     public List<Planet> getPlanets() {
         return planets;
     }
     
+    /**
+    * Returns the width of the universe
+    * @return The width
+    */
     public int getWidth() {
         return width;
     }
     
+    /**
+    * Returns the height of the universe
+    * @return The height
+    */
     public int getHeight() {
         return height;
     }
