@@ -123,6 +123,19 @@ public class ShipsInfo {
       public String getDescription(ShipType type) {
         return shipInfoMap.get(type).description;
     }
+      public String getInformationAsText(ShipType type) {
+          StringBuilder info = new StringBuilder();
+          info.append("Name: " + getName(type) + "(" + getPrice(type) + ")\n");
+          info.append(getDescription(type) + "\n\n");
+          info.append("Details\n");
+          info.append("-------------------------------------");
+          info.append("Health: " + getMaxHealth(type) + "\n");
+          info.append("Attack: " + getAttack(type) + "\n");
+          info.append("Speed: " + getSpeed(type) + "\n");
+          info.append("Maximum Cargo Space: " + getCargoSpace(type) + "\n");
+ 
+          return info.toString();
+      }
     /**
      * ShipInfo holds the information for one ship
      */
