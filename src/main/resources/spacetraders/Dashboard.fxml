@@ -16,7 +16,7 @@
             <Image url="@dashboard.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="336.0" layoutY="167.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="218.0" text="Ship information/Upgrades" />
+      <Button layoutX="336.0" layoutY="167.0" mnemonicParsing="false" onAction="#onShipyardButtonClicked" prefHeight="66.0" prefWidth="218.0" text="Ship information/Upgrades" />
       <Button fx:id="buySellButton" layoutX="336.0" layoutY="67.0" mnemonicParsing="false" onAction="#onBuySellButtonClicked" prefHeight="66.0" prefWidth="218.0" text="Buy/Sell" />
       <GridPane fx:id="playerInformation" blendMode="DIFFERENCE" prefHeight="200.0" prefWidth="300.0">
         <columnConstraints>

@@ -128,6 +128,21 @@ public class MainApplication extends Application {
         mainStage.setScene(scene);
     }
     
+    /**
+    *  Goes to ship yard
+    * @param: Player player
+    */
+    public void goToShipYard() throws IOException {
+        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("ShipYard.fxml"));
+        Pane dialogPane = myLoader.load();
+
+        ShipYardController controller = (ShipYardController) myLoader.getController();
+        controller.setMainApplication(this);
+
+        Scene scene = new Scene(dialogPane);
+        mainStage.setScene(scene);
+    }
+    
     public void saveGame() throws IOException {
         OutputStream file = new FileOutputStream("game.data");
         OutputStream buffer = new BufferedOutputStream(file);

@@ -158,6 +158,16 @@ public class DashboardController extends Controller implements TravelListener {
         application.goToMarketPlace();
     }
     
+    /**
+     * The button listener for selling stuff
+     * @param ActionEvent event
+     * @return none
+    */
+    @FXML
+    private void onShipyardButtonClicked(ActionEvent event) throws IOException {
+        application.goToShipYard();
+    }
+    
     @FXML
     private void onSaveGameButtonClicked(ActionEvent event){
         try {
