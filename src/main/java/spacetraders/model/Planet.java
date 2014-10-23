@@ -172,6 +172,10 @@ public class Planet implements TravelListener, Serializable {
         return this.resources;
     }
     
+    public Set<ShipType> getShipsInShipyard() {
+        return shipsInShipyard;
+    }
+    
     /**
     * This method is called when the player travels, in other words, when time
     * passes.

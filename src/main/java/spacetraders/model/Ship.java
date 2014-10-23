@@ -71,4 +71,8 @@ public class Ship implements Serializable {
     public void setHealth(int health) {
         this.health = health;
     }
+    
+    public ShipType getType() {
+        return type;
+    }
 }
