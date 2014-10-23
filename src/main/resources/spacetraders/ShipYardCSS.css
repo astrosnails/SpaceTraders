@@ -12,7 +12,7 @@ root {
     display: block;
 }
 .root {
--fx-background-image: url("Shipyard.jpg");
+-fx-background-image: url("ShipYard.jpg");
 -fx-background-repeat: stretch; 
 -fx-background-position: top left; 
 }

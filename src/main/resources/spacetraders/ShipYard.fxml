@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.net.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacetraders.ShipYardController">
    <children>
       <Label alignment="CENTER" layoutX="177.0" layoutY="14.0" prefHeight="44.0" prefWidth="247.0" text="Shipyard" textFill="#e1d3d3">
          <font>
@@ -18,17 +18,18 @@
       </Label>
       <TextArea layoutX="245.0" layoutY="79.0" prefHeight="246.0" prefWidth="338.0" />
       <Label fx:id="currentMoney" alignment="CENTER_RIGHT" layoutX="340.0" layoutY="352.0" prefHeight="23.0" prefWidth="149.0" text="Money" textFill="#e1d3d3" />
-      <Button fx:id="buyButton" layoutX="500.0" layoutY="351.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="83.0" text="Buy" />
-      <Button fx:id="backButton" layoutX="32.0" layoutY="352.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Back" />
+      <Button fx:id="buyButton" layoutX="500.0" layoutY="351.0" mnemonicParsing="false" onAction="#onBuyButtonClicked" prefHeight="23.0" prefWidth="83.0" text="Buy" />
+      <Button fx:id="backButton" layoutX="32.0" layoutY="352.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="25.0" prefWidth="83.0" text="Back" />
       <Accordion layoutX="14.0" layoutY="79.0" />
-      <ListView layoutX="15.0" layoutY="79.0" prefHeight="246.0" prefWidth="200.0" />
+      <ListView fx:id="shipsList" layoutX="15.0" layoutY="79.0" prefHeight="246.0" prefWidth="200.0" />
       <Label alignment="BOTTOM_CENTER" layoutX="38.0" layoutY="46.0" prefHeight="25.0" prefWidth="155.0" text="Available Ships">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
+      <TextArea layoutX="255.0" layoutY="89.0" prefHeight="246.0" prefWidth="338.0" />
    </children>
    <stylesheets>
-    <URL value="@ShipyardCSS.css" />
+    <URL value="@ShipYardCSS.css" />
   </stylesheets>
 </AnchorPane>
