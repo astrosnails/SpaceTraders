@@ -22,12 +22,11 @@
       <Button fx:id="backButton" layoutX="32.0" layoutY="352.0" mnemonicParsing="false" onAction="#onBackButtonClicked" prefHeight="25.0" prefWidth="83.0" text="Back" />
       <Accordion layoutX="14.0" layoutY="79.0" />
       <ListView fx:id="shipsList" layoutX="15.0" layoutY="79.0" prefHeight="246.0" prefWidth="200.0" />
-      <Label alignment="BOTTOM_CENTER" layoutX="38.0" layoutY="46.0" prefHeight="25.0" prefWidth="155.0" text="Available Ships">
+      <Label alignment="BOTTOM_CENTER" layoutX="38.0" layoutY="46.0" prefHeight="25.0" prefWidth="155.0" text="Available Ships" textFill="#e1d3d3">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextArea layoutX="255.0" layoutY="89.0" prefHeight="246.0" prefWidth="338.0" />
    </children>
    <stylesheets>
     <URL value="@ShipYardCSS.css" />
