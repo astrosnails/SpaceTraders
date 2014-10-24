@@ -21,8 +21,10 @@ public class Ship implements Serializable {
      * @return none
      */
     public Ship(ShipType type) {
+        ShipsInfo shipsInformation = ShipsInfo.getInstance();
         this.type = type;
-        cargo = new Cargo(ShipsInfo.getInstance().getCargoSpace(type));
+        this.cargo = new Cargo(shipsInformation.getCargoSpace(type));
+        this.health = shipsInformation.getMaxHealth(type);
     }
 
     /** 

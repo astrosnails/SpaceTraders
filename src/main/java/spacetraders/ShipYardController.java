@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,12 +26,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.FocusModel;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import spacetraders.model.Player;
+import spacetraders.model.Ship;
 import spacetraders.model.ShipType;
 import spacetraders.model.ShipsInfo;
 
@@ -43,8 +48,10 @@ import spacetraders.model.ShipsInfo;
 public class ShipYardController extends Controller {
     
     Map<String, ShipType> shipsAvailable;
+    private ShipType selectedShipType;
 
     @FXML private ListView shipsList;
+    @FXML private TextArea shipInfoTextArea;
     @FXML private Label currentMoney;
     
     /**
@@ -66,9 +73,12 @@ public class ShipYardController extends Controller {
     */
     @FXML
     private void onBuyButtonClicked(ActionEvent event) throws IOException {
-        ObservableList<String> names = FXCollections.observableArrayList(
-          "Julia", "Ian", "Sue", "Matthew", "Hannah", "Stephan", "Denise");
-        shipsList.setItems(names);
+        Ship currentShip = application.getPlayer().getShip();
+        if (selectedShipType == currentShip.getType()) {
+            AlertDialog.showAlert("You cannot buy your own ship!");
+        } else {
+            
+        }
     }
     
     /**
@@ -79,7 +89,7 @@ public class ShipYardController extends Controller {
     public void setMainApplication(MainApplication application) {
         this.application = application;
         
-        Player player = application.getPlayer();
+        final Player player = application.getPlayer();
         ShipsInfo shipsInformation = ShipsInfo.getInstance();
         ObservableList<String> names = FXCollections.observableArrayList();
         
@@ -88,10 +98,22 @@ public class ShipYardController extends Controller {
             shipsAvailable.put(shipsInformation.getName(shipType), shipType);
         }
         
-        names.add(shipsInformation.getName(player.getShip().getType()));
+        names.add("Current Ship");
         names.addAll(shipsAvailable.keySet());
         shipsList.setItems(names);    
         
         currentMoney.textProperty().bind(player.getMoney().asString());
+        
+        shipsList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            public void changed(ObservableValue<? extends String> ov, String old_val, String new_val) {
+                if (new_val.equals("Current Ship")) {
+                    selectedShipType = player.getShip().getType();
+                } else {
+                    selectedShipType = shipsAvailable.get(new_val);
+                }
+                
+                shipInfoTextArea.setText(shipsInformation.getInformationAsText(selectedShipType));
+            }
+        });
     }
 }
