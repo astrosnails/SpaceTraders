@@ -33,6 +33,10 @@ public class Cargo implements Serializable {
     public Resources getResources() {
         return resources;
     }
+    
+    public void setResources(Resources resources) {
+        this.resources = resources;
+    }
 
     /**
      * Returns the total number of units of resources

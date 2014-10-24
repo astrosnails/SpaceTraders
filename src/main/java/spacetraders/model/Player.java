@@ -83,6 +83,10 @@ public class Player implements Serializable {
         this.money.set(money);
     }
     
+    public void decreaseMoney(int amount) {
+        money.set(money.getValue() - amount);
+    }
+    
     /**
      * This method checks if player has enough money
      * @param none

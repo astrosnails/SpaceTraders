@@ -74,7 +74,9 @@ public class ShipYardController extends Controller {
     @FXML
     private void onBuyButtonClicked(ActionEvent event) throws IOException {
         ShipsInfo shipsInformation = ShipsInfo.getInstance();
-        Ship currentShip = application.getPlayer().getShip();
+        Player player = application.getPlayer();
+        Ship currentShip = player.getShip();
+        
         if (selectedShipType == currentShip.getType()) {
             AlertDialog.showAlert("This is the same as your ship!");
         } else {
@@ -88,8 +90,28 @@ public class ShipYardController extends Controller {
                     .append(selectedShipPrice)
                     .append("?")
                     .toString(),
-                null, null);
+                (ActionEvent yesEvent) -> {
+                    if (currentShip.getCargo().calculateTotalResources()
+                            > shipsInformation.getCargoSpace(selectedShipType)) {
+                        AlertDialog.showAlert("Your resources do not fit in the new ship.");
+                    } else if (player.getMoney().getValue() < selectedShipPrice) {
+                        AlertDialog.showAlert("You do not have enough money.");
+                    } else {
+                        buyShip(selectedShipType);
+                    }
+                }, null);
         }
+    }
+    
+    private void buyShip(ShipType selectedShip) {
+        Player player = application.getPlayer();
+        Ship oldShip = player.getShip();
+        Ship newShip = new Ship(selectedShip);
+        newShip.getCargo().setResources(oldShip.getCargo().getResources());
+        player.setShip(newShip);
+        
+        int newShipPrice = ShipsInfo.getInstance().getPrice(selectedShip);
+        player.decreaseMoney(newShipPrice);
     }
     
     /**
