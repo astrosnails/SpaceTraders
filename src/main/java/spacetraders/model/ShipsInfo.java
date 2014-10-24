@@ -21,68 +21,74 @@ public class ShipsInfo {
     private ShipsInfo() {
         ShipInfo XWingInfo = new ShipInfo();
         XWingInfo.setname("Xwing")
-                .setPrice(1000)
-                .setAttack(100)
-                .setCargoSpace(100)
-                .setSpeed(100)
-                .setMaxHealth(100)
+                .setPrice(1000000)
+                .setAttack(200)
+                .setCargoSpace(200)
+                .setSpeed(1000)
+                .setMaxHealth(800)
                 .setDescription("Xwing");
         ShipInfo LunarWhaleInfo = new ShipInfo();
         LunarWhaleInfo.setname("LunarWhale")
-                .setPrice(1000)
-                .setAttack(100)
-                .setCargoSpace(100)
-                .setSpeed(100)
-                .setMaxHealth(100)
+                .setPrice(500000)
+                .setAttack(150)
+                .setCargoSpace(165)
+                .setSpeed(700)
+                .setMaxHealth(700)
                 .setDescription("LunarWhale");
         ShipInfo USGIshimuraInfo = new ShipInfo();
         USGIshimuraInfo.setname("USGIshimura")
-                .setPrice(1000)
-                .setAttack(100)
-                .setCargoSpace(100)
-                .setSpeed(100)
-                .setMaxHealth(100)
+                .setPrice(200000)
+                .setAttack(110)
+                .setCargoSpace(130)
+                .setSpeed(600)
+                .setMaxHealth(600)
                 .setDescription("USGIshimura");
         ShipInfo SamusInfo = new ShipInfo();
         SamusInfo.setname("Samus")
-                .setPrice(1000)
-                .setAttack(100)
+                .setPrice(100000)
+                .setAttack(75)
                 .setCargoSpace(100)
-                .setSpeed(100)
-                .setMaxHealth(100)
+                .setSpeed(500)
+                .setMaxHealth(500)
                 .setDescription("Samus");
         ShipInfo ArwingInfo = new ShipInfo();
         ArwingInfo.setname("Arwing")
-                .setPrice(1000)
-                .setAttack(100)
-                .setCargoSpace(100)
-                .setSpeed(100)
-                .setMaxHealth(100)
+                .setPrice(50000)
+                .setAttack(50)
+                .setCargoSpace(75)
+                .setSpeed(400)
+                .setMaxHealth(400)
                 .setDescription("Arwing");
         ShipInfo ProtossInfo = new ShipInfo();
         ProtossInfo.setname("Protoss")
-                .setPrice(1000)
-                .setAttack(100)
-                .setCargoSpace(100)
-                .setSpeed(100)
-                .setMaxHealth(100)
-                .setDescription("Protoss");
+                .setPrice(35000)
+                .setAttack(30)
+                .setCargoSpace(50)
+                .setSpeed(300)
+                .setMaxHealth(300)
+                .setDescription("If the Viper talks, the Protoss shouts. Boasting\n"
+                        + " a reasonable price tag for superiority in every category,\n"
+                        + " this ship is a clear choice for those who want to take\n"
+                        + " their trading game to the next level.");
         ShipInfo VicViperInfo = new ShipInfo();
         VicViperInfo.setname("VicViper")
-                .setPrice(1000)
-                .setAttack(100)
-                .setCargoSpace(100)
-                .setSpeed(100)
-                .setMaxHealth(100)
-                .setDescription("VicViper");
+                .setPrice(20000)
+                .setAttack(20)
+                .setCargoSpace(40)
+                .setSpeed(200)
+                .setMaxHealth(200)
+                .setDescription("Built to be as fast as it looks, the VicViper\n"
+                        + "is the very essence of being slick.");
         ShipInfo NormandyInfo = new ShipInfo();
         NormandyInfo.setname("Normandy")
-                .setPrice(1000)
-                .setAttack(100)
-                .setCargoSpace(100)
+                .setPrice(10000)
+                .setAttack(10)
+                .setCargoSpace(30)
                 .setSpeed(100)
                 .setMaxHealth(100)
-                .setDescription("Normandy");
+                .setDescription("A hardy ship that is the workhorse of the small\n"
+                        + "trader, many trading empires have been built on the decks\n"
+                        + " on these reliable vessels.");
         
        shipInfoMap = new EnumMap<>(ShipType.class);
        shipInfoMap.put(ShipType.XWing, XWingInfo);
