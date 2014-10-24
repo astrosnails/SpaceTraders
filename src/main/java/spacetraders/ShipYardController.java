@@ -73,11 +73,22 @@ public class ShipYardController extends Controller {
     */
     @FXML
     private void onBuyButtonClicked(ActionEvent event) throws IOException {
+        ShipsInfo shipsInformation = ShipsInfo.getInstance();
         Ship currentShip = application.getPlayer().getShip();
         if (selectedShipType == currentShip.getType()) {
-            AlertDialog.showAlert("You cannot buy your own ship!");
+            AlertDialog.showAlert("This is the same as your ship!");
         } else {
+            String selectedShipName = shipsInformation.getName(selectedShipType);
+            int selectedShipPrice = shipsInformation.getPrice(selectedShipType);
             
+            AlertDialog.showYesNo(
+                new StringBuilder().append("Are you sure you want to buy ")
+                    .append(selectedShipName)
+                    .append(" for ")
+                    .append(selectedShipPrice)
+                    .append("?")
+                    .toString(),
+                null, null);
         }
     }
     
