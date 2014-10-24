@@ -31,15 +31,10 @@ public class Universe implements Serializable {
             .addResource(ResourceType.OIL, 100)
             .addResource(ResourceType.COCAINE, 1);
             
-        Set<ShipType> shipyard1 = new HashSet<>();
-        shipyard1.add(ShipType.XWing);
-        shipyard1.add(ShipType.LunarWhale);
-        shipyard1.add(ShipType.USGIshimura);
-        
-        Planet p1 = new Planet("Planet 1", new Coordinates(1, 2),
+        Planet p1 = new Planet("Flinstones", new Coordinates(1, 2),
             TechnologyLevel.AGRICULTURE,
             ResourceLevel.LOTSOFWATER, r1, PlanetEvent.DROUGHT,
-            shipyard1);
+            new HashSet<>());
         
         Resources r2 = new Resources();
         r2.addResource(ResourceType.WATER, 50)
@@ -49,10 +44,11 @@ public class Universe implements Serializable {
             .addResource(ResourceType.COCAINE, 2);
         
         Set<ShipType> shipyard2 = new HashSet<>();
+        shipyard2.add(ShipType.XWing);
         shipyard2.add(ShipType.Samus);
         shipyard2.add(ShipType.Protoss);
         
-        Planet p2 = new Planet("Planet 2", new Coordinates(4, 5),
+        Planet p2 = new Planet("United States of America", new Coordinates(4, 5),
             TechnologyLevel.INDUSTRIAL,
             ResourceLevel.DESERT, r2, PlanetEvent.NOTHING, shipyard2);
 
@@ -64,10 +60,11 @@ public class Universe implements Serializable {
             .addResource(ResourceType.COCAINE, 5);
         
         Set<ShipType> shipyard3 = new HashSet<>();
+        shipyard3.add(ShipType.USGIshimura);
         shipyard3.add(ShipType.VicViper);
         shipyard3.add(ShipType.Protoss);
         
-        Planet p3 = new Planet("Planet 3", new Coordinates(2, 3),
+        Planet p3 = new Planet("King Arthur", new Coordinates(2, 3),
             TechnologyLevel.MEDIEVAL,
             ResourceLevel.MINERALRICH, r3, PlanetEvent.NOTHING, shipyard3);
           
@@ -79,9 +76,10 @@ public class Universe implements Serializable {
             .addResource(ResourceType.COCAINE, 0);
         
         Set<ShipType> shipyard4 = new HashSet<>();
+        shipyard4.add(ShipType.LunarWhale);
         shipyard4.add(ShipType.Normandy);
         
-        Planet p4 = new Planet("Planet 4", new Coordinates(9, 8),
+        Planet p4 = new Planet("Leonardo Da Vinci", new Coordinates(9, 8),
             TechnologyLevel.RENAISSANCE,
             ResourceLevel.RICHSOIL, r4, PlanetEvent.NOTHING, shipyard4);
         
