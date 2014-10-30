@@ -24,6 +24,7 @@ public class Planet implements TravelListener, Serializable {
     private Resources resources;
     private PlanetEvent planetEvent; //added in constructor
     private Set<ShipType> shipsInShipyard;
+    private Set<GadgetType> gadgetsInShipyard;
     
     /**
     * This constructor sets up a planet
@@ -32,7 +33,8 @@ public class Planet implements TravelListener, Serializable {
     * 
     */
     public Planet(String name, Coordinates coordinates, TechnologyLevel technologyLevel,
-        ResourceLevel resourceLevel, Resources resources, PlanetEvent planetEvent, Set<ShipType> shipyard) {
+        ResourceLevel resourceLevel, Resources resources, PlanetEvent planetEvent,
+        Set<ShipType> shipyard, Set<GadgetType> gadgets) {
         this.name = name;
         this.coordinates = coordinates;
         this.technologyLevel = technologyLevel;
@@ -40,6 +42,7 @@ public class Planet implements TravelListener, Serializable {
         this.resources = resources;
         this.planetEvent = planetEvent;
         this.shipsInShipyard = shipyard;
+        this.gadgetsInShipyard = gadgets;
     }
     
     /**
@@ -174,6 +177,10 @@ public class Planet implements TravelListener, Serializable {
     
     public Set<ShipType> getShipsInShipyard() {
         return shipsInShipyard;
+    }
+    
+    public Set<GadgetType> getGadgetsInShipyard() {
+        return gadgetsInShipyard;
     }
     
     /**

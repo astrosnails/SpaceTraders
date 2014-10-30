@@ -14,6 +14,7 @@ public class Ship implements Serializable {
     private ShipType type;
     private Cargo cargo;
     private int health;
+    private GadgetType[] gadgets;
 
     /**
      * This constructor sets up a Ship
@@ -25,6 +26,7 @@ public class Ship implements Serializable {
         this.type = type;
         this.cargo = new Cargo(shipsInformation.getCargoSpace(type));
         this.health = shipsInformation.getMaxHealth(type);
+        this.gadgets = new GadgetType[shipsInformation.getSlotsAvailable(type)];
     }
 
     /** 
@@ -76,5 +78,26 @@ public class Ship implements Serializable {
     
     public ShipType getType() {
         return type;
+    }
+    
+    public void addGadget(GadgetType gadget) {
+        if (!hasAvailableSlot()) {
+            throw new RuntimeException("No available slot for gadget to be added.");
+        }
+        
+        GadgetsInfo gadgetsInformation = GadgetsInfo.getInstance();
+        
+        int emptySlot = 0;
+        while (gadgets[emptySlot] != null) { emptySlot++; }
+        gadgets[emptySlot] = gadget;
+        
+        // If the gadget increases the cargo space, add the extra space to cargo.
+        if (gadgetsInformation.getCargoSpace(gadget) > 0) {
+            cargo.addExtraSpace(gadgetsInformation.getCargoSpace(gadget));
+        }
+    }
+    
+    public boolean hasAvailableSlot() {
+        return gadgets[gadgets.length - 1] == null;
     }
 }

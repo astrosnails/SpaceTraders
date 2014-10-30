@@ -34,7 +34,7 @@ public class Universe implements Serializable {
         Planet p1 = new Planet("Flinstones", new Coordinates(1, 2),
             TechnologyLevel.AGRICULTURE,
             ResourceLevel.LOTSOFWATER, r1, PlanetEvent.DROUGHT,
-            new HashSet<>());
+            new HashSet<>(), new HashSet<>());
         
         Resources r2 = new Resources();
         r2.addResource(ResourceType.WATER, 50)
@@ -48,9 +48,14 @@ public class Universe implements Serializable {
         shipyard2.add(ShipType.Samus);
         shipyard2.add(ShipType.Protoss);
         
+        Set<GadgetType> gadgets2 = new HashSet<>();
+        gadgets2.add(GadgetType.CRYSTAL_RING_SHIELD);
+        gadgets2.add(GadgetType.GIANT_MONSTER);
+        gadgets2.add(GadgetType.BAZOOKA);
+        
         Planet p2 = new Planet("United States of America", new Coordinates(4, 5),
-            TechnologyLevel.INDUSTRIAL,
-            ResourceLevel.DESERT, r2, PlanetEvent.NOTHING, shipyard2);
+            TechnologyLevel.POST_INDUSTRIAL,
+            ResourceLevel.DESERT, r2, PlanetEvent.NOTHING, shipyard2, gadgets2);
 
         Resources r3 = new Resources();
         r3.addResource(ResourceType.WATER, 500)
@@ -66,7 +71,7 @@ public class Universe implements Serializable {
         
         Planet p3 = new Planet("King Arthur", new Coordinates(2, 3),
             TechnologyLevel.MEDIEVAL,
-            ResourceLevel.MINERALRICH, r3, PlanetEvent.NOTHING, shipyard3);
+            ResourceLevel.MINERALRICH, r3, PlanetEvent.NOTHING, shipyard3, new HashSet<>());
           
         Resources r4 = new Resources();
         r4.addResource(ResourceType.WATER, 200)
@@ -81,13 +86,35 @@ public class Universe implements Serializable {
         
         Planet p4 = new Planet("Leonardo Da Vinci", new Coordinates(9, 8),
             TechnologyLevel.RENAISSANCE,
-            ResourceLevel.RICHSOIL, r4, PlanetEvent.NOTHING, shipyard4);
+            ResourceLevel.RICHSOIL, r4, PlanetEvent.NOTHING, shipyard4, new HashSet<>());
+        
+        Resources r5 = new Resources();
+        r5.addResource(ResourceType.WATER, 100)
+            .addResource(ResourceType.FOOD, 250)
+            .addResource(ResourceType.GOLD, 500)
+            .addResource(ResourceType.OIL, 1000)
+            .addResource(ResourceType.COCAINE, 3);
+        
+        Set<ShipType> shipyard5 = new HashSet<>();
+        shipyard5.add(ShipType.XWing);
+        shipyard5.add(ShipType.LunarWhale);
+        
+        Set<GadgetType> gadgets5 = new HashSet<>();
+        gadgets5.add(GadgetType.BLACK_KNIGHT_SHIELD);
+        gadgets5.add(GadgetType.MISSILE);
+        gadgets5.add(GadgetType.INFINITY_SPACE);
+        gadgets5.add(GadgetType.LIGHTNING_SPEED);
+        
+        Planet p5 = new Planet("Terminator", new Coordinates(8, 5),
+            TechnologyLevel.HI_TECH,
+            ResourceLevel.MINERALRICH, r5, PlanetEvent.WAR, shipyard5, gadgets5);
         
         planets = new ArrayList<Planet>();
         planets.add(p1);
         planets.add(p2);
         planets.add(p3);
         planets.add(p4);
+        planets.add(p5);
     }
     
     /**

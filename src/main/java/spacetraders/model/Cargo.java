@@ -13,15 +13,16 @@ import java.util.ArrayList;
 public class Cargo implements Serializable {
 
     private Resources resources;
-    private int maxSize;
+    private int baseSize;
+    private int extraSpace;  // Calculated from gadgets on ships
 
     /**
      * This constructor sets up a Cargo
      * @param int maxSize
      * 
      */
-    public Cargo(int maxSize) {
-        this.maxSize = maxSize;
+    public Cargo(int baseSize) {
+        this.baseSize = baseSize;
         resources = new Resources();
     }
 
@@ -59,7 +60,7 @@ public class Cargo implements Serializable {
      * 
      */
     public int calculateEmptySpace() {
-        return maxSize - calculateTotalResources();
+        return getMaxSize() - calculateTotalResources();
     }
 
     /**
@@ -79,6 +80,10 @@ public class Cargo implements Serializable {
      * @return The max size
      */
     public int getMaxSize() {
-        return maxSize;
+        return baseSize + extraSpace;
+    }
+    
+    public void addExtraSpace(int space) {
+        extraSpace += space;
     }
 }

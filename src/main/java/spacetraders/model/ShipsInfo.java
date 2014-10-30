@@ -26,7 +26,8 @@ public class ShipsInfo {
                 .setCargoSpace(200)
                 .setSpeed(1000)
                 .setMaxHealth(800)
-                .setDescription("Xwing");
+                .setDescription("Xwing")
+                .setSlotsAvailable(3);
         ShipInfo LunarWhaleInfo = new ShipInfo();
         LunarWhaleInfo.setname("LunarWhale")
                 .setPrice(500000)
@@ -34,7 +35,8 @@ public class ShipsInfo {
                 .setCargoSpace(165)
                 .setSpeed(700)
                 .setMaxHealth(700)
-                .setDescription("LunarWhale");
+                .setDescription("LunarWhale")
+                .setSlotsAvailable(2);
         ShipInfo USGIshimuraInfo = new ShipInfo();
         USGIshimuraInfo.setname("USGIshimura")
                 .setPrice(200000)
@@ -42,7 +44,8 @@ public class ShipsInfo {
                 .setCargoSpace(130)
                 .setSpeed(600)
                 .setMaxHealth(600)
-                .setDescription("USGIshimura");
+                .setDescription("USGIshimura")
+                .setSlotsAvailable(2);
         ShipInfo SamusInfo = new ShipInfo();
         SamusInfo.setname("Samus")
                 .setPrice(100000)
@@ -50,7 +53,8 @@ public class ShipsInfo {
                 .setCargoSpace(100)
                 .setSpeed(500)
                 .setMaxHealth(500)
-                .setDescription("Samus");
+                .setDescription("Samus")
+                .setSlotsAvailable(1);
         ShipInfo ArwingInfo = new ShipInfo();
         ArwingInfo.setname("Arwing")
                 .setPrice(50000)
@@ -58,7 +62,8 @@ public class ShipsInfo {
                 .setCargoSpace(75)
                 .setSpeed(400)
                 .setMaxHealth(400)
-                .setDescription("Arwing");
+                .setDescription("Arwing")
+                .setSlotsAvailable(1);
         ShipInfo ProtossInfo = new ShipInfo();
         ProtossInfo.setname("Protoss")
                 .setPrice(35000)
@@ -69,7 +74,8 @@ public class ShipsInfo {
                 .setDescription("If the Viper talks, the Protoss shouts. Boasting\n"
                         + " a reasonable price tag for superiority in every category,\n"
                         + " this ship is a clear choice for those who want to take\n"
-                        + " their trading game to the next level.");
+                        + " their trading game to the next level.")
+                .setSlotsAvailable(1);
         ShipInfo VicViperInfo = new ShipInfo();
         VicViperInfo.setname("VicViper")
                 .setPrice(20000)
@@ -78,7 +84,8 @@ public class ShipsInfo {
                 .setSpeed(200)
                 .setMaxHealth(200)
                 .setDescription("Built to be as fast as it looks, the VicViper\n"
-                        + "is the very essence of being slick.");
+                        + "is the very essence of being slick.")
+                .setSlotsAvailable(0);
         ShipInfo NormandyInfo = new ShipInfo();
         NormandyInfo.setname("Normandy")
                 .setPrice(10000)
@@ -88,7 +95,8 @@ public class ShipsInfo {
                 .setMaxHealth(100)
                 .setDescription("A hardy ship that is the workhorse of the small\n"
                         + "trader, many trading empires have been built on the decks\n"
-                        + " on these reliable vessels.");
+                        + " on these reliable vessels.")
+                .setSlotsAvailable(0);
         
        shipInfoMap = new EnumMap<>(ShipType.class);
        shipInfoMap.put(ShipType.XWing, XWingInfo);
@@ -129,6 +137,10 @@ public class ShipsInfo {
       public String getDescription(ShipType type) {
         return shipInfoMap.get(type).description;
     }
+    public int getSlotsAvailable(ShipType type) {
+        return shipInfoMap.get(type).slotsAvailable;
+    }
+    
       public String getInformationAsText(ShipType type) {
           StringBuilder info = new StringBuilder();
           info.append("Name: " + getName(type) + " (" + getPrice(type) + ")\n");
@@ -139,6 +151,7 @@ public class ShipsInfo {
           info.append("Attack: " + getAttack(type) + "\n");
           info.append("Speed: " + getSpeed(type) + "\n");
           info.append("Maximum Cargo Space: " + getCargoSpace(type) + "\n");
+          info.append("Gadget slots: " + getSlotsAvailable(type));
  
           return info.toString();
       }
@@ -153,8 +166,9 @@ public class ShipsInfo {
           private int attack;
           private int maxHealth; 
           private String description; 
+          private int slotsAvailable;
           
-       public ShipInfo setCargoSpace(int cargoSpace) {
+      public ShipInfo setCargoSpace(int cargoSpace) {
           this.cargoSpace = cargoSpace; 
           return this; 
       }
@@ -181,6 +195,10 @@ public class ShipsInfo {
       public ShipInfo setDescription(String description) {
           this.description = description; 
           return this; 
+      }
+      public ShipInfo setSlotsAvailable(int slotsAvailable) {
+          this.slotsAvailable = slotsAvailable;
+          return this;
       }
    }
 }
