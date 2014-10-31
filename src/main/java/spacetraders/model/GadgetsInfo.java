@@ -157,6 +157,25 @@ public class GadgetsInfo {
         return gadgetInfoMap.get(type).minTechToProduce;
     }
     
+    public String getInformationAsText(GadgetType type) {
+          StringBuilder info = new StringBuilder();
+          info.append("Name: " + getName(type) + " (" + getPrice(type) + ")\n");
+          if (getHealth(type) > 0) {
+              info.append("Health: +" + getHealth(type) + "\n");
+          }
+          if (getAttack(type) > 0) {
+              info.append("Attack: +" + getAttack(type) + "\n");
+          }
+          if (getSpeed(type) > 0) {
+              info.append("Speed: +" + getSpeed(type) + "\n");
+          }
+          if (getCargoSpace(type) > 0) {
+              info.append("Maximum Cargo Space: +" + getCargoSpace(type) + "\n");
+          }
+ 
+          return info.toString();
+      }
+    
     /**
     *  GadgetInfo holds the information for one resource.
     */

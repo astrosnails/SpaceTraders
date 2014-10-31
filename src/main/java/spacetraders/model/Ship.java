@@ -97,7 +97,15 @@ public class Ship implements Serializable {
         }
     }
     
+    public GadgetType[] getGadgets() {
+        return gadgets;
+    }
+    
     public boolean hasAvailableSlot() {
+        if (gadgets.length == 0) {
+            return false;
+        }
+        
         return gadgets[gadgets.length - 1] == null;
     }
 }

@@ -151,7 +151,7 @@ public class ShipsInfo {
           info.append("Attack: " + getAttack(type) + "\n");
           info.append("Speed: " + getSpeed(type) + "\n");
           info.append("Maximum Cargo Space: " + getCargoSpace(type) + "\n");
-          info.append("Gadget slots: " + getSlotsAvailable(type));
+          info.append("Gadget slots: " + getSlotsAvailable(type) + "\n");
  
           return info.toString();
       }
