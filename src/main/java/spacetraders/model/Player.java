@@ -82,7 +82,10 @@ public class Player implements Serializable {
     public void setMoney(int money) {
         this.money.set(money);
     }
-    
+    /**
+     * This method sets the money of the player
+     * @param amount 
+     */
     public void decreaseMoney(int amount) {
         money.set(money.getValue() - amount);
     }

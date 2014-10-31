@@ -69,7 +69,11 @@ public class PlanetEventsInfo {
     public String getName(PlanetEvent event) {
         return eventInfoMap.get(event).name;
     }
-    
+    /**
+     * Method to get affected resource
+     * @param event
+     * @return 
+     */
     public ResourceType getAffectedResource(PlanetEvent event) {
         return eventInfoMap.get(event).affectedResource;
     }
@@ -92,7 +96,11 @@ public class PlanetEventsInfo {
             
             return this;
         }
-        
+        /**
+         * Method to set affected resource
+         * @param resource
+         * @return 
+         */
         public EventInfo setAffectedResource(ResourceType resource) {
             this.affectedResource = resource;
             

@@ -156,7 +156,11 @@ public class GadgetsInfo {
     public TechnologyLevel getMinTechLevelToProduce(GadgetType type) {
         return gadgetInfoMap.get(type).minTechToProduce;
     }
-    
+    /**
+     * get information of gadget
+     * @param type
+     * @return String
+     */
     public String getInformationAsText(GadgetType type) {
           StringBuilder info = new StringBuilder();
           info.append("Name: " + getName(type) + " (" + getPrice(type) + ")\n");
@@ -187,12 +191,20 @@ public class GadgetsInfo {
         private int health;
         private int speed;
         private int cargoSpace;
-        
+        /**
+         * setter for Name
+         * @param name
+         * @return 
+         */
         private GadgetInfo setName(String name) {
             this.name = name;
             return this;
         }
-        
+        /**
+         * setter for price
+         * @param price
+         * @return 
+         */
         private GadgetInfo setPrice(int price) {
             this.price = price;
             return this;
@@ -207,17 +219,29 @@ public class GadgetsInfo {
             this.health = health;
             return this;
         }
-        
+        /**
+         * setter for speed
+         * @param speed
+         * @return 
+         */
         private GadgetInfo setSpeed(int speed) {
             this.speed = speed;
             return this;
         }
-        
+        /**
+         * setter for cargo space
+         * @param cargoSpace
+         * @return 
+         */
         private GadgetInfo setCargoSpace(int cargoSpace) {
             this.cargoSpace = cargoSpace;
             return this;
         }
-        
+        /**
+         * setter for min tech level to produce
+         * @param level
+         * @return 
+         */
         private GadgetInfo setMinTechLevelToProduce(TechnologyLevel level) {
             this.minTechToProduce = level;
             return this;

@@ -134,7 +134,10 @@ public class ShipYardController extends Controller {
                 }, null);
         }
     }
-    
+    /**
+     * Method to buy ship
+     * @param selectedShip 
+     */
     private void buyShip(ShipType selectedShip) {
         Player player = application.getPlayer();
         Ship oldShip = player.getShip();
@@ -145,7 +148,10 @@ public class ShipYardController extends Controller {
         int newShipPrice = ShipsInfo.getInstance().getPrice(selectedShip);
         player.decreaseMoney(newShipPrice);
     }
-    
+    /**
+     * Method to buy gadget
+     * @param selectedGadget 
+     */
     private void buyGadget(GadgetType selectedGadget) {
         Player player = application.getPlayer();
         player.getShip().addGadget(selectedGadget);

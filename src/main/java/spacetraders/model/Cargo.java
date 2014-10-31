@@ -34,7 +34,11 @@ public class Cargo implements Serializable {
     public Resources getResources() {
         return resources;
     }
-    
+    /**
+     * Set the resources
+     * @param resources
+     * 
+     */
     public void setResources(Resources resources) {
         this.resources = resources;
     }
@@ -82,7 +86,10 @@ public class Cargo implements Serializable {
     public int getMaxSize() {
         return baseSize + extraSpace;
     }
-    
+    /**
+     * Add extra space to the cargo
+     * @param int represents space
+     */
     public void addExtraSpace(int space) {
         extraSpace += space;
     }

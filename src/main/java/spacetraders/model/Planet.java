@@ -174,11 +174,17 @@ public class Planet implements TravelListener, Serializable {
     public Resources getResources() {
         return this.resources;
     }
-    
+    /**
+     * get ship in ship yard
+     * @return set of ship type
+     */
     public Set<ShipType> getShipsInShipyard() {
         return shipsInShipyard;
     }
-    
+    /**
+     * get gadgests in ship yard
+     * @return set of gadget type
+     */
     public Set<GadgetType> getGadgetsInShipyard() {
         return gadgetsInShipyard;
     }
