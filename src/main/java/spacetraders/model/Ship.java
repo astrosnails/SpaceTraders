@@ -76,10 +76,19 @@ public class Ship implements Serializable {
         this.health = health;
     }
     
+    /**
+     * Return the ship's type
+     * @return The ship type
+     */
     public ShipType getType() {
         return type;
     }
-    
+    /**
+     * Adds gadget to the next available gadget slot. Throws an exception f there
+     * is no empty slot on the ship.
+     * @throws RuntimeException
+     * @param gadget 
+     */
     public void addGadget(GadgetType gadget) {
         if (!hasAvailableSlot()) {
             throw new RuntimeException("No available slot for gadget to be added.");
@@ -97,10 +106,18 @@ public class Ship implements Serializable {
         }
     }
     
+    /**
+     * Return gadgets
+     * @return The gadget slots
+     */
     public GadgetType[] getGadgets() {
         return gadgets;
     }
     
+    /**
+     * Checks if the ship has an available gadget slot.
+     * @return True if the ship has an available gadget slot. False otherwise.
+     */
     public boolean hasAvailableSlot() {
         if (gadgets.length == 0) {
             return false;

@@ -110,95 +110,208 @@ public class ShipsInfo {
        
     }
     
+    /**
+     * Returns an instance of the singleton
+     * @return ShipsInfo instance
+     */
     public static ShipsInfo getInstance() {
         if (shipsInfo == null) {
             shipsInfo = new ShipsInfo();
         }
         return shipsInfo;
     }
+    
+    /**
+     * Returns the cargo space of ship with type type.
+     * @param type The ship's type
+     * @return Cargo space
+     */
      public int getCargoSpace(ShipType type) {
         return shipInfoMap.get(type).cargoSpace;
     }
+     
+    /**
+    * Returns the name of ship with type type.
+    * @param type The ship's type
+    * @return Ship's name
+    */
     public String getName(ShipType type) {
         return shipInfoMap.get(type).name;
     }
+    
+    /**
+    * Returns the price of ship with type type.
+    * @param type The ship's type
+    * @return Ship's price
+    */
     public int getPrice(ShipType type) {
         return shipInfoMap.get(type).price;
     }
+    
+    /**
+    * Returns the speed of ship with type type.
+    * @param type The ship's type
+    * @return Ship's speed
+    */
     public int getSpeed(ShipType type) {
         return shipInfoMap.get(type).speed;
     }
+    
+    /**
+    * Returns the attack of ship with type type.
+    * @param type The ship's type
+    * @return Ship's attack
+    */
     public int getAttack(ShipType type) {
         return shipInfoMap.get(type).attack;
     }
+    
+    /**
+    * Returns the max health of ship with type type.
+    * @param type The ship's type
+    * @return Ship's max health
+    */
      public int getMaxHealth(ShipType type) {
         return shipInfoMap.get(type).maxHealth;
     }
+     
+     /**
+    * Returns the description of ship with type type.
+    * @param type The ship's type
+    * @return Ship's description
+    */
       public String getDescription(ShipType type) {
         return shipInfoMap.get(type).description;
     }
+      
+      /**
+    * Returns the number of available gadget slots of ship with type type.
+    * @param type The ship's type
+    * @return Number of available gadget slots
+    */
     public int getSlotsAvailable(ShipType type) {
         return shipInfoMap.get(type).slotsAvailable;
     }
     
-      public String getInformationAsText(ShipType type) {
-          StringBuilder info = new StringBuilder();
-          info.append("Name: " + getName(type) + " (" + getPrice(type) + ")\n");
-          info.append(getDescription(type) + "\n\n");
-          info.append("Details\n");
-          info.append("-------------------------------------\n");
-          info.append("Health: " + getMaxHealth(type) + "\n");
-          info.append("Attack: " + getAttack(type) + "\n");
-          info.append("Speed: " + getSpeed(type) + "\n");
-          info.append("Maximum Cargo Space: " + getCargoSpace(type) + "\n");
-          info.append("Gadget slots: " + getSlotsAvailable(type) + "\n");
- 
-          return info.toString();
+    /**
+    * Returns a string that fully describes the ship. The string is used in the
+    * description text area for shipyard.
+    * @param type The ship's type
+    * @return Ship's information
+    */
+    public String getInformationAsText(ShipType type) {
+        StringBuilder info = new StringBuilder();
+        info.append("Name: " + getName(type) + " (" + getPrice(type) + ")\n");
+        info.append(getDescription(type) + "\n\n");
+        info.append("Details\n");
+        info.append("-------------------------------------\n");
+        info.append("Health: " + getMaxHealth(type) + "\n");
+        info.append("Attack: " + getAttack(type) + "\n");
+        info.append("Speed: " + getSpeed(type) + "\n");
+        info.append("Maximum Cargo Space: " + getCargoSpace(type) + "\n");
+        info.append("Gadget slots: " + getSlotsAvailable(type) + "\n");
+
+        return info.toString();
       }
     /**
      * ShipInfo holds the information for one ship
      */
       private class ShipInfo {
-          private int cargoSpace;
-          private String name;
-          private int price;
-          private int speed;
-          private int attack;
-          private int maxHealth; 
-          private String description; 
-          private int slotsAvailable;
-          
-      public ShipInfo setCargoSpace(int cargoSpace) {
-          this.cargoSpace = cargoSpace; 
-          return this; 
-      }
-      public ShipInfo setname(String name) {
-          this.name = name; 
-          return this; 
-      }
-      public ShipInfo setPrice(int price) {
-          this.price = price; 
-          return this; 
-      }
-      public ShipInfo setSpeed(int speed) {
-          this.speed = speed; 
-          return this; 
-      }
-      public ShipInfo setAttack(int attack) {
-          this.attack = attack; 
-          return this; 
-      }
-      public ShipInfo setMaxHealth(int maxHealth) {
-          this.maxHealth = maxHealth; 
-          return this; 
-      }
-      public ShipInfo setDescription(String description) {
-          this.description = description; 
-          return this; 
-      }
-      public ShipInfo setSlotsAvailable(int slotsAvailable) {
-          this.slotsAvailable = slotsAvailable;
-          return this;
-      }
+        private int cargoSpace;
+        private String name;
+        private int price;
+        private int speed;
+        private int attack;
+        private int maxHealth; 
+        private String description; 
+        private int slotsAvailable;
+        
+        /**
+         * Set the cargo space
+         * @param cargoSpace
+         * @return ShipInfo This class to allow method chaining
+         *   (Builder pattern)
+         */
+        public ShipInfo setCargoSpace(int cargoSpace) {
+            this.cargoSpace = cargoSpace; 
+            return this; 
+        }
+        
+        /**
+         * Set the name
+         * @param name
+         * @return ShipInfo This class to allow method chaining
+         *   (Builder pattern)
+         */
+        public ShipInfo setname(String name) {
+            this.name = name; 
+            return this; 
+        }
+        
+        /**
+         * Set the price
+         * @param price
+         * @return ShipInfo This class to allow method chaining
+         *   (Builder pattern)
+         */
+        public ShipInfo setPrice(int price) {
+            this.price = price; 
+            return this; 
+        }
+        
+        /**
+         * Set the speed
+         * @param speed
+         * @return ShipInfo This class to allow method chaining
+         *   (Builder pattern)
+         */
+        public ShipInfo setSpeed(int speed) {
+            this.speed = speed; 
+            return this; 
+        }
+        
+        /**
+         * Set the attack
+         * @param attack
+         * @return ShipInfo This class to allow method chaining
+         *   (Builder pattern)
+         */
+        public ShipInfo setAttack(int attack) {
+            this.attack = attack; 
+            return this; 
+        }
+        
+        /**
+         * Set the max health
+         * @param maxHealth
+         * @return ShipInfo This class to allow method chaining
+         *   (Builder pattern)
+         */
+        public ShipInfo setMaxHealth(int maxHealth) {
+            this.maxHealth = maxHealth; 
+            return this; 
+        }
+        
+        /**
+         * Set the description
+         * @param description
+         * @return ShipInfo This class to allow method chaining
+         *   (Builder pattern)
+         */
+        public ShipInfo setDescription(String description) {
+            this.description = description; 
+            return this; 
+        }
+        
+        /**
+         * Set the number of available slots
+         * @param slotsAvailable Number of available slots
+         * @return ShipInfo This class to allow method chaining
+         *   (Builder pattern)
+         */
+        public ShipInfo setSlotsAvailable(int slotsAvailable) {
+            this.slotsAvailable = slotsAvailable;
+            return this;
+        }
    }
 }
