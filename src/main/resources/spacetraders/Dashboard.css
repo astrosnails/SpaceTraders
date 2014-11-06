@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 6, 2014, 1:53:27 PM
+    Author     : ernest
+*/
+
+root { 
+    display: block;
+}
+.root {
+-fx-background-image: url("dashboard.jpg");
+-fx-background-repeat: stretch; 
+-fx-background-position: top left; 
+}
