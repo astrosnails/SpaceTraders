@@ -13,65 +13,54 @@
    <children>
       <Button layoutX="336.0" layoutY="167.0" mnemonicParsing="false" onAction="#onShipyardButtonClicked" prefHeight="66.0" prefWidth="218.0" text="Ship information/Upgrades" />
       <Button fx:id="buySellButton" layoutX="336.0" layoutY="67.0" mnemonicParsing="false" onAction="#onBuySellButtonClicked" prefHeight="66.0" prefWidth="218.0" text="Buy/Sell" />
-      <GridPane fx:id="playerInformation" blendMode="DIFFERENCE" prefHeight="200.0" prefWidth="300.0">
+      <GridPane fx:id="playerInformation" layoutX="2.0" layoutY="54.0" prefHeight="141.0" prefWidth="306.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="180.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="120.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="194.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="114.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="63.0" prefWidth="178.0" text="Welcome " textAlignment="JUSTIFY" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="playerName" prefHeight="40.0" prefWidth="135.0" text="PlayerName" textFill="WHITE" GridPane.columnIndex="1">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="fighterPoints" prefHeight="52.0" prefWidth="167.0" text="a" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="fighterPoints" prefHeight="52.0" prefWidth="167.0" text="a" textFill="WHITE" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="traderPoints" prefHeight="52.0" prefWidth="167.0" text="c" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label fx:id="traderPoints" prefHeight="52.0" prefWidth="167.0" text="c" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="pilotPoints" prefHeight="52.0" prefWidth="167.0" text="b" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label fx:id="pilotPoints" prefHeight="52.0" prefWidth="167.0" text="b" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="engineerPoints" prefHeight="52.0" prefWidth="167.0" text="d" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label fx:id="engineerPoints" prefHeight="52.0" prefWidth="167.0" text="d" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label prefHeight="42.0" prefWidth="193.0" text="Fighter Bonus: (Attack+)" textFill="WHITE" GridPane.rowIndex="1">
+            <Label prefHeight="42.0" prefWidth="193.0" text="Fighter Bonus: (Attack+)" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="42.0" prefWidth="193.0" text="Pilot Bonus: (Speed+)" textFill="WHITE" GridPane.rowIndex="2">
+            <Label prefHeight="42.0" prefWidth="193.0" text="Pilot Bonus: (Speed+)" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="42.0" prefWidth="193.0" text="Trader Bonus: (%Profit+)" textFill="WHITE" GridPane.rowIndex="3">
+            <Label prefHeight="42.0" prefWidth="193.0" text="Trader Bonus: (%Profit+)" textFill="WHITE" GridPane.rowIndex="2">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label prefHeight="42.0" prefWidth="193.0" text="Engineer Bonus: (Defense+)" textFill="WHITE" GridPane.rowIndex="4">
+            <Label prefHeight="42.0" prefWidth="193.0" text="Engineer Bonus: (Defense+)" textFill="WHITE" GridPane.rowIndex="3">
                <font>
                   <Font size="14.0" />
                </font>
@@ -81,6 +70,16 @@
       <Pane fx:id="mapPane" layoutY="191.0" prefHeight="209.0" prefWidth="292.0" style="-fx-background-color: #000; -fx-border-color: #aaa; -fx-border-width: 2px;" />
       <Label fx:id="fuelLabel" alignment="CENTER_RIGHT" layoutX="509.0" layoutY="370.0" prefHeight="16.0" prefWidth="79.0" text="Fuel" textFill="WHITE" />
       <Button fx:id="saveGameButton" layoutX="336.0" layoutY="263.0" mnemonicParsing="false" onAction="#onSaveGameButtonClicked" prefHeight="66.0" prefWidth="218.0" text="Save Game" />
+      <Label layoutX="2.0" layoutY="14.0" prefHeight="40.0" prefWidth="97.0" text="Welcome " textAlignment="JUSTIFY" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerName" layoutX="99.0" layoutY="14.0" prefHeight="40.0" prefWidth="135.0" text="PlayerName" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
    <stylesheets>
     <URL value="@Dashboard.css" />
