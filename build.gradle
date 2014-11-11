@@ -11,4 +11,8 @@ jar {
     }
 }
 
+dependencies {
+    compile files('lib/controlsfx-8.20.7.jar', 'libs/fxsampler-1.0.8.jar')
+}
+
 sourceSets.main.output.resourcesDir 'build/classes/main'
