@@ -51,18 +51,20 @@ public class Coordinates implements Serializable {
     }
 
     /**
-    * compares a coordinate object to another cooridnate
+    * compares a coordinate object to another coordinate
     * @no Object other
     * @return boolean value, true if it is equal, false if it is not equal
     */
     public boolean equals(Object other) {
+        boolean ret;
         if (this == other) {
-            return true;
+            ret = true;
         } else if (!(other instanceof Coordinates)) {
-            return false;
+            ret = false;
         } else {
             Coordinates otherCoordinate = (Coordinates) other;
-            return otherCoordinate.x == x && otherCoordinate.y == y;
+            ret = (otherCoordinate.x == x && otherCoordinate.y == y);
         }
+        return ret;
     }
 }

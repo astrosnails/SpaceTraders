@@ -73,10 +73,11 @@ public class Cargo implements Serializable {
      * @return True if amount of resources fit. False otherwise.
      */
     public boolean validateCargoSpace(int amount) {
+        boolean ret = false;
         if (calculateEmptySpace() >= amount) {
-            return true;
+            ret = true;
         }
-        return false;
+        return ret;
     }
 
     /**

@@ -123,10 +123,12 @@ public class Ship implements Serializable {
      * @return True if the ship has an available gadget slot. False otherwise.
      */
     public boolean hasAvailableSlot() {
+        boolean ret = true;
         if (gadgets.length == 0) {
-            return false;
+            ret = false;
         }
-
-        return gadgets[gadgets.length - 1] == null;
+        
+        ret = gadgets[gadgets.length - 1] == null;
+        return ret;
     }
 }
