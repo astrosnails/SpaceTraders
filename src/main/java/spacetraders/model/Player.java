@@ -13,13 +13,13 @@ import spacetraders.Abstract.TravelListener;
 *This class implements the Player Class
 *to set up and create the methods of ship
 * @author Team 6, CS 2340 - Fall 2014 M5
-* 
+*
 */
 public class Player implements Serializable {
 
     private String name;
     private Cargo cargo;
-    transient private SimpleIntegerProperty money;
+    private transient SimpleIntegerProperty money;
     private Planet location;
     private int wantedLevel;
     private int fighterSkill;
@@ -27,14 +27,16 @@ public class Player implements Serializable {
     private int traderSkill;
     private int engineerSkill;
     private Ship ship;
-    transient private List<TravelListener> travelListeners;
-    
+    private transient List<TravelListener> travelListeners;
+
     /**
      * This constructor sets up a player
-     * @param String name, int fighterSkill, int pilotSkill, int traderSkill, int engineerSkill
+     * @param String name, int fighterSkill, int pilotSkill,
+    * int traderSkill, int engineerSkill
      * @return none
      */
-    public Player(String name, int fighterSkill, int pilotSkill, int traderSkill, int engineerSkill, int startMoney) {
+    public Player(String name, int fighterSkill, int pilotSkill,
+        int traderSkill, int engineerSkill, int startMoney) {
         this.name = name;
         this.money = new SimpleIntegerProperty(startMoney);
         this.fighterSkill = fighterSkill;
@@ -42,11 +44,10 @@ public class Player implements Serializable {
         this.traderSkill = traderSkill;
         this.engineerSkill = engineerSkill;
         this.cargo = new Cargo(30);
-        //TODO: MOVE CONFIG TO TOP OF CLASS HIERARCHY
-        this.ship = new Ship(ShipType.Normandy);
+        this.ship = new Ship(ShipType.NORMANDY);
         travelListeners = new ArrayList<>();
     }
-    
+
     /**
      * This method sets up the name of the player
      * @param none
@@ -55,7 +56,7 @@ public class Player implements Serializable {
     public String getName() {
         return name;
     }
-    
+
     /**
      * This method gets the name of the player
      * @param String name
@@ -64,7 +65,7 @@ public class Player implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     /**
      * This method gets the money of the player
      * @param none
@@ -73,7 +74,7 @@ public class Player implements Serializable {
     public SimpleIntegerProperty getMoney() {
         return money;
     }
-    
+
     /**
      * This method sets the money of the player
      * @param int money
@@ -84,30 +85,30 @@ public class Player implements Serializable {
     }
     /**
      * This method sets the money of the player
-     * @param amount 
+     * @param amount
      */
     public void decreaseMoney(int amount) {
         money.set(money.getValue() - amount);
     }
-    
+
     /**
      * This method checks if player has enough money
      * @param none
-     * @return boolean 
+     * @return boolean
      */
     public boolean moneyLimit() {
-    	return money.intValue() < 1000; //if it is true: you can still buy!
+        return money.intValue() < 1000; //if it is true: you can still buy!
     }
-    
+
     /**
      * This method returns the players location
      * @param none
-     * @return Planet location 
+     * @return Planet location
      */
     public Planet getLocation() {
         return location;
     }
-    
+
     /**
      * This method sets the players location
      * @param Planet location
@@ -116,7 +117,7 @@ public class Player implements Serializable {
     public void setLocation(Planet location) {
         this.location = location;
     }
-    
+
     /**
      * This method gets the players wantedlevel
      * @param none
@@ -125,7 +126,7 @@ public class Player implements Serializable {
     public int getWantedLevel() {
         return wantedLevel;
     }
-    
+
     /**
      * This method sets the players wantedlevel
      * @param int wantedLevel
@@ -134,7 +135,7 @@ public class Player implements Serializable {
     public void setWantedLevel(int wantedLevel) {
         this.wantedLevel = wantedLevel;
     }
-    
+
      /**
      * This method gets the players fighterSkill
      * @param none
@@ -143,7 +144,7 @@ public class Player implements Serializable {
     public int getFighterSkill() {
         return fighterSkill;
     }
-    
+
     /**
      * This method sets the players fighterSkill
      * @param int fighterSkill
@@ -152,7 +153,7 @@ public class Player implements Serializable {
     public void setFighterSkill(int fighterSkill) {
         this.fighterSkill = fighterSkill;
     }
-    
+
     /**
      * This method gets the players pilotSkill
      * @param none
@@ -161,7 +162,7 @@ public class Player implements Serializable {
     public int getPilotSkill() {
         return pilotSkill;
     }
-    
+
     /**
      * This method sets the players pilptSkill
      * @param int fighterSkill
@@ -170,7 +171,7 @@ public class Player implements Serializable {
     public void setPilotSkill(int pilotSkill) {
         this.pilotSkill = pilotSkill;
     }
-    
+
     /**
      * This method gets the players traderSkill
      * @param none
@@ -179,7 +180,7 @@ public class Player implements Serializable {
     public int getTraderSkill() {
         return traderSkill;
     }
-    
+
     /**
      * This method sets the players traderSkill
      * @param int traderSkill
@@ -188,7 +189,7 @@ public class Player implements Serializable {
     public void setTraderSkill(int traderSkill) {
         this.traderSkill = traderSkill;
     }
-    
+
     /**
      * This method gets the players engineerSkill
      * @param none
@@ -197,7 +198,7 @@ public class Player implements Serializable {
     public int getEngineerSkill() {
         return engineerSkill;
     }
-    
+
     /**
      * This method sets the players engineerSkill
      * @param int traderSkill
@@ -206,7 +207,7 @@ public class Player implements Serializable {
     public void setEngineerSkill(int engineerSkill) {
         this.engineerSkill = engineerSkill;
     }
-    
+
     /**
      * This method gets the players ship
      * @param none
@@ -215,7 +216,7 @@ public class Player implements Serializable {
     public Ship getShip() {
         return ship;
     }
-    
+
 
     /**
      * This method gets the players ship
@@ -226,7 +227,7 @@ public class Player implements Serializable {
         this.ship = ship;
     }
     /**
-    * adds the travel listener. 
+    * adds the travel listener.
     * @param: TravelListener listener
     * @return none
     */
@@ -242,14 +243,11 @@ public class Player implements Serializable {
         if (!hasEnoughFuelToTravelTo(destination)) {
             throw new RuntimeException("Fuel not checked before travel.");
         }
-        
-        // TODO: Handle bad accuracy because of conversion from double to in.
-        // (Low priority)
         this.ship.removeFuel((int) getFuelNeeded(location.getCoordinates(),
                 destination.getCoordinates()));
-        
+
         this.location = destination;
-        
+
         for (TravelListener listener : travelListeners) {
             listener.onTravel(destination);
         }
@@ -261,8 +259,8 @@ public class Player implements Serializable {
     */
     public boolean hasEnoughFuelToTravelTo(Planet planet) {
         double fuelNeeded =
-                getFuelNeeded(location.getCoordinates(), planet.getCoordinates());
-        
+            getFuelNeeded(location.getCoordinates(), planet.getCoordinates());
+
         return getShip().getFuel().getValue() > fuelNeeded;
     }
     /**
@@ -270,12 +268,11 @@ public class Player implements Serializable {
     * @param: Coordinates c1, Coordinates c2
     * @return: double fuelNeeded
     */
-    //TODO: Move this outside player class
     public static double getFuelNeeded(Coordinates c1, Coordinates c2) {
         double fuelPerGridUnit = 1.5;
         return fuelPerGridUnit * c1.distanceTo(c2);
     }
-    
+
     /**
     * Serializes player for saving
     * @param out Output stream
@@ -284,7 +281,7 @@ public class Player implements Serializable {
         out.defaultWriteObject();
         out.writeInt(money.getValue());
     }
-    
+
     /**
     * Deserializes player for loading
     * @param in Input stream
@@ -293,7 +290,7 @@ public class Player implements Serializable {
             ClassNotFoundException {
         in.defaultReadObject();
         money = new SimpleIntegerProperty(in.readInt());
-        
+
         travelListeners = new ArrayList<>();
     }
 }

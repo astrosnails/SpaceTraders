@@ -10,12 +10,12 @@ package spacetraders.model;
  * @author Team 6
  */
 public enum ShipType {
-    Normandy,
-    VicViper,
-    Protoss,
-    Arwing,
-    Samus,
-    USGIshimura,
-    LunarWhale,
-    XWing,
+    NORMANDY,
+    VICVIPER,
+    PROTOSS,
+    ARWING,
+    SAMUS,
+    USGISHIMURA,
+    LUNARWHALE,
+    XWING,
 }

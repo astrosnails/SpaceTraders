@@ -1,13 +1,12 @@
 package spacetraders.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
 *This class implements the Cargo Class
 *to set up and create the methods of cargo
 * @author Team 6, CS 2340 - Fall 2014 M5
-* 
+*
 */
 
 public class Cargo implements Serializable {
@@ -19,7 +18,7 @@ public class Cargo implements Serializable {
     /**
      * This constructor sets up a Cargo
      * @param int maxSize
-     * 
+     *
      */
     public Cargo(int baseSize) {
         this.baseSize = baseSize;
@@ -29,7 +28,7 @@ public class Cargo implements Serializable {
     /**
      * Returns the resources
      * @return The resources that the cargo holds
-     * 
+     *
      */
     public Resources getResources() {
         return resources;
@@ -37,7 +36,7 @@ public class Cargo implements Serializable {
     /**
      * Set the resources
      * @param resources
-     * 
+     *
      */
     public void setResources(Resources resources) {
         this.resources = resources;
@@ -46,7 +45,7 @@ public class Cargo implements Serializable {
     /**
      * Returns the total number of units of resources
      * @return The total amount of resources that the cargo has
-     * 
+     *
      */
     public int calculateTotalResources() {
         int waterAmount = resources.getResourceAmount(ResourceType.WATER);
@@ -54,14 +53,15 @@ public class Cargo implements Serializable {
         int oilAmount = resources.getResourceAmount(ResourceType.OIL);
         int goldAmount = resources.getResourceAmount(ResourceType.GOLD);
         int cocaineAmount = resources.getResourceAmount(ResourceType.COCAINE);
-        int totalAmount = waterAmount + foodAmount + oilAmount + goldAmount + cocaineAmount;
+        int totalAmount = waterAmount + foodAmount
+                + oilAmount + goldAmount + cocaineAmount;
         return totalAmount;
     }
 
     /**
      * Returns the empty space that the cargo can still hold
      * @return The empty space
-     * 
+     *
      */
     public int calculateEmptySpace() {
         return getMaxSize() - calculateTotalResources();

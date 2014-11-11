@@ -1,6 +1,6 @@
 package spacetraders.model;
 /**
-* Enumerical Class for Resource Level
+* Enumerated Class for Resource Level
 *@author: Team AstroSnail
 *@version 1.0
 */

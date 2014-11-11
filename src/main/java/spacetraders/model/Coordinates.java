@@ -6,24 +6,24 @@ import java.io.Serializable;
 *This class implements the Coordinates Class
 *to set up and create the methods of creating coordinates
 * @author Team 6, CS 2340 - Fall 2014 M5
-* 
+*
 */
 
 public class Coordinates implements Serializable {
-    
+
     private int x, y;
-    
+
     /**
-	 * This constructor sets up a coordinates,
-	 * setting up x and y value
-	 * @param int x, int y
-	 * @no return
-	 */
+     * This constructor sets up a coordinates,
+     * setting up x and y value
+     * @param int x, int y
+     * @no return
+     */
     public Coordinates(int x, int y) {
         this.x = x;
         this.y = y;
     }
-    
+
     /**
     * gets x value
     * @no param
@@ -32,7 +32,7 @@ public class Coordinates implements Serializable {
     public int getX() {
         return x;
     }
-    
+
     /**
     * gets y value
     * @no param
@@ -49,7 +49,7 @@ public class Coordinates implements Serializable {
     public double distanceTo(Coordinates other) {
         return Math.sqrt(Math.pow(other.x - x, 2) + Math.pow(other.y - y, 2));
     }
-    
+
     /**
     * compares a coordinate object to another cooridnate
     * @no Object other

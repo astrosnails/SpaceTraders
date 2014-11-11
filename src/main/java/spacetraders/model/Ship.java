@@ -7,7 +7,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 *This class implements the Ship Class
 *to set up and create the methods of ship
 * @author Team 6, CS 2340 - Fall 2014 M5
-* 
+*
 */
 
 public class Ship implements Serializable {
@@ -29,7 +29,7 @@ public class Ship implements Serializable {
         this.gadgets = new GadgetType[shipsInformation.getSlotsAvailable(type)];
     }
 
-    /** 
+    /**
      * This method gets the cargo of a Ship
      * @return Cargo cargo
      */
@@ -53,14 +53,15 @@ public class Ship implements Serializable {
         cargo.getResources().removeResource(ResourceType.FUEL, amount);
     }
      /**
-     * Returns the amount of fuel in the ship 
+     * Returns the amount of fuel in the ship
      * @param none
      * @return int fuel
      */
     public SimpleIntegerProperty getFuel() {
-        return cargo.getResources().getResourceAmountProperty(ResourceType.FUEL);
+        return cargo.getResources().
+            getResourceAmountProperty(ResourceType.FUEL);
     }
-    
+
     /**
      * This method is to get the health of the ship
      * @return health
@@ -75,7 +76,7 @@ public class Ship implements Serializable {
     public void setHealth(int health) {
         this.health = health;
     }
-    
+
     /**
      * Return the ship's type
      * @return The ship type
@@ -84,36 +85,39 @@ public class Ship implements Serializable {
         return type;
     }
     /**
-     * Adds gadget to the next available gadget slot. Throws an exception f there
-     * is no empty slot on the ship.
+     * Adds a gadget to the next available gadget slot.
+    * Throws an exception if there
+     * are no empty slots on the ship.
      * @throws RuntimeException
-     * @param gadget 
+     * @param gadget
      */
     public void addGadget(GadgetType gadget) {
         if (!hasAvailableSlot()) {
-            throw new RuntimeException("No available slot for gadget to be added.");
+            throw new RuntimeException(
+                "No available slot for gadget to be added.");
         }
-        
+
         GadgetsInfo gadgetsInformation = GadgetsInfo.getInstance();
-        
+
         int emptySlot = 0;
         while (gadgets[emptySlot] != null) { emptySlot++; }
         gadgets[emptySlot] = gadget;
-        
-        // If the gadget increases the cargo space, add the extra space to cargo.
+
+        // If the gadget increases the cargo space,
+        // add the extra space to cargo.
         if (gadgetsInformation.getCargoSpace(gadget) > 0) {
             cargo.addExtraSpace(gadgetsInformation.getCargoSpace(gadget));
         }
     }
-    
+
     /**
-     * Return gadgets
+     * Return the number of gadget slots
      * @return The gadget slots
      */
     public GadgetType[] getGadgets() {
         return gadgets;
     }
-    
+
     /**
      * Checks if the ship has an available gadget slot.
      * @return True if the ship has an available gadget slot. False otherwise.
@@ -122,7 +126,7 @@ public class Ship implements Serializable {
         if (gadgets.length == 0) {
             return false;
         }
-        
+
         return gadgets[gadgets.length - 1] == null;
     }
 }
