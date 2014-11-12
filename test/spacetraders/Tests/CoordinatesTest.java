@@ -26,7 +26,6 @@ public class CoordinatesTest {
     
     @Test
     public void distanceToTest_Vertical() {
-        //import coordinates package
         Coordinates distance = new Coordinates(9, 10);
         Coordinates distance2 = new Coordinates(9, 80);
         assertEquals(70,(int) distance.distanceTo(distance2));
@@ -35,7 +34,6 @@ public class CoordinatesTest {
     
     @Test
     public void distanceToTest_DiagDown() {
-        //import coordinates package
         Coordinates distance = new Coordinates(100, 10);
         Coordinates distance2 = new Coordinates(9, 80);
         assertEquals(114,(int)distance.distanceTo(distance2));
@@ -43,7 +41,6 @@ public class CoordinatesTest {
     
     @Test
     public void distanceToTest_DiagUp() {
-        //import coordinates package
         Coordinates distance = new Coordinates(100, 100);
         Coordinates distance2 = new Coordinates(9, 80);
         assertEquals(93,(int)distance.distanceTo(distance2));
