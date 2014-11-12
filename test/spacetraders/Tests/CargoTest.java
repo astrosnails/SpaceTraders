@@ -12,6 +12,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import spacetraders.model.Cargo;
 import static org.junit.Assert.*;
+import static spacetraders.model.ResourceType.COCAINE;
+import static spacetraders.model.ResourceType.FOOD;
+import static spacetraders.model.ResourceType.FUEL;
+import static spacetraders.model.ResourceType.GOLD;
+import static spacetraders.model.ResourceType.OIL;
+import static spacetraders.model.ResourceType.WATER;
+import spacetraders.model.Resources;
 
 /**
  *
@@ -70,4 +77,55 @@ public class CargoTest {
         assertEquals(expResult, result);
     }
     
+    @Test 
+    public void test1calculateTotalResources() {
+        assertEquals(0,cargo.calculateTotalResources());
+    }
+ 
+
+    @Test 
+    public void test2calculateTotalResources() {
+        Resources resources = new Resources();
+        resources.addResource(WATER,30);
+        cargo.setResources(resources);
+        assertEquals(30,cargo.calculateTotalResources());
+    }
+     @Test 
+     public void test3calculateTotalResources() {
+        Resources resources = new Resources();
+        resources.addResource(WATER,30);
+         resources.addResource(OIL,30);
+        cargo.setResources(resources);
+        assertEquals(60,cargo.calculateTotalResources());
+    }
+     @Test 
+     public void test4calculateTotalResources() {
+          Resources resources = new Resources();
+          resources.addResource(WATER,30);
+          resources.addResource(OIL,30);
+          resources.addResource(FOOD,20);
+          cargo.setResources(resources);
+          assertEquals(80,cargo.calculateTotalResources());
+    }
+     @Test 
+     public void test5calculateTotalResources() {
+          Resources resources = new Resources();
+          resources.addResource(WATER,30);
+          resources.addResource(OIL,30);
+          resources.addResource(FOOD,20);
+          resources.addResource(GOLD,20);
+          cargo.setResources(resources);
+          assertEquals(100,cargo.calculateTotalResources());
+    }
+    @Test 
+    public void test6calculateTotalResources() {
+          Resources resources = new Resources();
+          resources.addResource(WATER,30);
+          resources.addResource(OIL,30);
+          resources.addResource(FOOD,20);
+          resources.addResource(GOLD,20);
+          resources.addResource(COCAINE,50);
+          cargo.setResources(resources);
+          assertEquals(150,cargo.calculateTotalResources());
+    }
 }
