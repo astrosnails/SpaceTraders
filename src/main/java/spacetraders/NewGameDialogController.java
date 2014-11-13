@@ -84,7 +84,7 @@ public class NewGameDialogController extends Controller {
             int engineerSkill = (int) engineerSPSlider.getValue();
             
             application.startNewGame(new Player(playerName, fighterSkill, pilotSkill,
-                traderSkill, engineerSkill, 2000));
+                traderSkill, engineerSkill, 200000));
         }
     }
 

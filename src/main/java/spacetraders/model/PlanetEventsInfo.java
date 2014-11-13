@@ -10,7 +10,7 @@ import java.util.Map;
 public class PlanetEventsInfo {
     private static PlanetEventsInfo eventsInfo;
     private Map<PlanetEvent, EventInfo> eventInfoMap;
-    
+
     /**
     *  Creates the PlanetEventsInfo.
     */
@@ -18,27 +18,27 @@ public class PlanetEventsInfo {
         EventInfo droughtInfo = new EventInfo();
         droughtInfo.setName("Drought")
             .setAffectedResource(ResourceType.WATER);
-        
+
         EventInfo cropFailInfo = new EventInfo();
         cropFailInfo.setName("Cropfail")
             .setAffectedResource(ResourceType.FOOD);
-        
+
         EventInfo warInfo = new EventInfo();
         warInfo.setName("War")
             .setAffectedResource(ResourceType.OIL);
-        
+
         EventInfo lackOfWorkersInfo = new EventInfo();
         lackOfWorkersInfo.setName("Lack of Workers")
             .setAffectedResource(ResourceType.GOLD);
-        
+
         EventInfo boredomInfo = new EventInfo();
         boredomInfo.setName("Boredom")
             .setAffectedResource(ResourceType.COCAINE);
-        
+
         EventInfo nothingInfo = new EventInfo();
         nothingInfo.setName("")
             .setAffectedResource(null);
-        
+
         eventInfoMap = new EnumMap<>(PlanetEvent.class);
         eventInfoMap.put(PlanetEvent.DROUGHT, droughtInfo);
         eventInfoMap.put(PlanetEvent.CROPFAIL, cropFailInfo);
@@ -47,20 +47,20 @@ public class PlanetEventsInfo {
         eventInfoMap.put(PlanetEvent.BOREDOM, boredomInfo);
         eventInfoMap.put(PlanetEvent.NOTHING, nothingInfo);
     }
-    
+
     /**
-    *  Returns an instance of the ResouresInfo. Ensures that ResouresInfo follows
-    *  the Singleton pattern.
+    *  Returns an instance of the ResouresInfo. Ensures that ResouresInfo
+    *  follows the Singleton pattern.
     *  @return The universe
     */
     public static PlanetEventsInfo getInstance() {
         if (eventsInfo == null) {
             eventsInfo = new PlanetEventsInfo();
         }
-        
+
         return eventsInfo;
     }
-    
+
     /**
     *  Returns the name of the event of the given enum.
     *  @param type The resource type
@@ -69,18 +69,22 @@ public class PlanetEventsInfo {
     public String getName(PlanetEvent event) {
         return eventInfoMap.get(event).name;
     }
-    
+    /**
+     * Method to get affected resource
+     * @param event
+     * @return
+     */
     public ResourceType getAffectedResource(PlanetEvent event) {
         return eventInfoMap.get(event).affectedResource;
     }
-    
+
     /**
     *  PlanetEventInfo holds the information for one PlanetEvent.
     */
     private class EventInfo {
         private String name;
         private ResourceType affectedResource;
-        
+
         /**
         *  Set event's name.
         *  @param name The event name
@@ -89,13 +93,17 @@ public class PlanetEventsInfo {
         */
         public EventInfo setName(String name) {
             this.name = name;
-            
+
             return this;
         }
-        
+        /**
+         * Method to set affected resource
+         * @param resource
+         * @return
+         */
         public EventInfo setAffectedResource(ResourceType resource) {
             this.affectedResource = resource;
-            
+
             return this;
         }
     }

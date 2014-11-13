@@ -71,10 +71,10 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Slider fx:id="buyWaterSlider" majorTickUnit="10.0" minHeight="-Infinity" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Slider fx:id="buyFoodSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="32.0" prefWidth="141.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Slider fx:id="buyOilSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Slider fx:id="buyGoldSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Slider fx:id="buyWaterSlider" majorTickUnit="10.0" max="10.0" minHeight="-Infinity" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Slider fx:id="buyFoodSlider" majorTickUnit="10.0" max="10.0" minorTickCount="5" prefHeight="32.0" prefWidth="141.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Slider fx:id="buyOilSlider" majorTickUnit="10.0" max="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Slider fx:id="buyGoldSlider" majorTickUnit="10.0" max="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label alignment="CENTER" prefHeight="29.0" prefWidth="96.0" text="Buy" textFill="#7aff56" underline="true" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold" size="17.0" />
@@ -85,10 +85,10 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Slider fx:id="sellWaterSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Slider fx:id="sellFoodSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Slider fx:id="sellOilSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Slider fx:id="sellGoldSlider" majorTickUnit="10.0" minorTickCount="5" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Slider fx:id="sellWaterSlider" majorTickUnit="10.0" max="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Slider fx:id="sellFoodSlider" majorTickUnit="10.0" max="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Slider fx:id="sellOilSlider" majorTickUnit="10.0" max="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Slider fx:id="sellGoldSlider" majorTickUnit="10.0" max="10.0" minorTickCount="5" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <Label alignment="CENTER" prefHeight="32.0" prefWidth="61.0" text="Units" textFill="#7aff56" underline="true" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="17.0" />
@@ -107,8 +107,8 @@
             <Label fx:id="sellFoodUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <Label fx:id="sellOilUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <Label fx:id="sellGoldUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <Slider fx:id="buyCocaineSlider" layoutX="76.0" layoutY="171.0" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Slider fx:id="sellCocaineSlider" layoutX="255.0" layoutY="171.0" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Slider fx:id="buyCocaineSlider" layoutX="76.0" layoutY="171.0" majorTickUnit="10.0" max="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Slider fx:id="sellCocaineSlider" layoutX="255.0" layoutY="171.0" majorTickUnit="10.0" max="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
             <Label fx:id="cocainePriceLabel" alignment="CENTER" layoutX="10.0" layoutY="171.0" prefWidth="152.0" text="Label" textFill="#7aff56" GridPane.rowIndex="5">
                <font>
                   <Font size="16.0" />
@@ -126,9 +126,9 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Slider fx:id="buyFuelSlider" majorTickUnit="10.0" minorTickCount="5" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Slider fx:id="buyFuelSlider" majorTickUnit="10.0" max="10.0" minorTickCount="5" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label fx:id="buyFuelUnits" alignment="CENTER" prefHeight="52.0" prefWidth="55.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <Slider fx:id="sellFuelSlider" majorTickUnit="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Slider fx:id="sellFuelSlider" majorTickUnit="10.0" max="10.0" minorTickCount="5" prefHeight="44.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="3" GridPane.rowIndex="6" />
             <Label fx:id="sellFuelUnits" alignment="CENTER" prefHeight="45.0" prefWidth="63.0" text="Label" textFill="#7aff56" GridPane.columnIndex="4" GridPane.rowIndex="6" />
          </children>
       </GridPane>

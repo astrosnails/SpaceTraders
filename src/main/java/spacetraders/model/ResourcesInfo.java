@@ -10,7 +10,7 @@ import java.util.Map;
 public class ResourcesInfo {
     private static ResourcesInfo resourcesInfo;
     private Map<ResourceType, ResourceInfo> resourceInfoMap;
-    
+
     /**
     *  Creates the ResourcesInfo.
     */
@@ -26,7 +26,7 @@ public class ResourcesInfo {
             .setConditionForExpensive(ResourceLevel.DESERT)
             .setMinPriceWithTrader(95)
             .setMaxPriceWithTrader(120);
-        
+
         ResourceInfo foodInfo = new ResourceInfo();
         foodInfo.setName("Food")
             .setBasePrice(350)
@@ -38,7 +38,7 @@ public class ResourcesInfo {
             .setConditionForExpensive(ResourceLevel.POORSOIL)
             .setMinPriceWithTrader(345)
             .setMaxPriceWithTrader(400);
-        
+
         ResourceInfo oilInfo = new ResourceInfo();
         oilInfo.setName("Oil")
             .setBasePrice(1000)
@@ -50,7 +50,7 @@ public class ResourcesInfo {
             .setConditionForExpensive(ResourceLevel.WARLIKE)
             .setMinPriceWithTrader(945)
             .setMaxPriceWithTrader(1200);
-        
+
         ResourceInfo goldInfo = new ResourceInfo();
         goldInfo.setName("Gold")
             .setBasePrice(4000)
@@ -62,7 +62,7 @@ public class ResourcesInfo {
             .setConditionForExpensive(ResourceLevel.WARLIKE)
             .setMinPriceWithTrader(3955)
             .setMaxPriceWithTrader(4400);
-        
+
         ResourceInfo cocaineInfo = new ResourceInfo();
         cocaineInfo.setName("Cocaine")
             .setBasePrice(10000)
@@ -74,7 +74,7 @@ public class ResourcesInfo {
             .setConditionForExpensive(null)
             .setMinPriceWithTrader(9999)
             .setMaxPriceWithTrader(15000);
-        
+
         ResourceInfo fuelInfo = new ResourceInfo();
         fuelInfo.setName("Fuel")
             .setBasePrice(500)
@@ -86,7 +86,7 @@ public class ResourcesInfo {
             .setConditionForExpensive(ResourceLevel.WARLIKE)
             .setMinPriceWithTrader(480)
             .setMaxPriceWithTrader(600);
-        
+
         resourceInfoMap = new EnumMap<>(ResourceType.class);
         resourceInfoMap.put(ResourceType.WATER, waterInfo);
         resourceInfoMap.put(ResourceType.FOOD, foodInfo);
@@ -95,20 +95,20 @@ public class ResourcesInfo {
         resourceInfoMap.put(ResourceType.COCAINE, cocaineInfo);
         resourceInfoMap.put(ResourceType.FUEL, fuelInfo);
     }
-    
+
     /**
-    *  Returns an instance of the ResouresInfo. Ensures that ResouresInfo follows
-    *  the Singleton pattern.
+    *  Returns an instance of the ResouresInfo. Ensures that ResouresInfo
+    *  follows the Singleton pattern.
     *  @return The universe
     */
     public static ResourcesInfo getInstance() {
         if (resourcesInfo == null) {
             resourcesInfo = new ResourcesInfo();
         }
-        
+
         return resourcesInfo;
     }
-    
+
     /**
     *  Returns the name of the resource of the given type.
     *  @param type The resource type
@@ -117,7 +117,7 @@ public class ResourcesInfo {
     public String getName(ResourceType type) {
         return resourceInfoMap.get(type).name;
     }
-    
+
     /**
     *  Returns the base price of the resource of the given type.
     *  @param type The resource type
@@ -126,7 +126,7 @@ public class ResourcesInfo {
     public int getBasePrice(ResourceType type) {
         return resourceInfoMap.get(type).basePrice;
     }
-    
+
     /**
     *  Returns the minimum tech level to produce the resource
     *  of the given type.
@@ -136,7 +136,7 @@ public class ResourcesInfo {
     public TechnologyLevel getMinTechLevelToProduce(ResourceType type) {
         return resourceInfoMap.get(type).minToProduce;
     }
-    
+
     /**
     *  Returns the minimum tech level to use the resource
     *  of the given type.
@@ -146,7 +146,7 @@ public class ResourcesInfo {
     public TechnologyLevel getMinTechLevelToUse(ResourceType type) {
         return resourceInfoMap.get(type).minToUse;
     }
-    
+
     /**
     *  Returns the price increase per tech level for the resource
     *  of the given type.
@@ -156,7 +156,7 @@ public class ResourcesInfo {
     public int getPriceIncreasePerTechLevel(ResourceType type) {
         return resourceInfoMap.get(type).priceIncreasePerTechLevel;
     }
-    
+
     /**
     *  Returns the minimum tech level to produce the resource
     *  of the given type.
@@ -166,7 +166,7 @@ public class ResourcesInfo {
     public int getVariance(ResourceType type) {
         return resourceInfoMap.get(type).variance;
     }
-    
+
     /**
     *  Returns the resource level at which the given resource type is
     *  cheap.
@@ -176,7 +176,7 @@ public class ResourcesInfo {
     public ResourceLevel getConditionForCheap(ResourceType type) {
         return resourceInfoMap.get(type).conditionForCheap;
     }
-    
+
     /**
     *  Returns the resource level at which the given resource type is
     *  expensive.
@@ -186,7 +186,7 @@ public class ResourcesInfo {
     public ResourceLevel getConditionForExpensive(ResourceType type) {
         return resourceInfoMap.get(type).conditionForExpensive;
     }
-    
+
     /**
     *  Returns the minimum price for this resource with a trader.
     *  @param type The resource type
@@ -195,7 +195,7 @@ public class ResourcesInfo {
     public int getMinPriceWithTrader(ResourceType type) {
         return resourceInfoMap.get(type).minPriceWithTrader;
     }
-    
+
     /**
     *  Returns the maximum price for this resource with a trader.
     *  @param type The resource type
@@ -204,7 +204,7 @@ public class ResourcesInfo {
     public int getMaxPriceWithTrader(ResourceType type) {
         return resourceInfoMap.get(type).maxPriceWithTrader;
     }
-    
+
     /**
     *  ResourceInfo holds the information for one resource.
     */
@@ -219,7 +219,7 @@ public class ResourcesInfo {
         private ResourceLevel conditionForExpensive;
         private int minPriceWithTrader;
         private int maxPriceWithTrader;
-        
+
         /**
         *  Set resource's name.
         *  @param name The resource name
@@ -228,7 +228,7 @@ public class ResourcesInfo {
         */
         public ResourceInfo setName(String name) {
             this.name = name;
-            
+
             return this;
         }
 
@@ -240,10 +240,10 @@ public class ResourcesInfo {
         */
         public ResourceInfo setBasePrice(int price) {
             this.basePrice = price;
-            
+
             return this;
         }
-        
+
 
         /**
         *  Set resource's minimum technology level to produce.
@@ -251,12 +251,13 @@ public class ResourcesInfo {
         *  @return ResourceInfo This class to allow method chaining
         *    (Builder pattern)
         */
-        public ResourceInfo setMinTechLevelToProduce(TechnologyLevel minToProduce) {
+        public ResourceInfo setMinTechLevelToProduce(
+            TechnologyLevel minToProduce) {
             this.minToProduce = minToProduce;
-            
+
             return this;
         }
-        
+
         /**
         *  Set resource's minimum technology level to use.
         *  @param minToUse The technology level
@@ -265,10 +266,10 @@ public class ResourcesInfo {
         */
         public ResourceInfo setMinTechLevelToUse(TechnologyLevel minToUse) {
             this.minToUse = minToUse;
-            
+
             return this;
         }
-        
+
         /**
         *  Set resource's price increase per technology level
         *  @param priceIncrease The price increase
@@ -277,10 +278,10 @@ public class ResourcesInfo {
         */
         public ResourceInfo setPriceIncreasePerTechLevel(int priceIncrease) {
             this.priceIncreasePerTechLevel = priceIncrease;
-            
+
             return this;
         }
-        
+
         /**
         *  Set resource's variance
         *  @param variance The variance
@@ -289,10 +290,10 @@ public class ResourcesInfo {
         */
         public ResourceInfo setVariance(int variance) {
             this.variance = variance;
-            
+
             return this;
         }
-        
+
         /**
         *  Set resource's condition at which the resource is cheap.
         *  @param resourceLevel The resource level
@@ -301,22 +302,23 @@ public class ResourcesInfo {
         */
         public ResourceInfo setConditionForCheap(ResourceLevel resourceLevel) {
             this.conditionForCheap = resourceLevel;
-            
+
             return this;
         }
-        
+
         /**
         *  Set resource's condition at which the resource is expensive.
         *  @param resourceLevel The resource level
         *  @return ResourceInfo This class to allow method chaining
         *    (Builder pattern)
         */
-        public ResourceInfo setConditionForExpensive(ResourceLevel resourceLevel) {
+        public ResourceInfo setConditionForExpensive(
+            ResourceLevel resourceLevel) {
             this.conditionForExpensive = resourceLevel;
-            
+
             return this;
         }
-        
+
         /**
         *  Set resource's minimum price with a trader
         *  @param minPrice The minimum price
@@ -325,10 +327,10 @@ public class ResourcesInfo {
         */
         public ResourceInfo setMinPriceWithTrader(int minPrice) {
             this.minPriceWithTrader = minPrice;
-            
+
             return this;
         }
-        
+
         /**
         *  Set resource's maximum price with a trader
         *  @param maxPrice The maximum price
@@ -337,7 +339,7 @@ public class ResourcesInfo {
         */
         public ResourceInfo setMaxPriceWithTrader(int maxPrice) {
             this.maxPriceWithTrader = maxPrice;
-            
+
             return this;
         }
     }

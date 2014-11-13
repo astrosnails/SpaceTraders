@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 22, 2014, 5:09:53 PM
+    Author     : ernest
+*/
+
+root { 
+    display: block;
+}
+.root {
+-fx-background-image: url("ShipYard.jpg");
+-fx-background-repeat: stretch; 
+-fx-background-position: top left; 
+}
