@@ -49,27 +49,27 @@ public class CoordinateEqualsTest {
     public void referenceEqualsTest() {
         Coordinates distance = new Coordinates(19, 30);
         Coordinates distance2 = distance;
-        assertEquals(distance, distance2);
+        assertTrue(distance.equals(distance2));
     }
     
     @Test
-    public void sameEqualsTest() {
+    public void sameInstanceEqualsTest() {
         Coordinates distance = new Coordinates(19, 30);
-        assertEquals(distance, distance);
+        assertTrue(distance.equals(distance));
     }
    
     @Test
     public void differentClassInstancesEqualityTest() {
-        Coordinates distance = new Coordinates(19, 30);
+        Coordinates distance = new Coordinates(50, 100);
         Player hifza = new Player("Hifza", 3, 3, 3, 3, 3);
-        assertEquals(distance, hifza);
+        assertFalse(distance.equals(hifza));
     }
     
     @Test
     public void diffInstanceSameXandYTest() {
         Coordinates distance = new Coordinates(35, 20);
         Coordinates distance2 = new Coordinates(35, 20);
-        assertEquals(distance, distance2);
+        assertTrue(distance.equals(distance2));
     }
     
 }
