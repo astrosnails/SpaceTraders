@@ -130,7 +130,7 @@ public class ResourceInfoTest {
         info = info.getInstance();
         private static ResourcesInfo testInfo = testInfo.getInstance();
         //objects should be references of each other
-        assertEquals(info, testInfo);
+        assertTrue(info.equals(testInfo));
     }
     
     @Test 
