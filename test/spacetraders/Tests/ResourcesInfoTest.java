@@ -151,8 +151,8 @@ public class ResourceInfoTest {
                 assertEquals(TechnologyLevel.PRE_AGRICULTURE, resource.getMinTechLevelToUse);
                 assertEquals(3, resource.getPriceIncreasePerTechLevel);
                 assertEquals(10, resource.getVariance);
-                assertEquals(LOTSOFWATER, resource.getConditionForCheap);
-                assertEquals(DESERT, resource.getConditionForExpensive);
+                assertEquals(ResourceLevel.LOTSOFWATER, resource.getConditionForCheap);
+                assertEquals(ResourceLevel.DESERT, resource.getConditionForExpensive);
                 assertEquals(95, resource.getMinPriceWithTrader;
                 assertEquals(120,  resource.getMaxPriceWithTrader);
             }
@@ -164,11 +164,12 @@ public class ResourceInfoTest {
                 assertEquals(TechnologyLevel.PRE_AGRICULTURE, resource.getMinTechLevelToUse);
                 assertEquals(30, resource.getPriceIncreasePerTechLevel);
                 assertEquals(15, resource.getVariance);
-                assertEquals(RICHSOIL, resource.getConditionForCheap);
-                assertEquals(POORSOIL, resource.getConditionForExpensive);
+                assertEquals(ResourceLevel.RICHSOIL, resource.getConditionForCheap);
+                assertEquals(ResourceLevel.POORSOIL, resource.getConditionForExpensive);
                 assertEquals(345, resource.getMinPriceWithTrader;
                 assertEquals(400,  resource.getMaxPriceWithTrader
             }
+            
             if (resource == OIL) {
                 assertEquals("Oil", resource.getName());
                 assertEquals(1000, resource.getBasePrice());
@@ -176,11 +177,51 @@ public class ResourceInfoTest {
                 assertEquals(TechnologyLevel.MIDIEVAL, resource.getMinTechLevelToUse);
                 assertEquals(50, resource.getPriceIncreasePerTechLevel);
                 assertEquals(10, resource.getVariance);
-                assertEquals(RICHSOIL, resource.getConditionForCheap);
-                assertEquals(WARLIKE, resource.getConditionForExpensive);
+                assertEquals(ResourceLevel.RICHSOIL, resource.getConditionForCheap);
+                assertEquals(ResourceLevel.WARLIKE, resource.getConditionForExpensive);
                 assertEquals(95, resource.getMinPriceWithTrader;
                 assertEquals(1200,  resource.getMaxPriceWithTrader
             }
+            
+            if (resource == GOLD) {
+                assertEquals("Gold", resource.getName());
+                assertEquals(4000, resource.getBasePrice());
+                assertEquals(TechnologyLevel.POST_INDUSTRIAL, resource.getMinTechLevelToProduce);
+                assertEquals(TechnologyLevel.RENAISSANCE, resource.getMinTechLevelToUse);
+                assertEquals(60, resource.getPriceIncreasePerTechLevel);
+                assertEquals(20, resource.getVariance);
+                assertEquals(ResourceLevel.RICHSOIL, resource.getConditionForCheap);
+                assertEquals(ResourceLevel.WARLIKE, resource.getConditionForExpensive);
+                assertEquals(3955, resource.getMinPriceWithTrader;
+                assertEquals(4400,  resource.getMaxPriceWithTrader
+            }
+            
+            if (resource == COCAINE) {
+                assertEquals("Cocaine", resource.getName());
+                assertEquals(10000, resource.getBasePrice());
+                assertEquals(TechnologyLevel.POST_MIDIEVAL, resource.getMinTechLevelToProduce);
+                assertEquals(TechnologyLevel.AGRICULTURE, resource.getMinTechLevelToUse);
+                assertEquals(200, resource.getPriceIncreasePerTechLevel);
+                assertEquals(25, resource.getVariance);
+                assertEquals(ResourceLevel.LOTSOFHERBS, resource.getConditionForCheap);
+                assertEquals(null, resource.getConditionForExpensive);
+                assertEquals(9999, resource.getMinPriceWithTrader;
+                assertEquals(15000,  resource.getMaxPriceWithTrader
+            }
+            
+             if (resource == FUEL) {
+                assertEquals("Fuel", resource.getName());
+                assertEquals(500, resource.getBasePrice());
+                assertEquals(TechnologyLevel.AGRICULTURE, resource.getMinTechLevelToProduce);
+                assertEquals(TechnologyLevel.EARLY_INDUSTRIAL, resource.getMinTechLevelToUse);
+                assertEquals(35, resource.getPriceIncreasePerTechLevel);
+                assertEquals(15, resource.getVariance);
+                assertEquals(ResourceLevel.RICHSOIL, resource.getConditionForCheap);
+                assertEquals(ResourceLevel.WARLIKE, resource.getConditionForExpensive);
+                assertEquals(480, resource.getMinPriceWithTrader;
+                assertEquals(600,  resource.getMaxPriceWithTrader
+            }
+            
         }
         
     }
