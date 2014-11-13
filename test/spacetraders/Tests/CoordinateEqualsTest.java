@@ -72,4 +72,18 @@ public class CoordinateEqualsTest {
         assertTrue(distance.equals(distance2));
     }
     
+    @Test
+    public void diffInstanceSameXdiffYTest() {
+        Coordinates distance = new Coordinates(100, 20);
+        Coordinates distance2 = new Coordinates(35, 20);
+        assertFalse(distance.equals(distance2));
+    }
+    
+    @Test
+    public void diffInstanceSameYdiffXTest() {
+        Coordinates distance = new Coordinates(35, 20);
+        Coordinates distance2 = new Coordinates(35, 100);
+        assertFalse(distance.equals(distance2));
+    }
+    
 }
