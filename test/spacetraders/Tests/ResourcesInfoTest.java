@@ -134,6 +134,14 @@ public class ResourceInfoTest {
     }
     
     @Test 
+    public void testNullInstance() {
+        ResourcesInfo in = null;
+        assertTrue(in, null);
+        in = in.getInstance();
+        assertFalse(in, null);
+    }
+    
+    @Test 
     public void testMappings() {
         for (ResourceType resource: resourceInfoMap) {
             if (resource == WATER) {
