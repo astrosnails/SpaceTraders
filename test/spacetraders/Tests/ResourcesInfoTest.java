@@ -138,7 +138,7 @@ public class ResourceInfoTest {
         ResourcesInfo in = null;
         assertTrue(in, null);
         in = in.getInstance();
-        assertFalse(in, null);
+        assertFalse(in.equals(null));
     }
     
     @Test 
