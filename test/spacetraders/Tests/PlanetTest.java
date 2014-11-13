@@ -26,9 +26,7 @@ import spacetraders.model.Resources;
  */
 public class PlanetTest {
     
-    Cargo cargo = new Cargo(30);
-    
-    public CargoTest() {
+    public PlanetTest() {
     }
     
     @BeforeClass
