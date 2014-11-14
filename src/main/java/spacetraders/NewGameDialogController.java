@@ -6,30 +6,17 @@
 
 package spacetraders;
 
-import java.io.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBoxBuilder;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-
-import spacetraders.model.*;
+import spacetraders.model.Player;
 
 /**
  * controller for new game/dialogue screens
@@ -38,8 +25,8 @@ import spacetraders.model.*;
  */
 public class NewGameDialogController extends Controller {
 
-    private final int MAX_SKILL_POINTS = 15;
-    
+    private static final int MAX_SKILL_POINTS = 15;
+
     @FXML
     private TextField playerNameTextEdit;
     @FXML
@@ -59,7 +46,7 @@ public class NewGameDialogController extends Controller {
     @FXML
     private Label engineerSPLabel;
 
-    /* 
+    /*
     * handler for when cancel button is pressed
     * @param ActionEvent event
     */
@@ -68,7 +55,7 @@ public class NewGameDialogController extends Controller {
         application.goToWelcomeScreen();
     }
 
-    /* 
+    /*
     * handler for when continue button is pressed
     * @param ActionEvent event
     */
@@ -82,46 +69,53 @@ public class NewGameDialogController extends Controller {
             int pilotSkill = (int) pilotSPSlider.getValue();
             int traderSkill = (int) traderSPSlider.getValue();
             int engineerSkill = (int) engineerSPSlider.getValue();
-            
-            application.startNewGame(new Player(playerName, fighterSkill, pilotSkill,
-                traderSkill, engineerSkill, 200000));
+
+            application.startNewGame(new Player(playerName, fighterSkill,
+                 pilotSkill, traderSkill, engineerSkill, 200000));
         }
     }
 
-    /* 
+    /*
     * initializes skillpoint sliders
     * @param URL url, ResourceBundle rb
     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         fighterSPSlider.valueProperty().addListener(
-            new LabelUpdaterOnSliderChangeListener(fighterSPSlider, fighterSPLabel));
+            new LabelUpdaterOnSliderChangeListener(
+                    fighterSPSlider, fighterSPLabel));
         pilotSPSlider.valueProperty().addListener(
-            new LabelUpdaterOnSliderChangeListener(pilotSPSlider, pilotSPLabel));
+            new LabelUpdaterOnSliderChangeListener(
+                    pilotSPSlider, pilotSPLabel));
         traderSPSlider.valueProperty().addListener(
-            new LabelUpdaterOnSliderChangeListener(traderSPSlider, traderSPLabel));
+            new LabelUpdaterOnSliderChangeListener(
+                    traderSPSlider, traderSPLabel));
         engineerSPSlider.valueProperty().addListener(
-            new LabelUpdaterOnSliderChangeListener(engineerSPSlider, engineerSPLabel));
+            new LabelUpdaterOnSliderChangeListener(
+                    engineerSPSlider, engineerSPLabel));
     }
-    
+
     /**
-    * private class that updates as slider is changed. implements ChangeListener<Number>
+    * private class that updates as slider is changed. implements
+    * ChangeListener<Number>
     * @author team 6
     * @version 1.0
     */
-    private class LabelUpdaterOnSliderChangeListener implements ChangeListener<Number> {
+    private class LabelUpdaterOnSliderChangeListener
+            implements ChangeListener<Number> {
         private Label label;
 
-        /* 
+        /*
         * costructor for labelupdateronsliderchangelistener
         */
         public LabelUpdaterOnSliderChangeListener(Slider slider, Label label) {
             this.label = label;
         }
 
-        /* 
+        /*
         * detects change in the slider and updates values accordingly
-        * @param ObservableValue<? extends Number> ov, Number oldValue, Number newValue
+        * @param ObservableValue<? extends Number> ov, Number oldValue,
+        * Number newValue
         */
         @Override
         public void changed(ObservableValue<? extends Number> ov,
@@ -131,14 +125,18 @@ public class NewGameDialogController extends Controller {
             pointsUsed += (int) pilotSPSlider.getValue();
             pointsUsed += (int) traderSPSlider.getValue();
             pointsUsed += (int) engineerSPSlider.getValue();
-            
+
             int pointsRemaining = MAX_SKILL_POINTS - pointsUsed;
-            
-            fighterSPSlider.setMax((int)fighterSPSlider.getValue() + pointsRemaining);
-            pilotSPSlider.setMax((int)pilotSPSlider.getValue() + pointsRemaining);
-            traderSPSlider.setMax((int)traderSPSlider.getValue() + pointsRemaining);
-            engineerSPSlider.setMax((int)engineerSPSlider.getValue() + pointsRemaining);
-            
+
+            fighterSPSlider.setMax(
+                    (int) fighterSPSlider.getValue() + pointsRemaining);
+            pilotSPSlider.setMax(
+                    (int) pilotSPSlider.getValue() + pointsRemaining);
+            traderSPSlider.setMax(
+                    (int) traderSPSlider.getValue() + pointsRemaining);
+            engineerSPSlider.setMax(
+                    (int) engineerSPSlider.getValue() + pointsRemaining);
+
             label.setText(String.format("%.0f", newValue));
         }
     }
