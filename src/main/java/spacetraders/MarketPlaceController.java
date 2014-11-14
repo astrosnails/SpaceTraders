@@ -81,19 +81,21 @@ public class MarketPlaceController extends Controller {
     @FXML private TextField totalCostTextField;
     @FXML private TextField totalProfitTextField;
 
-    SimpleIntegerProperty buyWaterAmount = new SimpleIntegerProperty();
-    SimpleIntegerProperty buyFoodAmount = new SimpleIntegerProperty();
-    SimpleIntegerProperty buyOilAmount = new SimpleIntegerProperty();
-    SimpleIntegerProperty buyGoldAmount = new SimpleIntegerProperty();
-    SimpleIntegerProperty buyCocaineAmount = new SimpleIntegerProperty();
-    SimpleIntegerProperty buyFuelAmount = new SimpleIntegerProperty();
-    
-    SimpleIntegerProperty sellWaterAmount = new SimpleIntegerProperty();
-    SimpleIntegerProperty sellFoodAmount = new SimpleIntegerProperty();
-    SimpleIntegerProperty sellOilAmount = new SimpleIntegerProperty();
-    SimpleIntegerProperty sellGoldAmount = new SimpleIntegerProperty();
-    SimpleIntegerProperty sellCocaineAmount = new SimpleIntegerProperty();
-    SimpleIntegerProperty sellFuelAmount = new SimpleIntegerProperty();
+    private SimpleIntegerProperty buyWaterAmount = new SimpleIntegerProperty();
+    private SimpleIntegerProperty buyFoodAmount = new SimpleIntegerProperty();
+    private SimpleIntegerProperty buyOilAmount = new SimpleIntegerProperty();
+    private SimpleIntegerProperty buyGoldAmount = new SimpleIntegerProperty();
+    private SimpleIntegerProperty buyCocaineAmount =
+            new SimpleIntegerProperty();
+    private SimpleIntegerProperty buyFuelAmount = new SimpleIntegerProperty();
+
+    private SimpleIntegerProperty sellWaterAmount = new SimpleIntegerProperty();
+    private SimpleIntegerProperty sellFoodAmount = new SimpleIntegerProperty();
+    private SimpleIntegerProperty sellOilAmount = new SimpleIntegerProperty();
+    private SimpleIntegerProperty sellGoldAmount = new SimpleIntegerProperty();
+    private SimpleIntegerProperty sellCocaineAmount =
+            new SimpleIntegerProperty();
+    private SimpleIntegerProperty sellFuelAmount = new SimpleIntegerProperty();
     /**
     * The button click listener
     * @param ActionEvent event
@@ -114,7 +116,7 @@ public class MarketPlaceController extends Controller {
         Cargo cargo = player.getShip().getCargo();
         int money = player.getMoney().intValue();
         int cost = totalCost.intValue();
-        
+
         if (money >= cost) {
             int waterUnits = buyWaterAmount.intValue();
             int foodUnits = buyFoodAmount.intValue();
@@ -122,8 +124,9 @@ public class MarketPlaceController extends Controller {
             int goldUnits = buyGoldAmount.intValue();
             int cocaineUnits = buyCocaineAmount.intValue();
             int fuelUnits = buyFuelAmount.intValue();
-            int totalUnits = waterUnits + foodUnits + oilUnits + goldUnits + cocaineUnits;
-            
+            int totalUnits = waterUnits + foodUnits + oilUnits
+                + goldUnits + cocaineUnits;
+
             if (totalUnits <= cargo.calculateEmptySpace()) {
                 Resources resources = cargo.getResources();
                 resources.addResource(ResourceType.WATER, waterUnits);
@@ -132,7 +135,7 @@ public class MarketPlaceController extends Controller {
                 resources.addResource(ResourceType.GOLD, goldUnits);
                 resources.addResource(ResourceType.COCAINE, cocaineUnits);
                 resources.addResource(ResourceType.FUEL, fuelUnits);
-                
+
                 player.setMoney(money - cost);
             } else {
                 AlertDialog.showAlert("No space in cargo");
@@ -141,7 +144,7 @@ public class MarketPlaceController extends Controller {
             AlertDialog.showAlert("No money, No resources!");
         }
     }
-    
+
     /**
     * The sell button click listener
     * @param ActionEvent event
@@ -158,14 +161,14 @@ public class MarketPlaceController extends Controller {
         int oilUnits = sellOilAmount.intValue();
         int goldUnits = sellGoldAmount.intValue();
         int cocaineUnits = sellCocaineAmount.intValue();
-         int fuelUnits = sellFuelAmount.intValue();
-         
-        if (waterUnits > resources.getResourceAmount(ResourceType.WATER) ||
-                foodUnits > resources.getResourceAmount(ResourceType.FOOD) ||
-                oilUnits > resources.getResourceAmount(ResourceType.OIL) ||
-                goldUnits > resources.getResourceAmount(ResourceType.GOLD) ||
-                cocaineUnits > resources.getResourceAmount(ResourceType.COCAINE) ||
-                fuelUnits > resources.getResourceAmount(ResourceType.FUEL)) {
+        int fuelUnits = sellFuelAmount.intValue();
+
+        if (waterUnits > resources.getResourceAmount(ResourceType.WATER)
+            || foodUnits > resources.getResourceAmount(ResourceType.FOOD)
+            || oilUnits > resources.getResourceAmount(ResourceType.OIL)
+            || goldUnits > resources.getResourceAmount(ResourceType.GOLD)
+            || cocaineUnits > resources.getResourceAmount(ResourceType.COCAINE)
+            || fuelUnits > resources.getResourceAmount(ResourceType.FUEL)) {
             AlertDialog.showAlert("No resources, no money");
         } else {
             resources.removeResource(ResourceType.WATER, waterUnits);
@@ -174,11 +177,11 @@ public class MarketPlaceController extends Controller {
             resources.removeResource(ResourceType.GOLD, goldUnits);
             resources.removeResource(ResourceType.COCAINE, cocaineUnits);
             resources.removeResource(ResourceType.FUEL, fuelUnits);
-            
+
             player.setMoney(money + profit);
         }
     }
-    
+
     /**
     * Updates the prices
     * @param none
@@ -186,25 +189,33 @@ public class MarketPlaceController extends Controller {
     */
     private void updatePrices() {
         Planet planet = application.getPlayer().getLocation();
-        waterUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.WATER));
-        foodUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.FOOD));
-        oilUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.OIL));
-        goldUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.GOLD));
-        cocaineUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.COCAINE));
-        fuelUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.FUEL));
+        waterUnitPrice = new SimpleIntegerProperty(
+                planet.getResourcePrice(ResourceType.WATER));
+        foodUnitPrice = new SimpleIntegerProperty(
+                planet.getResourcePrice(ResourceType.FOOD));
+        oilUnitPrice = new SimpleIntegerProperty(
+                planet.getResourcePrice(ResourceType.OIL));
+        goldUnitPrice = new SimpleIntegerProperty(
+                planet.getResourcePrice(ResourceType.GOLD));
+        cocaineUnitPrice = new SimpleIntegerProperty(
+                planet.getResourcePrice(ResourceType.COCAINE));
+        fuelUnitPrice = new SimpleIntegerProperty(
+                planet.getResourcePrice(ResourceType.FUEL));
         waterPriceLabel.textProperty().bind(waterUnitPrice.asString());
         foodPriceLabel.textProperty().bind(foodUnitPrice.asString());
         oilPriceLabel.textProperty().bind(oilUnitPrice.asString());
         goldPriceLabel.textProperty().bind(goldUnitPrice.asString());
         cocainePriceLabel.textProperty().bind(cocaineUnitPrice.asString());
-        fuelPriceLabel.textProperty().bind(fuelUnitPrice.asString());  
-        totalCost = Bindings.add(Bindings.multiply(waterUnitPrice, buyWaterAmount),
-                Bindings.add(Bindings.multiply(foodUnitPrice, buyFoodAmount), 
+        fuelPriceLabel.textProperty().bind(fuelUnitPrice.asString());
+        totalCost =
+                Bindings.add(Bindings.multiply(waterUnitPrice, buyWaterAmount),
+                Bindings.add(Bindings.multiply(foodUnitPrice, buyFoodAmount),
                 Bindings.add(Bindings.multiply(oilUnitPrice, buyOilAmount),
                 Bindings.add(Bindings.multiply(goldUnitPrice, buyGoldAmount),
                 Bindings.add(Bindings.multiply(fuelUnitPrice, buyFuelAmount),         
                 Bindings.multiply(cocaineUnitPrice, buyCocaineAmount))))));
-        totalProfit = Bindings.add(Bindings.multiply(waterUnitPrice, sellWaterAmount),
+        totalProfit =
+                Bindings.add(Bindings.multiply(waterUnitPrice, sellWaterAmount),
                 Bindings.add(Bindings.multiply(foodUnitPrice, sellFoodAmount), 
                 Bindings.add(Bindings.multiply(oilUnitPrice, sellOilAmount),
                 Bindings.add(Bindings.multiply(goldUnitPrice, sellGoldAmount),
@@ -223,17 +234,29 @@ public class MarketPlaceController extends Controller {
         Player player = application.getPlayer();
         Resources cargoResources = player.getShip().getCargo().getResources();
         foodInInventory.textProperty().bind(
-                cargoResources.getResourceAmountProperty(ResourceType.FOOD).asString());
+                cargoResources
+                        .getResourceAmountProperty(ResourceType.FOOD)
+                        .asString());
         waterInInventory.textProperty().bind(
-                cargoResources.getResourceAmountProperty(ResourceType.WATER).asString());
+                cargoResources
+                        .getResourceAmountProperty(ResourceType.WATER)
+                        .asString());
         oilInInventory.textProperty().bind(
-                cargoResources.getResourceAmountProperty(ResourceType.OIL).asString());
+                cargoResources
+                        .getResourceAmountProperty(ResourceType.OIL)
+                        .asString());
         goldInInventory.textProperty().bind(
-                cargoResources.getResourceAmountProperty(ResourceType.GOLD).asString());
+                cargoResources
+                        .getResourceAmountProperty(ResourceType.GOLD)
+                        .asString());
         cocaineInInventory.textProperty().bind(
-                cargoResources.getResourceAmountProperty(ResourceType.COCAINE).asString());
-         fuelInInventory.textProperty().bind(
-                cargoResources.getResourceAmountProperty(ResourceType.FUEL).asString());
+                cargoResources
+                        .getResourceAmountProperty(ResourceType.COCAINE)
+                        .asString());
+        fuelInInventory.textProperty().bind(
+                cargoResources
+                        .getResourceAmountProperty(ResourceType.FUEL)
+                        .asString());
         currentMoney.textProperty().bind(player.getMoney().asString());
         /*sellGoldSlider.setMax(
         cargoResources.getResourceAmount(ResourceType.GOLD));
