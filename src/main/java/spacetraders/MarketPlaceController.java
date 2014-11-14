@@ -198,21 +198,18 @@ public class MarketPlaceController extends Controller {
         goldUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.GOLD));
         cocaineUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.COCAINE));
         fuelUnitPrice = new SimpleIntegerProperty(planet.getResourcePrice(ResourceType.FUEL));
-        
         waterPriceLabel.textProperty().bind(waterUnitPrice.asString());
         foodPriceLabel.textProperty().bind(foodUnitPrice.asString());
         oilPriceLabel.textProperty().bind(oilUnitPrice.asString());
         goldPriceLabel.textProperty().bind(goldUnitPrice.asString());
         cocainePriceLabel.textProperty().bind(cocaineUnitPrice.asString());
-        fuelPriceLabel.textProperty().bind(fuelUnitPrice.asString());
-        
+        fuelPriceLabel.textProperty().bind(fuelUnitPrice.asString());  
         totalCost = Bindings.add(Bindings.multiply(waterUnitPrice, buyWaterAmount),
                 Bindings.add(Bindings.multiply(foodUnitPrice, buyFoodAmount), 
                 Bindings.add(Bindings.multiply(oilUnitPrice, buyOilAmount),
                 Bindings.add(Bindings.multiply(goldUnitPrice, buyGoldAmount),
                 Bindings.add(Bindings.multiply(fuelUnitPrice, buyFuelAmount),         
                 Bindings.multiply(cocaineUnitPrice, buyCocaineAmount))))));
-        
         totalProfit = Bindings.add(Bindings.multiply(waterUnitPrice, sellWaterAmount),
                 Bindings.add(Bindings.multiply(foodUnitPrice, sellFoodAmount), 
                 Bindings.add(Bindings.multiply(oilUnitPrice, sellOilAmount),
@@ -244,7 +241,6 @@ public class MarketPlaceController extends Controller {
          fuelInInventory.textProperty().bind(
                 cargoResources.getResourceAmountProperty(ResourceType.FUEL).asString());
         currentMoney.textProperty().bind(player.getMoney().asString());
-        
         /*sellGoldSlider.setMax(
         cargoResources.getResourceAmount(ResourceType.GOLD));
         sellCocaineSlider.setMax(
@@ -259,20 +255,20 @@ public class MarketPlaceController extends Controller {
     }
     /*
     private void setBuySliderMax() {
-        int emptySpace = application.getPlayer().getShip().getCargo().getSpace();
+        int emptySpace = application.getPlayer().
+        getShip().getCargo().getSpace();
         int money = application.getPlayer().getMoney().getValue();
         Planet planet = application.getPlayer().getLocation();
-                        
-        buyGoldSlider.setMax(Math.min(emptySpace, money / 
+        buyGoldSlider.setMax(Math.min(emptySpace, money /
         planet.getResourcePrice(ResourceType.GOLD)));
         buyWaterSlider.setMax(Math.min(emptySpace, money /
          planet.getResourcePrice(ResourceType.WATER)));
-        buyFoodSlider.setMax(Math.min(emptySpace, money / 
+        buyFoodSlider.setMax(Math.min(emptySpace, money /
         planet.getResourcePrice(ResourceType.FOOD)));
-        buyCocaineSlider.setMax(Math.min(emptySpace, money / 
+        buyCocaineSlider.setMax(Math.min(emptySpace, money /
         planet.getResourcePrice(ResourceType.COCAINE)));
-        buyOilSlider.setMax(Math.min(emptySpace, money / 
-        planet.getResourcePrice(ResourceType.OIL)));     
+        buyOilSlider.setMax(Math.min(emptySpace, money /
+        planet.getResourcePrice(ResourceType.OIL)));
     }
     */
     /**
