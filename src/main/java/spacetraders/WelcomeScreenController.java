@@ -7,7 +7,7 @@
 
 package spacetraders;
 
-import java.io.*;
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -15,12 +15,12 @@ import javafx.fxml.FXML;
 *This class implements the WelcomeScreenController
 *to set up and create the welcome screen
 * @author Team 6, CS 2340 - Fall 2014 M5
-* 
+*
 */
 public class WelcomeScreenController extends Controller {
 
     /**
-    * this method is the button action listener 
+    * this method is the button action listener
     * and handles the button action
     * @param ActionEvent event
     * @return info
@@ -29,7 +29,7 @@ public class WelcomeScreenController extends Controller {
     private void onNewGameButtonClicked(ActionEvent event) throws IOException {
         application.goToNewGameDialog();
     }
-    
+
     @FXML
     private void onLoadGameButtonClicked(ActionEvent event) {
         try {
