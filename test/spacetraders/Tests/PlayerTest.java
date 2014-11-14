@@ -14,6 +14,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import spacetraders.Abstract.TravelListener;
 import spacetraders.model.Coordinates;
 import spacetraders.model.Planet;
 import spacetraders.model.PlanetEvent;
@@ -32,23 +33,17 @@ import spacetraders.model.Universe;
  * @author thangnguyen
  */
 public class PlayerTest {
-    Player thang = new Player("Thang", 1, 1 , 1 ,1, 1);
-    Ship thangship = new Ship(Protoss);
-    Universe universe = Universe.getInstance();
-    
-    public PlayerTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+    Player thang;
+    Ship thangship;
+    Universe universe;
+        
     @Before
     public void setUp() {
+        thang = new Player("Thang", 1, 1 , 1 ,1, 1);
+        thangship = new Ship(Protoss);
+        universe = Universe.getInstance();
+        
+        thang.setLocation(universe.getPlanets().get(0));
     }
     
     @After
@@ -61,7 +56,7 @@ public class PlayerTest {
     // @Test
     // public void hello() {}
     @Test 
-    public void test1calculateTotalResources() {
+    public void test1TravelTo() {
         thang.setShip(thangship);
         thang.setLocation(universe.getPlanets().get(0));
         try {
@@ -74,7 +69,7 @@ public class PlayerTest {
         }
     }
     @Test 
-    public void test2calculateTotalResources() {
+    public void test2TravelTo() {
         thang.setShip(thangship);
         thang.setLocation(universe.getPlanets().get(0));
         thang.travelTo(universe.getPlanets().get(1));
@@ -82,7 +77,7 @@ public class PlayerTest {
         Assert.assertEquals(4, thangship.getFuel().get());
     }
     @Test 
-    public void test3calculateTotalResources() {
+    public void test3TravelTo() {
         thang.setShip(thangship);
         thangship.addFuel(10);
         thang.setLocation(universe.getPlanets().get(0));
@@ -91,5 +86,38 @@ public class PlayerTest {
         Assert.assertEquals(thang.getLocation(), universe.getPlanets().get(0));
         System.out.println( thangship.getFuel().get());
         Assert.assertEquals(8, thangship.getFuel().get());
+    }
+    
+    @Test
+    public void test4TravelTo() {
+        final TestCall calledCallback = new TestCall();
+        TravelListener listener = new TravelListener() {
+
+            @Override
+            public void onTravel(Planet destination) {
+                calledCallback.call();
+            }
+        
+        };
+        
+        thang.addTravelListener(listener);
+        thang.travelTo(universe.getPlanets().get(0));
+        assertEquals(true, calledCallback.isCalled());
+    }
+    
+    private class TestCall {
+        boolean isCalled;
+        
+        public void TestCall() {
+            isCalled = false;
+        }
+        
+        public void call() {
+            isCalled = true;
+        }
+        
+        public boolean isCalled() {
+            return isCalled;
+        }
     }
 }
