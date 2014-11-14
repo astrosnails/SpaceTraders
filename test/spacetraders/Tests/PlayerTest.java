@@ -84,7 +84,6 @@ public class PlayerTest {
         thang.travelTo(universe.getPlanets().get(1));
         thang.travelTo(universe.getPlanets().get(0));
         Assert.assertEquals(thang.getLocation(), universe.getPlanets().get(0));
-        System.out.println( thangship.getFuel().get());
         Assert.assertEquals(8, thangship.getFuel().get());
     }
     

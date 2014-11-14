@@ -202,8 +202,8 @@ public class Planet implements TravelListener, Serializable {
         int num = rand.nextInt(PlanetEvent.values().length);
         planetEvent = PlanetEvent.values()[num];
     }
-    
+
     public void setGadgets(Set<GadgetType> gadgets) {
         this.gadgetsInShipyard = gadgets;
-    } 
+    }
 }
