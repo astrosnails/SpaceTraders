@@ -45,10 +45,10 @@ import spacetraders.model.ShipsInfo;
 *This class implements the WelcomeScreenController
 *to set up and create the welcome screen
 * @author Team 6, CS 2340 - Fall 2014 M5
-* 
+*
 */
 public class ShipYardController extends Controller {
-    
+
     Map<String, ShipType> shipsAvailable;
     private ShipType selectedShipType;
     private Map<String, GadgetType> gadgetsAvailable;
@@ -59,9 +59,9 @@ public class ShipYardController extends Controller {
     @FXML private TextArea shipInfoTextArea;
     @FXML private Label currentMoney;
     private ListView lastSelectedList;
-    
+
     /**
-    * this method is the button action listener 
+    * this method is the button action listener
     * and handles the button action
     * @param ActionEvent event
     * @return info
@@ -70,9 +70,9 @@ public class ShipYardController extends Controller {
     private void onBackButtonClicked(ActionEvent event) throws IOException {
         application.goToDashboard();
     }
-    
+
     /**
-    * this method is the button action listener 
+    * this method is the button action listener
     * and handles the button action
     * @param ActionEvent event
     * @return info
@@ -136,7 +136,7 @@ public class ShipYardController extends Controller {
     }
     /**
      * Method to buy ship
-     * @param selectedShip 
+     * @param selectedShip
      */
     private void buyShip(ShipType selectedShip) {
         Player player = application.getPlayer();
@@ -144,22 +144,22 @@ public class ShipYardController extends Controller {
         Ship newShip = new Ship(selectedShip);
         newShip.getCargo().setResources(oldShip.getCargo().getResources());
         player.setShip(newShip);
-        
+
         int newShipPrice = ShipsInfo.getInstance().getPrice(selectedShip);
         player.decreaseMoney(newShipPrice);
     }
     /**
      * Method to buy gadget
-     * @param selectedGadget 
+     * @param selectedGadget
      */
     private void buyGadget(GadgetType selectedGadget) {
         Player player = application.getPlayer();
         player.getShip().addGadget(selectedGadget);
-        
+
         int price = GadgetsInfo.getInstance().getPrice(selectedGadget);
         player.decreaseMoney(price);
     }
-    
+
     /**
     * Sets the main application
     * @param MainApplication application
@@ -167,38 +167,38 @@ public class ShipYardController extends Controller {
     @Override
     public void setMainApplication(MainApplication application) {
         this.application = application;
-        
+
         final Player player = application.getPlayer();
         ShipsInfo shipsInformation = ShipsInfo.getInstance();
         GadgetsInfo gadgetsInformation = GadgetsInfo.getInstance();
         ObservableList<String> shipNames = FXCollections.observableArrayList();
         ObservableList<String> gadgetNames = FXCollections.observableArrayList();
-        
+
         shipsAvailable = new HashMap<>();
         for (ShipType shipType : player.getLocation().getShipsInShipyard()) {
             shipsAvailable.put(shipsInformation.getName(shipType), shipType);
         }
-        
+
         gadgetsAvailable = new HashMap<>();
         for (GadgetType gadget : player.getLocation().getGadgetsInShipyard()) {
             gadgetsAvailable.put(gadgetsInformation.getName(gadget), gadget);
         }
-        
+
         shipNames.add("Current Ship");
         shipNames.addAll(shipsAvailable.keySet());
-        shipsList.setItems(shipNames);    
-        
+        shipsList.setItems(shipNames);
+
         gadgetNames.addAll(gadgetsAvailable.keySet());
         gadgetsList.setItems(gadgetNames);
-        
+
         currentMoney.textProperty().bind(player.getMoney().asString());
-        
+
         shipsList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             public void changed(ObservableValue<? extends String> ov, String old_val, String new_val) {
                 StringBuilder shipDetails = new StringBuilder();
                 if (new_val.equals("Current Ship")) {
                     selectedShipType = player.getShip().getType();
-                    
+
                     GadgetType[] gadgets = player.getShip().getGadgets();
                     if (gadgets.length > 0) {
                         shipDetails.append("Gadgets\n-------\n");
@@ -211,20 +211,20 @@ public class ShipYardController extends Controller {
                 } else {
                     selectedShipType = shipsAvailable.get(new_val);
                 }
-                
+
                 shipDetails.insert(0, shipsInformation.getInformationAsText(selectedShipType) + "\n");
-                
+
                 shipInfoTextArea.setText(shipDetails.toString());
                 lastSelectedList = shipsList;
             }
         });
-        
+
         gadgetsList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             public void changed(ObservableValue<? extends String> ov, String old_val, String new_val) {
-                
+
                 selectedGadget = gadgetsAvailable.get(new_val);
                 shipInfoTextArea.setText(gadgetsInformation.getInformationAsText(selectedGadget));
-                
+
                 lastSelectedList = gadgetsList;
             }
         });
