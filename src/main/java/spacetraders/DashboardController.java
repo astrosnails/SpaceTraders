@@ -47,7 +47,6 @@ import spacetraders.model.Universe;
  *@version 1.0
  */
 public class DashboardController extends Controller implements TravelListener {
-    
     @FXML
     private GridPane playerInformation;
     @FXML
@@ -72,17 +71,16 @@ public class DashboardController extends Controller implements TravelListener {
     */
     private void updatePlayerInformation() {
         Player player = application.getPlayer();
-        
         playerName.setText(player.getName());
         fighterPoints.setText(Integer.toString(player.getFighterSkill()));
         traderPoints.setText(Integer.toString(player.getTraderSkill()));
         pilotPoints.setText(Integer.toString(player.getPilotSkill()));
         engineerPoints.setText(Integer.toString(player.getEngineerSkill()));
-        
-        StringExpression labelText = Bindings.concat("Fuel: ", player.getShip().getFuel().asString());
+        StringExpression labelText = Bindings.concat("Fuel: ", 
+                                    player.getShip().getFuel().asString());
         fuelLabel.textProperty().bind(labelText);
     }
-    
+
     /*
      * The onTravel method for the specified destination, initializes the map pane
      * @param Planet destination
@@ -111,13 +109,11 @@ public class DashboardController extends Controller implements TravelListener {
             double x = coordinates.getX() * mapPane.getPrefWidth() / universe.getWidth();
             double y = coordinates.getY() * mapPane.getPrefHeight() / universe.getHeight();
             Color color = application.getPlayer().getLocation().equals(planet) ?
-                Color.RED :Color.SKYBLUE;
+                Color.RED : Color.SKYBLUE;
             
             circles[i] = new Circle(x, y, radius, color);
-            
             final Circle circle = circles[i];
             circles[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
-                
                 /**
                 * handles the mouse event
                 * @param: MouseEvent event
@@ -125,7 +121,7 @@ public class DashboardController extends Controller implements TravelListener {
                 */
                 @Override
                 public void handle(MouseEvent event) {
-                    //TODO: Find better solution
+                    //Find better solution
                     try {
                         FXMLLoader myLoader = new FXMLLoader(
                                 getClass().getResource("PlanetInformation.fxml"));
@@ -141,13 +137,10 @@ public class DashboardController extends Controller implements TravelListener {
                         Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            
             });
         }
-        
         mapPane.getChildren().addAll(circles);
     }
-    
     /**
      * The button listener for selling stuff
      * @param ActionEvent event
@@ -157,7 +150,6 @@ public class DashboardController extends Controller implements TravelListener {
     private void onBuySellButtonClicked(ActionEvent event) throws IOException {
         application.goToMarketPlace();
     }
-    
     /**
      * The button listener for selling stuff
      * @param ActionEvent event
@@ -167,7 +159,6 @@ public class DashboardController extends Controller implements TravelListener {
     private void onShipyardButtonClicked(ActionEvent event) throws IOException {
         application.goToShipYard();
     }
-    
     @FXML
     private void onSaveGameButtonClicked(ActionEvent event){
         try {
@@ -177,18 +168,15 @@ public class DashboardController extends Controller implements TravelListener {
             AlertDialog.showAlert("ERROR: Cannot save game!");
         }
     }
-    
     /**
      * Set main application
-     *@param application - main application 
+     *@param application - main application
      */
     @Override
     public void setMainApplication(MainApplication application) {
         this.application = application;
-        
         updatePlayerInformation();
         initializeMapPane();
-        
         application.getPlayer().addTravelListener(this);
     }
 }
