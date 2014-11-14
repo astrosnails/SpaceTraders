@@ -245,11 +245,16 @@ public class MarketPlaceController extends Controller {
                 cargoResources.getResourceAmountProperty(ResourceType.FUEL).asString());
         currentMoney.textProperty().bind(player.getMoney().asString());
         
-        /*sellGoldSlider.setMax(cargoResources.getResourceAmount(ResourceType.GOLD));
-        sellCocaineSlider.setMax(cargoResources.getResourceAmount(ResourceType.COCAINE));
-        sellWaterSlider.setMax(cargoResources.getResourceAmount(ResourceType.WATER));
-        sellOilSlider.setMax(cargoResources.getResourceAmount(ResourceType.OIL));
-        sellFoodSlider.setMax(cargoResources.getResourceAmount(ResourceType.FOOD));
+        /*sellGoldSlider.setMax(
+        cargoResources.getResourceAmount(ResourceType.GOLD));
+        sellCocaineSlider.setMax(
+        cargoResources.getResourceAmount(ResourceType.COCAINE));
+        sellWaterSlider.setMax(
+        cargoResources.getResourceAmount(ResourceType.WATER));
+        sellOilSlider.setMax(
+        cargoResources.getResourceAmount(ResourceType.OIL));
+        sellFoodSlider.setMax(
+        cargoResources.getResourceAmount(ResourceType.FOOD));
         */
     }
     /*
@@ -258,15 +263,18 @@ public class MarketPlaceController extends Controller {
         int money = application.getPlayer().getMoney().getValue();
         Planet planet = application.getPlayer().getLocation();
                         
-        buyGoldSlider.setMax(Math.min(emptySpace, money / planet.getResourcePrice(ResourceType.GOLD)));
-        buyWaterSlider.setMax(Math.min(emptySpace, money / planet.getResourcePrice(ResourceType.WATER)));
-        buyFoodSlider.setMax(Math.min(emptySpace, money / planet.getResourcePrice(ResourceType.FOOD)));
-        buyCocaineSlider.setMax(Math.min(emptySpace, money / planet.getResourcePrice(ResourceType.COCAINE)));
-        buyOilSlider.setMax(Math.min(emptySpace, money / planet.getResourcePrice(ResourceType.OIL)));     
+        buyGoldSlider.setMax(Math.min(emptySpace, money / 
+        planet.getResourcePrice(ResourceType.GOLD)));
+        buyWaterSlider.setMax(Math.min(emptySpace, money /
+         planet.getResourcePrice(ResourceType.WATER)));
+        buyFoodSlider.setMax(Math.min(emptySpace, money / 
+        planet.getResourcePrice(ResourceType.FOOD)));
+        buyCocaineSlider.setMax(Math.min(emptySpace, money / 
+        planet.getResourcePrice(ResourceType.COCAINE)));
+        buyOilSlider.setMax(Math.min(emptySpace, money / 
+        planet.getResourcePrice(ResourceType.OIL)));     
     }
     */
-
-
     /**
     * Sets the main application
     * @param MainApplication application
@@ -274,44 +282,30 @@ public class MarketPlaceController extends Controller {
     @Override
     public void setMainApplication(MainApplication application) {
         this.application = application;
-        
         updateInventory();
         updatePrices();
-        
-        
         buyWaterAmount.bind(buyWaterSlider.valueProperty());
         buyWaterUnits.textProperty().bind(buyWaterAmount.asString());
-        
         buyFoodAmount.bind(buyFoodSlider.valueProperty());
         buyFoodUnits.textProperty().bind(buyFoodAmount.asString());
-        
         buyOilAmount.bind(buyOilSlider.valueProperty());
         buyOilUnits.textProperty().bind(buyOilAmount.asString());
-        
         buyGoldAmount.bind(buyGoldSlider.valueProperty());
         buyGoldUnits.textProperty().bind(buyGoldAmount.asString());
-        
         buyCocaineAmount.bind(buyCocaineSlider.valueProperty());
         buyCocaineUnits.textProperty().bind(buyCocaineAmount.asString());
-        
         buyFuelAmount.bind(buyFuelSlider.valueProperty());
         buyFuelUnits.textProperty().bind(buyFuelAmount.asString());
-        
         sellWaterAmount.bind(sellWaterSlider.valueProperty());
         sellWaterUnits.textProperty().bind(sellWaterAmount.asString());
-        
         sellFoodAmount.bind(sellFoodSlider.valueProperty());
         sellFoodUnits.textProperty().bind(sellFoodAmount.asString());
-        
         sellOilAmount.bind(sellOilSlider.valueProperty());
         sellOilUnits.textProperty().bind(sellOilAmount.asString());
-        
         sellGoldAmount.bind(sellGoldSlider.valueProperty());
         sellGoldUnits.textProperty().bind(sellGoldAmount.asString());
-        
         sellCocaineAmount.bind(sellCocaineSlider.valueProperty());
         sellCocaineUnits.textProperty().bind(sellCocaineAmount.asString());
-        
         sellFuelAmount.bind(sellFuelSlider.valueProperty());
         sellFuelUnits.textProperty().bind(sellFuelAmount.asString());
     }
