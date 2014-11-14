@@ -24,11 +24,10 @@ import javafx.stage.Stage;
  * @version 1.0
  */
 public class AlertDialog {
-	
-	/* 
-	* popup window appears when showalert is called
-	* @param String message
-	*/
+    /*
+    * popup window appears when showalert is called
+    * @param String message
+    */
     public static void showAlert(String message) {
         Stage dialogStage = new Stage();
         Button ok = new Button("OK");
@@ -42,7 +41,7 @@ public class AlertDialog {
             dialogStage.close();
         });
     }
-    
+
     public static void showYesNo(String message, EventHandler<ActionEvent> yesHandler, EventHandler<ActionEvent> noHandler) {
         Stage dialogStage = new Stage();
         Button yes = new Button("Yes");
@@ -59,9 +58,9 @@ public class AlertDialog {
                         .padding(new Insets(5))
                         .build())
             .alignment(Pos.CENTER).padding(new Insets(5)).build()));
-        
+
         dialogStage.show();
-        
+
         yes.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 if (yesHandler != null) {
@@ -71,7 +70,7 @@ public class AlertDialog {
                 dialogStage.close();
             }
         });
-        
+
         no.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 if (noHandler != null) {
