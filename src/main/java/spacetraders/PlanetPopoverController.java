@@ -7,7 +7,8 @@
 
 package spacetraders;
 
-import java.io.*;
+
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,12 +21,12 @@ import spacetraders.model.Player;
 *This class implements the WelcomeScreenController
 *to set up and create the welcome screen
 * @author Team 6, CS 2340 - Fall 2014 M5
-* 
+*
 */
 public class PlanetPopoverController extends Controller {
-    
+
     private Planet planet;
-    
+
     @FXML
     private Label planetName;
     @FXML
@@ -34,15 +35,16 @@ public class PlanetPopoverController extends Controller {
     private Button travelButton;
 
     /**
-    * this method is the button action listener 
+    * this method is the button action listener
     * and handles the button action
     * @param ActionEvent event
     * @return info
     */
     @FXML
-    private void handleTravelButtonAction(ActionEvent event) throws IOException {
+    private void handleTravelButtonAction(ActionEvent event)
+        throws IOException {
         Player player = application.getPlayer();
-        
+
         if (planet.equals(player.getLocation())) {
             AlertDialog.showAlert("You are already on " + planet.getName());
         } else {
@@ -53,7 +55,7 @@ public class PlanetPopoverController extends Controller {
             }
         }
     }
-    
+
     /**
      * Set planet
      *@param planet - the planet for which the information will be shown
@@ -61,6 +63,7 @@ public class PlanetPopoverController extends Controller {
     public void setPlanet(Planet planet) {
         this.planet = planet;
         planetName.setText(planet.getName());
-        planetEventLabel.setText(PlanetEventsInfo.getInstance().getName(planet.getPlanetEvent()));
+        planetEventLabel.setText(PlanetEventsInfo.getInstance()
+                .getName(planet.getPlanetEvent()));
     }
 }
