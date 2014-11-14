@@ -6,27 +6,17 @@
 
 package spacetraders;
 
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.net.URL;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.binding.Bindings;
-import javafx.beans.binding.StringBinding;
 import javafx.beans.binding.StringExpression;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -76,13 +66,14 @@ public class DashboardController extends Controller implements TravelListener {
         traderPoints.setText(Integer.toString(player.getTraderSkill()));
         pilotPoints.setText(Integer.toString(player.getPilotSkill()));
         engineerPoints.setText(Integer.toString(player.getEngineerSkill()));
-        StringExpression labelText = Bindings.concat("Fuel: ", 
+        StringExpression labelText = Bindings.concat("Fuel: ",
                                     player.getShip().getFuel().asString());
         fuelLabel.textProperty().bind(labelText);
     }
 
     /*
-     * The onTravel method for the specified destination, initializes the map pane
+     * The onTravel method for the specified destination,
+     * initializes the map pane.
      * @param Planet destination
      * @return none
     */
@@ -91,7 +82,7 @@ public class DashboardController extends Controller implements TravelListener {
         mapPane.getChildren().clear();
         initializeMapPane();
     }
-    
+
     /**
      * initializes the Map Pane
      * @param none
@@ -100,17 +91,19 @@ public class DashboardController extends Controller implements TravelListener {
     private void initializeMapPane() {
         Universe universe = application.getUniverse();
         List<Planet> planets = universe.getPlanets();
-        
+
         Circle[] circles = new Circle[planets.size()];
         double radius = 3.0;
         for (int i = 0; i < planets.size(); i++) {
             Planet planet = planets.get(i);
             Coordinates coordinates = planet.getCoordinates();
-            double x = coordinates.getX() * mapPane.getPrefWidth() / universe.getWidth();
-            double y = coordinates.getY() * mapPane.getPrefHeight() / universe.getHeight();
-            Color color = application.getPlayer().getLocation().equals(planet) ?
-                Color.RED : Color.SKYBLUE;
-            
+            double x = coordinates.getX()
+                * mapPane.getPrefWidth() / universe.getWidth();
+            double y = coordinates.getY()
+                * mapPane.getPrefHeight() / universe.getHeight();
+            Color color = application.getPlayer().getLocation().equals(planet)
+                ? Color.RED : Color.SKYBLUE;
+
             circles[i] = new Circle(x, y, radius, color);
             final Circle circle = circles[i];
             circles[i].setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -124,17 +117,18 @@ public class DashboardController extends Controller implements TravelListener {
                     //Find better solution
                     try {
                         FXMLLoader myLoader = new FXMLLoader(
-                                getClass().getResource("PlanetInformation.fxml"));
+                            getClass().getResource("PlanetInformation.fxml"));
                         Parent root = myLoader.load();
                         PlanetPopoverController controller =
-                                (PlanetPopoverController) myLoader.getController();
+                            (PlanetPopoverController) myLoader.getController();
                         controller.setMainApplication(application);
                         controller.setPlanet(planet);
-                        
+
                         PopOver popover = new PopOver(root);
                         popover.show(circle);
                     } catch (IOException ex) {
-                        Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(DashboardController.class.getName())
+                                .log(Level.SEVERE, null, ex);
                     }
                 }
             });
@@ -160,7 +154,7 @@ public class DashboardController extends Controller implements TravelListener {
         application.goToShipYard();
     }
     @FXML
-    private void onSaveGameButtonClicked(ActionEvent event){
+    private void onSaveGameButtonClicked(ActionEvent event) {
         try {
             application.saveGame();
             AlertDialog.showAlert("Game Saved!");
