@@ -24,19 +24,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import spacetraders.model.*;
+import spacetraders.model.Planet;
+import spacetraders.model.Player;
+import spacetraders.model.Universe;
 
 /**
- * The main application class. This class is run when the user opens the application.
+ * The main application class. This class is run when the user opens the
+ * application.
  * @author Team Astrosnails
  */
 public class MainApplication extends Application {
-    
+
     private Stage mainStage;
     private Player player;
     private Universe universe;
-    
+
     /**
     * Starts the application.
     * @param stage The JavaFX stage of the application
@@ -47,38 +49,42 @@ public class MainApplication extends Application {
         goToWelcomeScreen();
         mainStage.show();
     }
-    
+
     /**
     *  Opens in the welcome screen
     *   @param none
     */
     public void goToWelcomeScreen() throws IOException {
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("WelcomeScreen.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(
+                getClass().getResource("WelcomeScreen.fxml"));
         Parent root = myLoader.load();
-        
-        WelcomeScreenController controller = (WelcomeScreenController) myLoader.getController();
+
+        WelcomeScreenController controller =
+                (WelcomeScreenController) myLoader.getController();
         controller.setMainApplication(this);
-        
+
         Scene scene = new Scene(root);
-        
+
         mainStage.setScene(scene);
     }
-    
+
     /**
     *  Opens the new game dialog.
     * @param none
     */
     public void goToNewGameDialog() throws IOException {
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dialog.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(
+                getClass().getResource("Dialog.fxml"));
         Pane dialogPane = myLoader.load();
 
-        NewGameDialogController controller = (NewGameDialogController) myLoader.getController();
+        NewGameDialogController controller
+            = (NewGameDialogController) myLoader.getController();
         controller.setMainApplication(this);
 
         Scene scene = new Scene(dialogPane);
         mainStage.setScene(scene);
     }
-    
+
     /**
     *  Initializes the game models and opens the game dashboard.
     * @param: Player player
@@ -90,79 +96,86 @@ public class MainApplication extends Application {
         for (Planet planet : planets) {
             player.addTravelListener(planet);
         }
-        
-        Planet playerLocation = planets.get((int) (Math.random() * planets.size()));
+
+        Planet playerLocation = planets.get(
+                (int) (Math.random() * planets.size()));
         this.player.setLocation(playerLocation);
-        
+
         goToDashboard();
     }
-    
+
     /**
     *  Goes to dashboard
     * @param: none
     * @return none
     */
     public void goToDashboard() throws IOException {
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(
+                getClass().getResource("Dashboard.fxml"));
         Pane dialogPane = myLoader.load();
 
-        DashboardController controller = (DashboardController) myLoader.getController();
+        DashboardController controller =
+                (DashboardController) myLoader.getController();
         controller.setMainApplication(this);
 
         Scene scene = new Scene(dialogPane);
         mainStage.setScene(scene);
     }
-    
+
     /**
     *  Goes to marketplace
     * @param: Player player
     */
     public void goToMarketPlace() throws IOException {
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("MarketPlace.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(
+                getClass().getResource("MarketPlace.fxml"));
         Pane dialogPane = myLoader.load();
 
-        MarketPlaceController controller = (MarketPlaceController) myLoader.getController();
+        MarketPlaceController controller =
+                (MarketPlaceController) myLoader.getController();
         controller.setMainApplication(this);
 
         Scene scene = new Scene(dialogPane);
         mainStage.setScene(scene);
     }
-    
+
     /**
     *  Goes to ship yard
     * @param: Player player
     */
     public void goToShipYard() throws IOException {
-        FXMLLoader myLoader = new FXMLLoader(getClass().getResource("ShipYard.fxml"));
+        FXMLLoader myLoader = new FXMLLoader(
+                getClass().getResource("ShipYard.fxml"));
         Pane dialogPane = myLoader.load();
 
-        ShipYardController controller = (ShipYardController) myLoader.getController();
+        ShipYardController controller =
+                (ShipYardController) myLoader.getController();
         controller.setMainApplication(this);
 
         Scene scene = new Scene(dialogPane);
         mainStage.setScene(scene);
     }
-    
+
     public void saveGame() throws IOException {
         OutputStream file = new FileOutputStream("game.data");
         OutputStream buffer = new BufferedOutputStream(file);
         ObjectOutput output = new ObjectOutputStream(buffer);
         output.writeObject(universe);
         output.writeObject(player);
-        
+
         output.close();
     }
-    
+
     public void loadGame() throws IOException, ClassNotFoundException {
         InputStream file = new FileInputStream("game.data");
         InputStream buffer = new BufferedInputStream(file);
         ObjectInput input = new ObjectInputStream(buffer);
         universe = (Universe) input.readObject();
         player = (Player) input.readObject();
-        
+
         //Set singleton instance to the loaded universe
         Universe.setInstance(universe);
-        
+
         goToDashboard();
     }
 
@@ -180,10 +193,11 @@ public class MainApplication extends Application {
     public Player getPlayer() {
         return player;
     }
+
     /**
      * Get the univese
      * @param none
-     * @return Universe universe 
+     * @return Universe universe
     */
     public Universe getUniverse() {
         return universe;
