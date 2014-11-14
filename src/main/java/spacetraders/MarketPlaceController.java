@@ -7,25 +7,19 @@
 package spacetraders;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.beans.binding.Binding;
 import javafx.beans.binding.Bindings;
-import javafx.beans.binding.IntegerBinding;
 import javafx.beans.binding.NumberBinding;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import spacetraders.model.*;
+import spacetraders.model.Cargo;
+import spacetraders.model.Planet;
+import spacetraders.model.Player;
+import spacetraders.model.ResourceType;
+import spacetraders.model.Resources;
 
 /**
  * FXML Controller class
@@ -46,11 +40,11 @@ public class MarketPlaceController extends Controller {
     private SimpleIntegerProperty cocaineUnitPrice;
     @FXML private Label fuelPriceLabel;
     private SimpleIntegerProperty fuelUnitPrice;
-    
+
     private NumberBinding totalCost;
     private NumberBinding totalProfit;
     @FXML private Label currentMoney;
-    
+
     @FXML private Slider buyWaterSlider;
     @FXML private Label buyWaterUnits;
     @FXML private Slider buyFoodSlider;
@@ -63,7 +57,7 @@ public class MarketPlaceController extends Controller {
     @FXML private Label buyCocaineUnits;
     @FXML private Slider buyFuelSlider;
     @FXML private Label buyFuelUnits;
-    
+
     @FXML private Slider sellWaterSlider;
     @FXML private Label sellWaterUnits;
     @FXML private Slider sellFoodSlider;
@@ -76,17 +70,17 @@ public class MarketPlaceController extends Controller {
     @FXML private Label sellCocaineUnits;
     @FXML private Slider sellFuelSlider;
     @FXML private Label sellFuelUnits;
-    
+
     @FXML private Label waterInInventory;
     @FXML private Label foodInInventory;
     @FXML private Label oilInInventory;
     @FXML private Label goldInInventory;
     @FXML private Label cocaineInInventory;
     @FXML private Label fuelInInventory;
-    
+
     @FXML private TextField totalCostTextField;
     @FXML private TextField totalProfitTextField;
-    
+
     SimpleIntegerProperty buyWaterAmount = new SimpleIntegerProperty();
     SimpleIntegerProperty buyFoodAmount = new SimpleIntegerProperty();
     SimpleIntegerProperty buyOilAmount = new SimpleIntegerProperty();
@@ -108,7 +102,7 @@ public class MarketPlaceController extends Controller {
     private void onBackButtonClicked(ActionEvent event) throws IOException {
         application.goToDashboard();
     }
-    
+
     /**
     * The buy button listener
     * @param ActionEvent event
