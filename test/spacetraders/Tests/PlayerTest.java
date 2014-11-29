@@ -24,7 +24,7 @@ import spacetraders.model.ResourceType;
 import spacetraders.model.Resources;
 import spacetraders.model.Ship;
 import spacetraders.model.ShipType;
-import static spacetraders.model.ShipType.Protoss;
+import static spacetraders.model.ShipType.PROTOSS;
 import spacetraders.model.TechnologyLevel;
 import spacetraders.model.Universe;
 
@@ -40,7 +40,7 @@ public class PlayerTest {
     @Before
     public void setUp() {
         thang = new Player("Thang", 1, 1 , 1 ,1, 1);
-        thangship = new Ship(Protoss);
+        thangship = new Ship(ShipType.PROTOSS);
         universe = Universe.getInstance();
         
         thang.setLocation(universe.getPlanets().get(0));

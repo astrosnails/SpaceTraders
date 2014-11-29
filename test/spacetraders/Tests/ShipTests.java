@@ -38,7 +38,7 @@ public class ShipTests {
     
     @Before
     public void setUp() {
-        ship = new Ship(ShipType.Arwing);
+        ship = new Ship(ShipType.ARWING);
     }
     
     @After

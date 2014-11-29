@@ -44,5 +44,5 @@ public class CoordinatesTest {
         Coordinates distance = new Coordinates(100, 100);
         Coordinates distance2 = new Coordinates(9, 80);
         assertEquals(93,(int)distance.distanceTo(distance2));
-    }    
+    }
 }

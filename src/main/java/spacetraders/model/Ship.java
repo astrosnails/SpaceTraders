@@ -127,7 +127,7 @@ public class Ship implements Serializable {
         if (gadgets.length == 0) {
             ret = false;
         }
-        
+
         ret = gadgets[gadgets.length - 1] == null;
         return ret;
     }
