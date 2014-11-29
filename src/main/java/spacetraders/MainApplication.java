@@ -25,6 +25,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import spacetraders.Abstract.PersistenceProvider;
+import spacetraders.Persistence.LocalPersistenceProvider;
 import spacetraders.model.Planet;
 import spacetraders.model.Player;
 import spacetraders.model.Universe;
@@ -36,10 +38,14 @@ import spacetraders.model.Universe;
  */
 public class MainApplication extends Application {
 
+    private PersistenceProvider persistenceProvider;
     private Stage mainStage;
     private Player player;
     private Universe universe;
 
+    public MainApplication() {
+        persistenceProvider = new LocalPersistenceProvider();
+    }
     /**
     * Starts the application.
     * @param stage The JavaFX stage of the application
@@ -164,25 +170,12 @@ public class MainApplication extends Application {
         mainStage.setScene(scene);
     }
 
-    public void saveGame() throws IOException {
-        OutputStream file = new FileOutputStream("game.data");
-        OutputStream buffer = new BufferedOutputStream(file);
-        ObjectOutput output = new ObjectOutputStream(buffer);
-        output.writeObject(universe);
-        output.writeObject(player);
-
-        output.close();
+    public void saveGame() throws Exception {
+        persistenceProvider.saveGame(this);
     }
 
-    public void loadGame() throws IOException, ClassNotFoundException {
-        InputStream file = new FileInputStream("game.data");
-        InputStream buffer = new BufferedInputStream(file);
-        ObjectInput input = new ObjectInputStream(buffer);
-        universe = (Universe) input.readObject();
-        player = (Player) input.readObject();
-
-        //Set singleton instance to the loaded universe
-        Universe.setInstance(universe);
+    public void loadGame() throws Exception {
+        persistenceProvider.loadGame(this);
         
         // Add the planets to the players travel listners
         for(Planet p : universe.getPlanets()) {
@@ -209,6 +202,10 @@ public class MainApplication extends Application {
     public Player getPlayer() {
         return player;
     }
+    
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 
     /**
      * Get the univese
@@ -217,5 +214,9 @@ public class MainApplication extends Application {
     */
     public Universe getUniverse() {
         return universe;
+    }
+    
+    public void setUniverse(Universe universe) {
+        this.universe = universe;
     }
 }

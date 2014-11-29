@@ -34,10 +34,8 @@ public class WelcomeScreenController extends Controller {
     private void onLoadGameButtonClicked(ActionEvent event) {
         try {
             application.loadGame();
-        } catch (IOException exception) {
+        } catch (Exception exception) {
             AlertDialog.showAlert("ERROR: Cannot load game!");
-        } catch (ClassNotFoundException exception) {
-            AlertDialog.showAlert("ERROR: Saved game is corrupted!");
         }
     }
 }

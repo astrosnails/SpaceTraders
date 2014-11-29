@@ -158,7 +158,7 @@ public class DashboardController extends Controller implements TravelListener {
         try {
             application.saveGame();
             AlertDialog.showAlert("Game Saved!");
-        } catch (IOException exception) {
+        } catch (Exception exception) {
             AlertDialog.showAlert("ERROR: Cannot save game!");
         }
     }
