@@ -26,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import spacetraders.Abstract.PersistenceProvider;
+import spacetraders.Persistence.DatabasePersistenceProvider;
 import spacetraders.Persistence.LocalPersistenceProvider;
 import spacetraders.model.Planet;
 import spacetraders.model.Player;
@@ -44,7 +45,7 @@ public class MainApplication extends Application {
     private Universe universe;
 
     public MainApplication() {
-        persistenceProvider = new LocalPersistenceProvider();
+        persistenceProvider = new DatabasePersistenceProvider();
     }
     /**
     * Starts the application.
