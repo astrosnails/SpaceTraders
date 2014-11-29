@@ -24,26 +24,23 @@ app.configure( function() {
 //Router
 //Load game
 app.get( '/load', function( request, response ) {
-
+    console.log("Got connection");
+    var gameFile = fs.createReadStream("game.dat");
+    var pipe = gameFile.pipe(response);
+    pipe.on('close', function() {
+	response.status(200).end();
+	console.log("File sent!");
+    });
 });
 
 //Save game
 app.post( '/save', function( request, response ) {
-/*    if (typeof request.body.content == 'undefined' || typeof request.body.completed == 'undefined') {
-	response.status(400).end();
-	console.log(request.body);
-	} else {
-	    var task = new Task(request.body.content, request.body.completed);
-	    tasks.push(task);
-	        
-	        response.send(task);
-	    }*/
     console.log("Got connection");
     var gameFile = fs.createWriteStream("game.dat");
     var pipe = request.pipe(gameFile, { end: true });
     pipe.on('close', function() {
 	response.status(200).end();
-	console.log("File saved!");
+	console.log("File received!");
     });
 });
 
