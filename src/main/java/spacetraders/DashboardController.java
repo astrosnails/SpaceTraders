@@ -93,7 +93,7 @@ public class DashboardController extends Controller implements TravelListener {
         List<Planet> planets = universe.getPlanets();
 
         Circle[] circles = new Circle[planets.size()];
-        double radius = 3.0;
+        double radius = 12.0;
         for (int i = 0; i < planets.size(); i++) {
             Planet planet = planets.get(i);
             Coordinates coordinates = planet.getCoordinates();
