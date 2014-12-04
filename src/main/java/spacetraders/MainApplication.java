@@ -9,6 +9,7 @@ package spacetraders;
 import spacetraders.minigames.MiniGameLauncher;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,6 +25,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import spacetraders.Abstract.PersistenceProvider;
 import spacetraders.Persistence.DatabasePersistenceProvider;
@@ -193,6 +196,11 @@ public class MainApplication extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Media hit = new Media(new File("src/main/resources/spacetraders/spacejam.mp3").toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.setCycleCount(200);
+        mediaPlayer.setVolume(.6);
+        mediaPlayer.play();
         launch(args);
     }
 
@@ -209,7 +217,7 @@ public class MainApplication extends Application {
     }
 
     /**
-     * Get the univese
+     * Get the universe
      * @param none
      * @return Universe universe
     */
