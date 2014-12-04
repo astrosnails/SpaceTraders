@@ -96,6 +96,9 @@ public class MainApplication extends Application {
         for (Planet planet : planets) {
             player.addTravelListener(planet);
         }
+        
+        //Add the MiniGameLauncher to the player's travel listeners
+        player.addTravelListener(new MiniGameLauncher(this));
 
         Planet playerLocation = planets.get(
                 (int) (Math.random() * planets.size()));
@@ -155,6 +158,10 @@ public class MainApplication extends Application {
         Scene scene = new Scene(dialogPane);
         mainStage.setScene(scene);
     }
+    
+    public void setScene(Scene scene) {
+        mainStage.setScene(scene);
+    }
 
     public void saveGame() throws IOException {
         OutputStream file = new FileOutputStream("game.data");
@@ -175,6 +182,14 @@ public class MainApplication extends Application {
 
         //Set singleton instance to the loaded universe
         Universe.setInstance(universe);
+        
+        // Add the planets to the players travel listners
+        for(Planet p : universe.getPlanets()) {
+            player.addTravelListener(p);
+        }
+        
+        //Add the MiniGameLauncher to the player's travel listeners
+        player.addTravelListener(new MiniGameLauncher(this));
 
         goToDashboard();
     }
