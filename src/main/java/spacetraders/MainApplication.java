@@ -196,7 +196,7 @@ public class MainApplication extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Media hit = new Media(new File("src/main/resources/spacetraders/spacejam.mp3").toURI().toString());
+        Media hit = new Media(new File("src/main/resources/spacetraders/spaceexplorers.mp3").toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(hit);
         mediaPlayer.setCycleCount(200);
         mediaPlayer.setVolume(.6);
