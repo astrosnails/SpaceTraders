@@ -55,7 +55,7 @@ public class PoopController {
     final ImageView moon2 = setMoon(MOON2);
 
     final Circle planetDest = new Circle(550, 350, 50);
-    Text planetLabel = new Text(520, 340, "PLANET");
+    Text planetLabel = new Text(510, 340, "PLANET");
     final Group group = new Group(background, obstacle1,
         obstacle2, moon, moon2, player, planetDest, instructions(), planetLabel);
     final Scene scene = new Scene(group, 600, 400, Color.BLACK);
@@ -181,6 +181,7 @@ public class PoopController {
                 }
                 if(player.getBoundsInParent().intersects(planetDest.getBoundsInParent())) {
                     try {
+                        lifeCount = 0;
                         miniGameLauncher.exitMinigame(0);
                     } catch (IOException exception) {
                         System.err.println("ERROR: " + exception.getMessage());
