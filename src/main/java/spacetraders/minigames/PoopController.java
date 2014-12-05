@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spacetraders;
+package spacetraders.minigames;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -25,6 +25,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import spacetraders.MainApplication;
 
 /**
  *
