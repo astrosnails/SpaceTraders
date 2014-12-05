@@ -18,19 +18,13 @@ import spacetraders.model.Player;
  */
 public class MiniGameLauncher implements TravelListener {
 
-    private PoopController poopController;
-    private PongController pongController;
-    private ShootingGameController shootingGameController;
     //private NewController newController;
     private MainApplication application;
-    private Player player;
+    private Random random;
     
     public MiniGameLauncher(MainApplication application) {
-        poopController = new PoopController(this);
-        pongController = new PongController(this);
-        shootingGameController = new ShootingGameController(this);
         this.application = application;
-        this.player = application.getPlayer();
+        random = new Random();
     }
     
     public void exitMinigame(int money) throws IOException {
@@ -40,63 +34,17 @@ public class MiniGameLauncher implements TravelListener {
     
     @Override
     public void onTravel(Planet destination) {
-        Random rand = new Random();
-        int randomNumber;
-        int traderSkill = this.player.getTraderSkill();
-        int engineerSkill = this.player.getEngineerSkill();
-        int fighterSkill = this.player.getFighterSkill();
-        int pilotSkill = this.player.getPilotSkill();
-        //integrating skill points!
-        int compare = Math.max(traderSkill, engineerSkill);
-        compare = Math.max(compare, fighterSkill);
-        compare = Math.max(compare, pilotSkill);
-        //setting the chances of a game based on skill points
-        if(compare == traderSkill) {
-            randomNumber = rand.nextInt(10) + 1;
-            //50 percent chance of having a pong game for trader skill
-            if(randomNumber <= 4) {
-                application.setScene(pongController.getScene());
-            }
-            else {
-                if(randomNumber <= 7 && randomNumber > 4) {
-                    application.setScene(shootingGameController.getScene());
-                }
-                else {
-                    application.setScene(poopController.getScene());
-                }
-            }
-        }
-        else if(compare == engineerSkill) {
-            
-        }
-        else if(compare == fighterSkill) {
-            randomNumber = rand.nextInt(10) + 1;
-            if(randomNumber <= 4) {
-                application.setScene(shootingGameController.getScene());
-            }
-            else {
-                if(randomNumber <= 7 && randomNumber > 4) {
-                    application.setScene(pongController.getScene());
-                }
-                else {
-                    application.setScene(poopController.getScene());
-                }
-            }
-        }
-        
-        else if(compare== pilotSkill){
-            randomNumber = rand.nextInt(10) + 1;
-            if(randomNumber <= 4) {
-                application.setScene(poopController.getScene());
-            }
-            else {
-                if(randomNumber <= 7 && randomNumber > 4) {
-                    application.setScene(pongController.getScene());
-                }
-                else {
-                    application.setScene(shootingGameController.getScene());
-                }
-            }
+        int r = random.nextInt(100);
+        if (r >= 0 && r < 20) {
+            application.setScene(new PoopController(this).getScene());
+        } else if (r >= 20 && r < 40) {
+            application.setScene(new PongController(this).getScene());
+        } else if (r >= 40 && r < 60) {
+            application.setScene(new QuizController(this).getScene());
+        } else if (r >= 60 && r < 80) {
+            application.setScene(new ShootingGameController(this).getScene());
+        } else if (r >= 80 && r < 100) {
+            application.setScene(new TransitionController(this).getScene());
         }
     }
     
