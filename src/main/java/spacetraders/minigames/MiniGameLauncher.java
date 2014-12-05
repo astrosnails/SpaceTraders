@@ -18,24 +18,27 @@ public class MiniGameLauncher implements TravelListener {
 
     private PoopController poopController;
     private PongController pongController;
+    private ShootingGameController shootingGameController;
     //private NewController newController;
     private MainApplication application;
     
     public MiniGameLauncher(MainApplication application) {
         poopController = new PoopController(this);
         pongController = new PongController(this);
-        
+        shootingGameController = new ShootingGameController(this);
         this.application = application;
     }
     
-    public void exitMinigame() throws IOException {
+    public void exitMinigame(int money) throws IOException {
+        application.getPlayer().increaseMoney(money);
         application.goToDashboard();
     }
     
     @Override
     public void onTravel(Planet destination) {
         //application.setScene(poopController.getScene());
-        application.setScene(pongController.getScene());
+        //application.setScene(pongController.getScene());
+       application.setScene(shootingGameController.getScene());
     }
     
 }

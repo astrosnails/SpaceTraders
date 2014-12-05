@@ -90,6 +90,13 @@ public class Player implements Serializable {
     public void decreaseMoney(int amount) {
         money.set(money.getValue() - amount);
     }
+    /**
+     * This method increases the money of the player
+     * @param amount
+     */
+    public void increaseMoney(int amount) {
+        money.set(money.getValue() + amount);
+    }
 
     /**
      * This method checks if player has enough money

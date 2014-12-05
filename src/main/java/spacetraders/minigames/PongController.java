@@ -1,5 +1,6 @@
 package spacetraders.minigames;
 
+import java.io.IOException;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -150,7 +151,7 @@ public class PongController {
             .build()
         )
         .build();
-
+        
         ball.centerXProperty().bind(centerX);
         ball.centerYProperty().bind(centerY);
         bottomPaddle.translateXProperty().bind(bottomPaddleX);
@@ -163,7 +164,7 @@ public class PongController {
   Timeline pongAnimation = TimelineBuilder.create()
     .keyFrames(
       new KeyFrame(
-        new Duration(10.0),
+        new Duration(4.0),
         new EventHandler<ActionEvent>() {
           public void handle(javafx.event.ActionEvent t) {
             checkForCollision();
@@ -190,8 +191,14 @@ public class PongController {
   }
 
   void checkForCollision() {
-    if (false && ball.intersects(bottomWall.getBoundsInLocal())) {
+    if (ball.intersects(bottomWall.getBoundsInLocal())) {
       pongAnimation.stop();
+      try {
+          miniGameLauncher.exitMinigame(money*100);
+        } catch(IOException exception) {
+            System.err.println("ERROR: " + exception.getMessage());
+        }
+      
       initialize();
     }
     else if (ball.intersects(rightWall.getBoundsInLocal()) ||
@@ -203,7 +210,8 @@ public class PongController {
       movingDown = !movingDown;
     if (ball.intersects(bottomPaddle.getBoundsInParent())) {
             money++;
-     }
+     } 
+    
   }
 }
   

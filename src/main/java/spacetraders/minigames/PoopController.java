@@ -172,7 +172,7 @@ public class PoopController {
                     {
                         try {
                             lifeCount = 0;
-                            miniGameLauncher.exitMinigame();
+                            miniGameLauncher.exitMinigame(0);
                         } catch(IOException exception) {
                             System.err.println("ERROR: " + exception.getMessage());
                         }
@@ -181,7 +181,7 @@ public class PoopController {
                 }
                 if(player.getBoundsInParent().intersects(planetDest.getBoundsInParent())) {
                     try {
-                        miniGameLauncher.exitMinigame();
+                        miniGameLauncher.exitMinigame(0);
                     } catch (IOException exception) {
                         System.err.println("ERROR: " + exception.getMessage());
                     }
@@ -201,7 +201,7 @@ public class PoopController {
                     else {
                         try {
                             lifeCount = 0;
-                            miniGameLauncher.exitMinigame();
+                            miniGameLauncher.exitMinigame(0);
                         } catch(IOException exception) {
                             System.err.println("ERROR: " + exception.getMessage());
                         }
